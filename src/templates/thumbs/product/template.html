@@ -8,8 +8,8 @@
 		<a href="[@URL@]" class="thumbnail-image pb-2">
 			<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" itemprop="image" class="product-image img-fluid" alt="[@model@]" rel="itmimg[@SKU@]">
 		</a>
-		<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
-			<a href="[@URL@]">
+		<a href="[@URL@]">
+			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
 				<h1 class="card-title h1 text-uppercase text-light mb-1" itemprop="name">
 					[%if [@store_quantity@] > 0 AND [@preorder@] %]
 						Pre-Order
@@ -36,8 +36,8 @@
 					[%/if%]
 					<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
 				</h3>
-			</a>
-		</div>
+			</div>
+		</a>
 		[%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'Thumbnails' /%][%/if%]
 	</div>
 </article>
