@@ -1,14 +1,14 @@
 [%CACHE type:'gallery' id:'[@inventory_id@]'%]
 [%set [@bg-colour@] %][%if [@save@] > 0 AND ![@has_child@] %]yellow[%elseif [@inpromo@]%]red[%elseif [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]green[%elseif [@store_quantity@] < 1 %]red[%else%]black[%/if%][%/set%]
 
-<article class="col-8 col-sm-6 col-lg-4 pb-30p" role="article" aria-label="Product thumbnail">
+<article class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p" role="article" aria-label="Product thumbnail">
 	<div class="card thumbnail card-body" itemscope itemtype="http://schema.org/Product">
 		<meta itemprop="brand" content="[@brand@]"/>
 		<meta itemprop="mpn" content="[@sku@]"/>
 		<a href="[@URL@]" class="thumbnail-image pb-2">
 			<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" itemprop="image" class="product-image img-fluid" alt="[@model@]" rel="itmimg[@SKU@]">
 		</a>
-		<a href="[@URL@]">
+		<a href="[@URL@]" class="d-none d-sm-block">
 			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
 				<div class="wrapper-hover-content">
 					<h1 class="card-title h1 text-uppercase text-light mb-1" itemprop="name">
@@ -42,5 +42,39 @@
 		</a>
 		[%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'Thumbnails' /%][%/if%]
 	</div>
+</article>
+<article class="col-6 d-none mb-30p">
+	<a href="[@URL@]">
+		<div class="hover-overlay show [@bg-colour@]-bg text-center px-0">
+			<div class="wrapper-hover-content">
+				<h1 class="card-title h1 text-uppercase text-light mb-1" itemprop="name">
+					[%if [@store_quantity@] > 0 AND [@preorder@] %]
+						Pre-Order
+					[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+						Back-Order
+					[%elseif [@save@] > 0 AND ![@has_child@] %]
+						[%format type:'percent'%][@save@][%/format%] OFF
+					[%elseif [@inpromo@]%]
+						Sale
+					[%elseif [@store_quantity@] < 1 %]
+						Sold Out
+					[%else%]
+						[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
+					[%/if%]
+				</h1>
+				<h3 class="price text-light" itemprop="offers" itemscope itemtype="http://schema.org/Offer" aria-label="[@model@] price">
+					[%if [@inpromo@]%]
+						Now&nbsp;[%if [@has_child@]%]from&nbsp;[%/if%]
+						<meta itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]"/>
+						<span itemprop="price" content="[@promo_price@]">[%format type:'currency'%][@promo_price@][%/format%]</span>
+					[%else%]
+						[%if [@has_child@]%]From&nbsp;[%/if%]
+						<span itemprop="price" content="[@store_price@]">[%format type:'currency'%][@store_price@][%/format%]</span>
+					[%/if%]
+					<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
+				</h3>
+			</div>
+		</div>
+	</a>
 </article>
 [%/CACHE%]

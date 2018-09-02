@@ -1,13 +1,21 @@
-<div class="col-8 col-sm-6 col-lg-4 pb-30p">
+<div class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
 	<div class="card thumbnail n-responsive-content">
 		<a href="[@url@]">
 			<img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/ param%][%/ asset_url%]" width="100%" alt="[@headline@]" />
 		</a>
-		<a href="[@url@]">
+		<a href="[@url@]" class="d-none d-sm-block">
 			<div class="hover-overlay black-bg text-center p-3">
 				<h1 class="text-uppercase text-light mb-1">[@headline@]</h1>
 				<h2 class="text-light">[@linktext@]</h2>
 			</div>
 		</a>
 	</div>
+</div>
+<div class='col-6 d-block d-sm-none'>
+	<a href="[@url@]">
+		<div class="hover-overlay show black-bg text-center px-0">
+			<h1 class="text-uppercase text-light mb-1">[@headline@]</h1>
+			<h2 class="text-light">[@linktext@]</h2>
+		</div>
+	</a>
 </div>

@@ -8148,6 +8148,10 @@ input[readonly] {
 .bg-green-fill {
   background-color: #888F7F; }
 
+@media (max-width: 575px) {
+  .pb-30p-xs {
+    padding-bottom: 0px !important; } }
+
 .pb-30p {
   padding-bottom: 30px !important; }
 
@@ -8163,6 +8167,9 @@ input[readonly] {
 
 .mb-neg-30p {
   margin-bottom: -30px !important; }
+
+.mb-30p {
+  margin-bottom: 30px !important; }
 
 .spacer {
   height: 43px; }
