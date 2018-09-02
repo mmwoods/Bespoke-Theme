@@ -1,12 +1,16 @@
-<div class="row justify-content-center">
-    <!-- Main Image -->
-    [%if [@thumb@] ne ''%]
-        <div class="col-8 col-sm-6 col-md-4 n-responsive-content pr-sm-0">
-            <img src="[@thumb@]" itemprop="image" class="" alt="" rel="">
-        </div>
-    [%/if%]
+[%if [@page_content@]%]
+    [@^section-title@]
 
-    <div class="col-8 [%if [@thumb@] ne ''%] pl-sm-0 col-sm-6 col-md-8 [%else%]col-sm-12[%/if%]">
-        <section id="homepage-content" class="n-responsive-content border border-secondary h-100 p-4 text-left" aria-label="Main description">[@page_content@]</section>
+    <div class="row justify-content-center">
+        <!-- Main Image -->
+        [%if [@thumb@] ne ''%]
+            <div class="col-8 col-sm-6 col-md-4 n-responsive-content pr-sm-0">
+                <img src="[@thumb@]" itemprop="image" class="" alt="" rel="">
+            </div>
+        [%/if%]
+
+        <div class="col-8 [%if [@thumb@] ne ''%] pl-sm-0 col-sm-6 col-md-8 [%else%]col-sm-12[%/if%]">
+            <section id="homepage-content" class="n-responsive-content border border-secondary h-100 p-4 text-left" aria-label="Main description">[@page_content@]</section>
+        </div>
     </div>
-</div>
+[%/if%]
