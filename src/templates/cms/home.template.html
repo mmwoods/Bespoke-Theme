@@ -1,4 +1,4 @@
-[%load_template file:'cms/includes/sidebar.template.html'/%]
+<div class="col-12 col-md-9 text-center">
 	[%if [@config:show_home_ads@]%]
 		[%advert type:'text' template:'carousel' limit:'10' ad_group:''%]
 			[%param *header%]
@@ -33,12 +33,13 @@
 	[%/if%]
 	<hr aria-hidden="true" />
 	<section id="homepage-content" class="n-responsive-content" aria-label="Main description">[@page_content@]</section>
+
 	[%if [@config:show_home_ads@]%]
 		[%advert type:'product' limit:'9' template:'' ad_group:''%]
 			[%param *header%]
 				<hr aria-hidden="true"/>
-				<h1 class="text-center text-uppercase my-5">Featured products</h1>
-				<section class="row products-row" aria-label="Featured products">
+				<h1 class="text-center text-uppercase my-5">Featured Products</h1>
+				<section class="row products-row" aria-label="Featured Products">
 			[%/param%]
 			[%param footer%]
 				</section>
@@ -47,8 +48,8 @@
 				[%random_products filter_category:'' template:'' limit:'9'%]
 					[%param *header%]
 						<hr aria-hidden="true"/>
-						<h1 class="text-center text-uppercase my-5">Featured products</h1>
-						<section class="row products-row" aria-label="Featured products">
+						<h1 class="text-center text-uppercase my-5">Featured Products</h1>
+						<section class="row products-row" aria-label="Featured Products">
 					[%/param%]
 					[%param *footer%]
 						</section>
@@ -56,5 +57,31 @@
 				[%/random_products%]
 			[%/param%]
 		[%/advert%]
+
+		[%advert type:'text' template:'grid' limit:'9' ad_group:'home_ad_units'%]
+			[%param *header%]
+				<!-- Featured Adverts -->
+				<section class="wrapper-grid">
+					<h1 class="text-center text-uppercase my-5">Categories</h1>
+					<div class="row">
+			[%/param%]
+			[%param *footer%]
+					</div>
+				</section>
+			[%/param%]
+		[%/advert%]
+
+		[%thumb_list type:'content' content_type:'brand' template:'grid-nohover' limit:'9' sortby:'sortorder-desc'%]
+			[%param *header%]
+				<!-- Brands -->
+				<div class="wrapper-brands">
+					<h1 class="text-center text-uppercase my-5">Brands</h1>
+					<div class="row">
+			[%/param%]
+			[%param *footer%]
+					</div>
+				</div>
+			[%/param%]
+		[%/thumb_list%]
 	[%/if%]
 </div>
