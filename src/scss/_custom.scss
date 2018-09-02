@@ -36,6 +36,11 @@ $bg-green-fill: #888F7F;
     }
 }
 
+.wrapper-cart.dropdown-toggle::after,
+.wrapper-account .dropdown-toggle::after {
+    display: none;
+}
+
 // Product Thumnails
 .thumbnail {
     &:hover .hover-overlay {
