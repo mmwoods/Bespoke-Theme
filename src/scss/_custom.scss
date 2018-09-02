@@ -1,0 +1,56 @@
+// Background Colours
+$bg-black: rgba(51, 51, 51, 0.6);
+$bg-red: rgba(174, 21, 21, 0.4);
+$bg-yellow: rgba(193, 124, 22, 0.4);
+$bg-green: rgba(20, 146, 70, 0.4);
+
+// Padding
+.pb-30p {
+    padding-bottom: 30px !important;
+}
+
+// Product Thumnails
+.thumbnail {
+    &:hover .hover-overlay {
+        opacity: 1;
+    }
+    &.card-body .card-title {
+        max-height: 80px;
+        overflow: hidden;
+    }
+}
+
+.hover-overlay {
+    opacity: 0;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+
+    &.black-bg{
+        background-color: $bg-black;
+    }
+    &.red-bg{
+        background-color: $bg-red;
+    }
+    &.yellow-bg{
+        background-color: $bg-yellow;
+    }
+    &.green-bg{
+        background-color: $bg-green;
+    }
+
+    &.show {
+        opacity: 1;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

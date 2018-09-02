@@ -8141,3 +8141,45 @@ input[readonly] {
     body.fixed-body .order-summary-m {
       display: none;
       opacity: 0; } }
+
+.pb-30p {
+  padding-bottom: 30px !important; }
+
+.thumbnail:hover .hover-overlay {
+  opacity: 1; }
+
+.thumbnail.card-body .card-title {
+  max-height: 80px;
+  overflow: hidden; }
+
+.hover-overlay {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer; }
+  .hover-overlay.black-bg {
+    background-color: rgba(51, 51, 51, .6); }
+  .hover-overlay.red-bg {
+    background-color: rgba(174, 21, 21, .4); }
+  .hover-overlay.yellow-bg {
+    background-color: rgba(193, 124, 22, .4); }
+  .hover-overlay.green-bg {
+    background-color: rgba(20, 146, 70, .4); }
+  .hover-overlay.show {
+    opacity: 1; }
+  .hover-overlay a {
+    text-decoration: none; }

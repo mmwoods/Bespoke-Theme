@@ -34,20 +34,20 @@
 	<hr aria-hidden="true" />
 	<section id="homepage-content" class="n-responsive-content" aria-label="Main description">[@page_content@]</section>
 	[%if [@config:show_home_ads@]%]
-		[%advert type:'product' limit:'8' template:'' ad_group:''%]
+		[%advert type:'product' limit:'9' template:'' ad_group:''%]
 			[%param *header%]
 				<hr aria-hidden="true"/>
-				<h2 class="sr-only">Featured products</h2>
+				<h1 class="text-center text-uppercase my-5">Featured products</h1>
 				<section class="row products-row" aria-label="Featured products">
 			[%/param%]
 			[%param footer%]
 				</section>
 			[%/param%]
 			[%param *ifempty%]
-				[%random_products filter_category:'' template:'' limit:'8'%]
+				[%random_products filter_category:'' template:'' limit:'9'%]
 					[%param *header%]
 						<hr aria-hidden="true"/>
-						<h2 class="sr-only">Featured products</h2>
+						<h1 class="text-center text-uppercase my-5">Featured products</h1>
 						<section class="row products-row" aria-label="Featured products">
 					[%/param%]
 					[%param *footer%]
