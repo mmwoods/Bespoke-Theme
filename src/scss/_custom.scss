@@ -3,10 +3,37 @@ $bg-black: rgba(51, 51, 51, 0.6);
 $bg-red: rgba(174, 21, 21, 0.4);
 $bg-yellow: rgba(193, 124, 22, 0.4);
 $bg-green: rgba(20, 146, 70, 0.4);
+$bg-black-fill: #333;
+$bg-green-fill: #888F7F;
+
+.bg-black-fill {
+    background-color: $bg-black-fill;
+}
+.bg-green-fill {
+    background-color: $bg-green-fill;
+}
 
 // Padding
 .pb-30p {
     padding-bottom: 30px !important;
+}
+
+// Margins
+.my-40p {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+}
+
+// Header
+.wrapper-logo img.logo {
+    width: 350px;
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
 }
 
 // Product Thumnails

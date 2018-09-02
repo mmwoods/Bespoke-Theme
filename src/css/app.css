@@ -8142,8 +8142,26 @@ input[readonly] {
       display: none;
       opacity: 0; } }
 
+.bg-black-fill {
+  background-color: #333; }
+
+.bg-green-fill {
+  background-color: #888F7F; }
+
 .pb-30p {
   padding-bottom: 30px !important; }
+
+.my-40p {
+  margin-bottom: 30px !important;
+  margin-top: 30px !important; }
+
+.wrapper-logo img.logo {
+  width: 350px; }
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem; } }
 
 .thumbnail:hover .hover-overlay {
   opacity: 1; }

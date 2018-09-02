@@ -1,5 +1,5 @@
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" /*{body-font-family}*/;
+	font-family: 'Montserrat', sans-serif /*{body-font-family}*/;
 	font-size: 14px /*{body-font-size}*/;
 	color: #212529 /*{body-font-colour}*/;
 	background-image:none /*{body-background-image}*/;
@@ -8,6 +8,7 @@ body {
 
 a {
 	color: #006FF5 /*{link-text-colour}*/;
+	font-weight: 300 /*{link-text-font-weight}*/;
 }
 a:hover,
 a:focus {
@@ -350,7 +351,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .wrapper-header .navbar {
-	background-color: #f8f9fa /*{navbar-default-bg-colour}*/ !important;
+	background-color: #373842 /*{navbar-default-bg-colour}*/ !important;
 }
 
 .wrapper-header .navbar .navbar-nav .nav-link {

@@ -4,11 +4,11 @@
 		[%menu id:'homepage-layout'%]
 			[%param *level_1%]
 				[%if [@css_class@] eq 'carousel'%]
-					<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>
+					[%if [@name@]%]<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>[%/if%]
 					<!-- Content -->
 					[%load_template file:'cms/includes/banner-carousel.template.html'/%]
 				[%elseif [@css_class@] eq 'products'%]
-					<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>
+					[%if [@name@]%]<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>[%/if%]
 					<!-- Content -->
 					[%load_template file:'cms/includes/featured-products.template.html'/%]
 				[%elseif [@css_class@] eq 'categories'%]
@@ -21,7 +21,7 @@
 					[%load_template file:'cms/includes/brands.template.html'/%]
 				[%elseif [@css_class@] eq 'description'%]
 					<!-- Content -->
-					<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>
+					[%if [@name@]%]<h1 class="text-center text-uppercase my-5">[%if [@name@]%][@name@][%/if%]</h1>[%/if%]
 					[%load_template file:'cms/includes/description.template.html'/%]
 				[%else%]
 					<!-- Use Default Layout -->
