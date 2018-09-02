@@ -8151,12 +8151,24 @@ input[readonly] {
 .pb-30p {
   padding-bottom: 30px !important; }
 
-.my-40p {
+.my-30p {
   margin-bottom: 30px !important;
   margin-top: 30px !important; }
 
+.mt-6 {
+  margin-top: 60px !important; }
+
 .mb-6 {
   margin-bottom: 80px !important; }
+
+.mb-neg-30p {
+  margin-bottom: -30px !important; }
+
+.spacer {
+  height: 43px; }
+
+.spacer:first-of-type {
+  display: none; }
 
 .wrapper-logo img.logo {
   width: 350px; }

@@ -19,13 +19,27 @@ $bg-green-fill: #888F7F;
 }
 
 // Margins
-.my-40p {
+.my-30p {
     margin-bottom: 30px !important;
     margin-top: 30px !important;
 }
-
+.mt-6 {
+    margin-top: 60px !important;
+}
 .mb-6 {
     margin-bottom: 80px !important;
+}
+.mb-neg-30p {
+    margin-bottom: -30px !important;
+}
+
+// Spacers
+.spacer {
+    height: 43px;
+}
+
+.spacer:first-of-type {
+    display: none;
 }
 
 // Header
