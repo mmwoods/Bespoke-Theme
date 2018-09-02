@@ -21,6 +21,10 @@
 					[@section-title@]
 					<!-- Content -->
 					[%load_template file:'cms/includes/brands.template.html'/%]
+				[%elseif [@css_class@] eq 'instagram'%]
+					[@section-title@]
+					<!-- Content -->
+					[%load_template file:'cms/includes/instagram.template.html'/%]
 				[%elseif [@css_class@] eq 'description'%]
 					[@section-title@]
 					<!-- Content -->
@@ -31,6 +35,7 @@
 					[%load_template file:'cms/includes/featured-products.template.html'/%]
 					[%load_template file:'cms/includes/featured-adverts.template.html'/%]
 					[%load_template file:'cms/includes/brands.template.html'/%]
+					[%load_template file:'cms/includes/instagram.template.html'/%]
 					[%load_template file:'cms/includes/description.template.html'/%]
 				[%/if%]
 			[%/param%]

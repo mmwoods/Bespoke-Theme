@@ -1,0 +1,21 @@
+<!-- Instagram Feed -->
+<section class="wrapper-instagram">
+    <div id="instafeed" class="row justify-content-center mb-neg-30p"></div>
+    [%site_value id:'footer_javascript'%]
+        <script type="text/javascript" src="[%ntheme_asset%]js/instafeed.min.js[%/ntheme_asset%]"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            var feed = new Instafeed({
+                get: 'user',
+                userId: '[@CONFIG:instagram_userID@]',
+                accessToken: '[@CONFIG:instagram_accesstoken@]',
+                template: '<div class="col-8 col-sm-6 col-lg-4 pb-30p"><div class="card thumbnail n-responsive-content"><a href="{{link}}"><img class="img-responsive block-center" src="{{image}}" alt="Instagram Feed"/></a></div></div>',
+                resolution: 'standard_resolution',
+                limit: '6',
+                sortBy: 'least-recent'
+            });
+            feed.run();
+        });
+        </script>
+    [%/site_value%]
+</section>
