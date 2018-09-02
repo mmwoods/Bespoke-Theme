@@ -1,0 +1,18 @@
+[%advert type:'product' limit:'9' template:'' ad_group:''%]
+    [%param *header%]
+        <section class="row products-row" aria-label="Featured Products">
+    [%/param%]
+    [%param footer%]
+        </section>
+    [%/param%]
+    [%param *ifempty%]
+        [%random_products filter_category:'' template:'' limit:'9'%]
+            [%param *header%]
+                <section class="row products-row" aria-label="Featured Products">
+            [%/param%]
+            [%param *footer%]
+                </section>
+            [%/param%]
+        [%/random_products%]
+    [%/param%]
+[%/advert%]
