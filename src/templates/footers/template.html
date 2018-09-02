@@ -1,27 +1,22 @@
 	</div>
 </div>
 <footer class="wrapper-footer">
-	<div class="container">
-		<div class="row"><div class="col-12"><hr aria-hidden="true" /></div></div>
-		<div class="row">
-			<div class="col-12 col-md-8">
-				<nav class="row" aria-label="Footer menu">
-					[%menu id:'web_footer'%]
-						[%param *level_1%]
-							<div class="col-12 col-md-4 text-md-left">
-								<ul class="nav flex-column">
-									<li class="nav-item"><h4 class="nav-link py-0">[@name@]</h4></li>
-									[@next_level@]
-								</ul>
-							</div>
-						[%/param%]
-						[%param *level_2%]
-							<li class="nav-item"><a href="[@url@]" class="nav-link">[@name@]</a></li>
-						[%/param%]
-					[%/menu%]
-				</nav>
-			</div>
-			<div class="col-12 col-md-4 text-md-left">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<nav class="col-12 bg-green-fill text-center" aria-label="Footer menu">
+				[%menu id:'web_footer'%]
+					[%param *level_1%]
+						<ul class="nav d-inline-block">
+							<li class="nav-item"><h4 class="nav-link m-0 text-light text-uppercase">[@name@]</h4></li>
+							[@next_level@]
+						</ul>
+					[%/param%]
+					[%param *level_2%]
+							<li class="nav-item hidden"><a href="[@url@]" class="nav-link">[@name@]</a></li>
+					[%/param%]
+				[%/menu%]
+			</nav>
+			<div class="col-12 text-md-left hidden">
 				<h4>Stay In Touch</h4>
 				[%if [@config:show_newsletter_subscribe@]%]
 					<p>Subscribe to our newsletter and we'll keep you up to date on our products and services.</p>
@@ -76,8 +71,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="row"><div class="col-12"><hr aria-hidden="true"/></div></div>
-		<div class="row">
+		<div class="row hidden">
 			<div class="col-12 col-md-8 d-none d-sm-block">
 				[%checkout_pay_icons show_icon:'1' ignore_balance:'1'%]
 					[%param header%]
