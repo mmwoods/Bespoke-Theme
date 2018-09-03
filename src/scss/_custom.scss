@@ -61,6 +61,10 @@ $bg-green-fill: #888F7F;
         padding-right: 0.75rem;
         padding-left: 0.75rem;
     }
+
+    .border-sm-1 {
+        border: 1px solid #ddd !important;
+    }
 }
 
 .wrapper-cart.dropdown-toggle::after,

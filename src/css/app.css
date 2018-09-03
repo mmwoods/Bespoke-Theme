@@ -8183,7 +8183,9 @@ input[readonly] {
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-nav .nav-link {
     padding-right: 0.75rem;
-    padding-left: 0.75rem; } }
+    padding-left: 0.75rem; }
+  .border-sm-1 {
+    border: 1px solid #ddd !important; } }
 
 .wrapper-cart.dropdown-toggle::after,
 .wrapper-account .dropdown-toggle::after {

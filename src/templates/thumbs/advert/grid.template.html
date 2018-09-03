@@ -1,6 +1,6 @@
 <!-- Display half-width if it contains content, otherwise full -->
 <div class="[%if [@headline@] OR [@linktext@]%]col-6 [%else%]col-12 [%/if%] col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
-	<div class="card thumbnail n-responsive-content">
+	<div class="card thumbnail n-responsive-content border-0 border-sm-1">
 		<a href="[@url@]">
 			<img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/ param%][%/ asset_url%]" width="100%" alt="[@headline@]" />
 		</a>
@@ -21,7 +21,7 @@
 [%if [@headline@] OR [@linktext@]%]
 	<div class='col-6 d-block d-sm-none'>
 		<a href="[@url@]">
-			<div class="hover-overlay show black-bg text-center px-0">
+			<div class="hover-overlay show black-bg text-center px-0 px-sm-3 mb-30p">
 				<div class="wrapper-hover-content">
 					[%if [@headline@]%]<h1 class="h2 text-uppercase text-light mb-1">[@headline@]</h1>[%/if%]
 					[%if [@linktext@]%]<h3 class="h3 text-light">[@linktext@]</h3>[%/if%]
