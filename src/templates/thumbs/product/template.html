@@ -11,7 +11,7 @@
 		<a href="[@URL@]" class="d-none d-sm-block">
 			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
 				<div class="wrapper-hover-content">
-					<h1 class="card-title h1 text-uppercase text-light mb-1" itemprop="name">
+					<h1 class="card-title [%if [@bg-colour@] ne 'black'%] h1 [%else%] h2 [%/if%] text-uppercase text-light mb-1" itemprop="name">
 						[%if [@store_quantity@] > 0 AND [@preorder@] %]
 							Pre-Order
 						[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
@@ -47,7 +47,7 @@
 	<a href="[@URL@]">
 		<div class="hover-overlay show [@bg-colour@]-bg text-center px-0">
 			<div class="wrapper-hover-content">
-				<h1 class="card-title h1 text-uppercase text-light mb-1" itemprop="name">
+				<h1 class="card-title [%if [@bg-colour@] ne 'black'%] h1 [%else%] h2 [%/if%] text-uppercase text-light mb-1" itemprop="name">
 					[%if [@store_quantity@] > 0 AND [@preorder@] %]
 						Pre-Order
 					[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
