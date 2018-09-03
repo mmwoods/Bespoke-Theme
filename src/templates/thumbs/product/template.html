@@ -29,17 +29,18 @@
 					[%if [@store_quantity@] > 0 AND [@preorder@] %]
 						<h3 class="price text-light">Released [%format type:'date'%][@arrival_date@][%/format%]</h3>
 					[%else%]
-					<h3 class="price text-light" itemprop="offers" itemscope itemtype="http://schema.org/Offer" aria-label="[@model@] price">
-						[%if [@inpromo@]%]
-							Now&nbsp;[%if [@has_child@]%]from&nbsp;[%/if%]
-							<meta itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]"/>
-							<span itemprop="price" content="[@promo_price@]">[%format type:'currency'%][@promo_price@][%/format%]</span>
-						[%else%]
-							[%if [@has_child@]%]From&nbsp;[%/if%]
-							<span itemprop="price" content="[@store_price@]">[%format type:'currency'%][@store_price@][%/format%]</span>
-						[%/if%]
-						<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
-					</h3>
+						<h3 class="price text-light" itemprop="offers" itemscope itemtype="http://schema.org/Offer" aria-label="[@model@] price">
+							[%if [@inpromo@]%]
+								Now&nbsp;[%if [@has_child@]%]from&nbsp;[%/if%]
+								<meta itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]"/>
+								<span itemprop="price" content="[@promo_price@]">[%format type:'currency'%][@promo_price@][%/format%]</span>
+							[%else%]
+								[%if [@has_child@]%]From&nbsp;[%/if%]
+								<span itemprop="price" content="[@store_price@]">[%format type:'currency'%][@store_price@][%/format%]</span>
+							[%/if%]
+							<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
+						</h3>
+					[%/if%]
 				</div>
 			</div>
 		</a>
