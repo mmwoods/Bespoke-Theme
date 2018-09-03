@@ -2,9 +2,6 @@
 	<meta itemprop="brand" content="[@brand@]"/>
 	<div class="wrapper-product-title col-12">
 		<h1 class="text-center text-uppercase mb-1" itemprop="name" aria-label="Product Name">[@name@]</h1>
-		[%if [@subtitle@]%]
-			<h2 class="text-uppercase" role="heading" aria-label="Product Subtitle">[@subtitle@]</h2>
-		[%/if%]
 
 		[%set [@review_sku@]%][%if [@parent_sku@]%][@parent_sku@][%else%][@sku@][%/if%][%/set%]
 		[%load_ajax_template id:'_reviews' type:'item' template:'reviews' preload:'1' tmpl_sku:'[@review_sku@]' /%]
@@ -14,7 +11,7 @@
 			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing col-sm-4 m-auto">
 				<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
 				[%if ![@inpromo@]%]
-					<div class="h1" itemprop="price" content="[@store_price@]" aria-label="Store Price">
+					<div class="h2" itemprop="price" content="[@store_price@]" aria-label="Store Price">
 						[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
 					</div>
 					[%if [@save@] > 0%]
@@ -34,7 +31,7 @@
 							<s>RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]</s>
 						</div>
 					[%/if%]
-					<div class="productpromo h1" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
+					<div class="productpromo h2" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
 						NOW [%FORMAT type:'currency'%][@promo_price@][%/FORMAT%]
 					</div>
 					[%if [@save@] > 0%]
@@ -52,15 +49,6 @@
 				[%if [@form:disable_scripts@] ne 'true'%]
 				[%tracking_code type:'BuyingOptions' /%]
 				[%/if%]
-				[%if [@store_quantity@] > 0 AND [@preorder@] %]
-					<span itemprop="availability" content="http://schema.org/PreOrder" class="badge badge-warning">Pre-order - Released [%format type:'date'%][@arrival_date@][%/format%]</span>
-				[%elseif [@store_quantity@] > 0 AND ![@preorder@] %]
-					<span itemprop="availability" content="http://schema.org/InStock" class="badge badge-success">In Stock</span>
-				[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-					<span itemprop="availability" content="http://schema.org/LimitedAvailability" class="badge badge-danger">Sold Out - Backorder Available</span>
-				[%else%]
-					<span itemprop="availability" content="http://schema.org/OutOfStock" class="badge badge-danger">Sold Out</span>
-				[%/if%]
 				[%if [@availability_description@]%]
 					<div class="availability_description">
 						[@availability_description@]
@@ -69,9 +57,9 @@
 			</div>
 		[%/if%]
 	</div>
-	<div class="wrapper-product-share col-12">
+	<div class="wrapper-product-share col-12 hidden">
 		<div class="dropdown">
-			<button class="dropdown-toggle" type="button" id="dropdownMenu[@sku@]" data-toggle="dropdown" aria-controls="shareDropdown[@sku@]" aria-label="Share product">
+			<button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenu[@sku@]" data-toggle="dropdown" aria-controls="shareDropdown[@sku@]" aria-label="Share product">
 				<i class="fas fa-share" aria-hidden="true"></i>
 			</button>
 			<ul id="shareDropdown[@sku@]" class="dropdown-menu" aria-labelledby="dropdownMenu[@sku@]">

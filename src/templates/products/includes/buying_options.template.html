@@ -1,4 +1,12 @@
 <div class="extra-options">
+	[%if [@subtitle@]%]
+		<h3 class="text-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
+	[%/if%]
+	[%IF [@short_description@]%]
+		<p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
+			[@short_description@]
+		</p>
+	[%/ IF%]
 	[%multilevelpricing id:'[@SKU@]'%]
 		[%param *header%]
 		<table class="table table-sm mt-3">
@@ -34,7 +42,6 @@
 		</table>
 		[%/ param%]
 	[%/ multilevelpricing%]
-	<hr aria-hidden="true"/>
 	<!-- PRODUCT OPTIONS -->
 	[%extra_options id:'[@SKU@]'%]
 		[%param *header%]
@@ -85,7 +92,6 @@
 			[%param *footer%]
 			<input type="hidden" name="extras" value="[@total_options@]"/>
 		</table>
-		<hr aria-hidden="true"/>
 		[%/ param%]
 	[%/ extra_options%]
 
@@ -103,42 +109,23 @@
 		<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb" value="[@thumb@]">
 		<input type="hidden" id="sku[@rndm@][@SKU@]" name="sku" value="[@SKU@]">
 		<div class="row btn-stack">
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-6">
 				<label class="sr-only" for="qty[@rndm@][@SKU@]">[@model@] quantity field</label>
 				<input type="number" min="[@min_qty@]" class="form-control qty form-control-lg" id="qty[@rndm@][@SKU@]" name="qty" aria-label="[@model@] quantity field" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
 			</div>
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-6">
 				[%IF [@store_quantity@] > 0 AND [@preorder@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]"><i class="fa fa-clock icon-white" aria-hidden="true"></i> Pre-Order Now</button>
+				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Pre-Order Now</button>
 				[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-success btn-block btn-lg btn-ajax-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]"><i class="fa fa-shopping-cart icon-white" aria-hidden="true"></i> Add to Cart</button>
+				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-success btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Add to Cart</button>
 				[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]"><i class="fa fa-clock icon-white" aria-hidden="true"></i> Backorder</button>
+				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Backorder</button>
 				[%ELSE%]
-				<a href title="Notify Me When [@model@] Is Back In Stock" class="btn btn-info btn-block btn-lg btn-ajax-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" data-toggle="modal" data-target="#notifymodal"><i class="fa fa-envelope" aria-hidden="true"></i> Notify Me</a>
+				<a href title="Notify Me When [@model@] Is Back In Stock" class="btn btn-info btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" data-toggle="modal" data-target="#notifymodal">Notify Me</a>
 				[%/ IF%]
-			</div>
-			<div class="col-12 col-md-4">
-				[%if [@config:show_wishlist@]%]
-					<div class="product-wishlist">
-						[%IN_WISHLIST id:'[@SKU@]' %]
-						[%param if_true%]
-							<a class="wishlist_toggle btn btn-lg btn-block btn-warning" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="fas fa-star" aria-hidden="true"></i></span></a>
-						[%/ param%]
-						[%param if_false%]
-							<a class="wishlist_toggle btn btn-outline-secondary btn-lg btn-block" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="far fa-star" aria-hidden="true"></i> Wishlist</span></a>
-						[%/ param%]
-						[%/ IN_WISHLIST%]
-					</div>
-				[%/if%]
 			</div>
 		</div>
 	</form>
-	[%IF [@short_description@]%]
-	<p itemprop="description" aria-label="Product Short Description">
-	[@short_description@]
-	</p>
-	[%/ IF%]
 </div>
 
 <div class="modal fade notifymodal" id="notifymodal">

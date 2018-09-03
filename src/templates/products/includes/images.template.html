@@ -1,5 +1,39 @@
-<div class="card thumbnail card-body main-image text-center">
-	<a href="[%asset_url type:'product' id:'[@SKU@]' thumb:'full' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" class=" fancybox" rel="product_images">
-		<img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
-	</a>
+[%set [@bg-colour@] %][%if [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] > 0 AND ![@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]yellow[%else%]red[%/if%][%/set%]
+
+<div class="row">
+	<div class="col-12">
+		<div class="card thumbnail card-body main-image text-center">
+			<a href="[%asset_url type:'product' id:'[@SKU@]' thumb:'full' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" class=" fancybox" rel="product_images">
+				<img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
+			</a>
+			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
+				<div class="wrapper-hover-content">
+					[%if [@store_quantity@] > 0 AND [@preorder@] %]
+						<h1 itemprop="availability" content="http://schema.org/PreOrder" class="card-title h1 text-uppercase text-light mb-1">Pre-order</h1>
+						<h3 class="price text-light">Released [%format type:'date'%][@arrival_date@][%/format%]</h3>
+					[%elseif [@store_quantity@] > 0 AND ![@preorder@] %]
+						<h1 itemprop="availability" content="http://schema.org/InStock" class="card-title h1 text-uppercase text-light mb-1">In Stock</h1>
+					[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+						<h1 itemprop="availability" content="http://schema.org/LimitedAvailability" class="card-title h1 text-uppercase text-light mb-1">Sold Out</h1>
+						<h3 class="price text-light">Backorder Available</h3>
+					[%else%]
+						<h1 itemprop="availability" content="http://schema.org/OutOfStock" class="card-title h1 text-uppercase text-light mb-1">Sold Out</h1>
+					[%/if%]
+
+					[%if [@config:show_wishlist@]%]
+						<div class="product-wishlist hidden">
+							[%IN_WISHLIST id:'[@SKU@]' %]
+								[%param if_true%]
+									<a class="wishlist_toggle" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="fas fa-star" aria-hidden="true"></i></span></a>
+								[%/ param%]
+								[%param if_false%]
+									<a class="wishlist_toggle" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="far fa-star" aria-hidden="true"></i></span></a>
+								[%/ param%]
+							[%/ IN_WISHLIST%]
+						</div>
+					[%/if%]
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

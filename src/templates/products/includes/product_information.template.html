@@ -30,16 +30,6 @@
             <li class="nav-item" id="tabReviews" role="tab" aria-controls="reviews" aria-selected="false">
                 <a class="nav-link text-light text-uppercase reviews" href="#reviews" data-toggle="tab">
                     Reviews
-                    [%set [@data:ratings-count@] = 1 /%]
-                    [%while [@data:ratings-count@] <= [@data:rating@]%]
-                        [%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    [%/while%]
-                    [%while [@data:ratings-count@] <= 5%]
-                        [%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-                        <i class="far fa-star" aria-hidden="true"></i>
-                    [%/while%]
-                    , [@data:ratings-count@]
                 </a>
             </li>
         [%/if%]
@@ -56,12 +46,9 @@
                 </div>
                 <div id="accordionDescription" class="collapse" aria-labelledby="headingDescription">
                     <div class="card-body p-md-0">
-                        <section class="productdetails n-responsive-content" aria-label="Product Description">
+                        <section class="productdetails n-responsive-content text-left" aria-label="Product Description">
                             [@description@]
                         </section>
-                        <p class="small">
-                            (<span itemprop="productID">[@SKU@]</span>)
-                        </p>
                     </div>
                 </div>
             </div>
