@@ -41,7 +41,7 @@
 				[%/if%]
 			</section>
 		</div>
-		<div class="row mt-2">
+		<div class="row m-0">
 				[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
 					[%param header%]
 						<div class="col-12">
@@ -86,8 +86,11 @@
 						</div>
 					[%/param%]
 				[%/free_gifts%]
-				<div class="col-12">
-					[%load_template file:"products/includes/product_information.template.html"/%]
+				<div class="col-12 mt-4" role="contentinfo" aria-label="Product images">
+					[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+				</div>
+				<div class="col-12 mt-4">
+					[%load_ajax_template id:'_product_information' type:'item' template:'product_information' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
 					[%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'ProductDescription' /%][%/if%]
 				</div>
 				<div class="col-12">
