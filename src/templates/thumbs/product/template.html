@@ -2,10 +2,10 @@
 [%set [@bg-colour@] %][%if [@save@] > 0 AND ![@has_child@] %]yellow[%elseif [@inpromo@]%]red[%elseif [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]green[%elseif [@store_quantity@] < 1 %]red[%else%]black[%/if%][%/set%]
 
 <article class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p" role="article" aria-label="Product thumbnail">
-	<div class="card thumbnail card-body" itemscope itemtype="http://schema.org/Product">
+	<div class="card thumbnail card-body p-0" itemscope itemtype="http://schema.org/Product">
 		<meta itemprop="brand" content="[@brand@]"/>
 		<meta itemprop="mpn" content="[@sku@]"/>
-		<a href="[@URL@]" class="thumbnail-image pb-2">
+		<a href="[@URL@]" class="thumbnail-image">
 			<img src="[%asset_url type:'product' thumb:'thumb' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" itemprop="image" class="product-image img-fluid" alt="[@model@]" rel="itmimg[@SKU@]">
 		</a>
 		<a href="[@URL@]" class="d-none d-sm-block">
@@ -47,7 +47,7 @@
 		[%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'Thumbnails' /%][%/if%]
 	</div>
 </article>
-<article class="col-6 d-none mb-30p">
+<article class="col-6 d-block d-sm-none mb-30p">
 	<a href="[@URL@]">
 		<div class="hover-overlay show [@bg-colour@]-bg text-center px-0">
 			<div class="wrapper-hover-content">

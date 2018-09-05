@@ -1,5 +1,5 @@
-<div class="col-12 col-md-9 text-center">
-	<!-- Use Menu Layout System -->
+<!-- Use Menu Layout System -->
+[%set [@menu_not_empty@] %]
 	[%menu id:'homepage-layout'%]
 		[%param *level_1%]
 			[%set [@section-title@] %][%if [@name@]%]<h1 class="text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
@@ -22,15 +22,21 @@
 			[%elseif [@css_class@] eq 'description'%]
 				<!-- Content -->
 				[%load_template file:'cms/includes/description.template.html'/%]
-			[%else%]
-				<!-- Use Default Layout -->
-				[%load_template file:'cms/includes/banner-carousel.template.html'/%]
-				[%load_template file:'cms/includes/featured-products.template.html'/%]
-				[%load_template file:'cms/includes/featured-adverts.template.html'/%]
-				[%load_template file:'cms/includes/brands.template.html'/%]
-				[%load_template file:'cms/includes/instagram.template.html'/%]
-				[%load_template file:'cms/includes/description.template.html'/%]
 			[%/if%]
 		[%/param%]
 	[%/menu%]
+[%/set%]
+
+<div class="col-12 col-md-9 text-center">
+	[%if [@menu_not_empty@] ne ''%]
+		[@menu_not_empty@]
+	[%else%]
+		<!-- Use Default Layout -->
+		[%load_template file:'cms/includes/banner-carousel.template.html'/%]
+		[%load_template file:'cms/includes/featured-products.template.html'/%]
+		[%load_template file:'cms/includes/featured-adverts.template.html'/%]
+		[%load_template file:'cms/includes/brands.template.html'/%]
+		[%load_template file:'cms/includes/instagram.template.html'/%]
+		[%load_template file:'cms/includes/description.template.html'/%]
+	[%/if%]
 </div>
