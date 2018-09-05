@@ -8156,6 +8156,24 @@ input[readonly] {
   .mb-neg-30p {
     margin-bottom: -30px !important; } }
 
+.b-shadow-1 {
+  -webkit-box-shadow: 0px -2px 5px rgba(51, 51, 51, .3);
+          box-shadow: 0px -2px 5px rgba(51, 51, 51, .3); }
+
+.ajax_search {
+  font-size: 16px; }
+
+.opacity-fade {
+  right: 0;
+  opacity: 1;
+  -webkit-transition: 1s all;
+  transition: 1s all; }
+
+.opacity-fade.active {
+  position: absolute;
+  right: 100%;
+  opacity: 0; }
+
 .my-30p {
   margin-bottom: 30px !important;
   margin-top: 30px !important; }

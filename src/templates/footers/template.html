@@ -1,6 +1,6 @@
 	</div>
 </div>
-<footer class="wrapper-footer mt-6 ">
+<footer class="wrapper-footer mt-6 d-none d-sm-block">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<nav class="col-12 bg-green-fill text-center" aria-label="Footer menu">
@@ -100,6 +100,44 @@
 		</div>
 	</div>
 </footer>
+
+[%site_value id:'footer_javascript'%]
+	<script>
+		$('#mobile-search-toggle').click(function(){
+			$('.opacity-fade').toggleClass('active');
+			$('.ajax_search').focus();
+		});
+
+		$('#mobile-search-close').click(function(){
+			$("#mobile-footer-search").submit(function(e){
+				e.preventDefault();
+			});
+
+			$('.opacity-fade').toggleClass('active');
+			$('.ajax_search').blur();
+		});
+	</script>
+[%/site_value%]
+
+<div class="d-sm-none b-shadow-1 fixed-bottom bg-white">
+	<div id="wrapper-mobile-footer" class="d-flex justify-content-around bg-white opacity-fade">
+		<a href="[@config:homeurl@]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'home'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-home'></i></a>
+		<h2 id="mobile-search-toggle" class="py-2 mb-0 text-secondary"><i class='fa fa-search'></i></h2>
+		<a href="[%url page:'checkout' type:'cart'/%]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'checkout'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-shopping-cart'></i></a>
+		<a href="[%url page:'account'/%]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'customer'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-user'></i></a>
+		<h2 class="py-2 mb-0 text-secondary"><i class='fa fa-bars'></i></h2>
+	</div>
+	<form id="mobile-footer-search" class="opacity-fade active w-100" name="productsearch" method="get" action="/" role="search" aria-label="Product Search">
+		<input type="hidden" name="rf" value="kw"/>
+		<div class="input-group">
+			<button id="mobile-search-close" class="btn btn-outline-secondary border-0 py-2"><h2 class="mb-0"><i class="fa fa-times" aria-hidden="true"></i></h2></button>
+			<input class="form-control ajax_search border-0 py-2" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search-xs" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+			<div class="input-group-append">
+				<button type="submit" value="Search" class="btn btn-outline-secondary border-0 py-2" aria-label="Search site"><h2 class="mb-0"><i class="fa fa-search" aria-hidden="true"></i></h2></button>
+			</div>
+		</div>
+	</form>
+</div>
 <div class="modal fade" id="termsModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
