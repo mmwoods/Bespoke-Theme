@@ -1,34 +1,26 @@
 [%SET [@page_type@]='category'/%]
 
-<div class="col-12 col-md-9 text-center">
-	<!-- Use Menu Layout System -->
-	[%load_template file:'cms/includes/category-header.template.html'/%]
+[%set [@menu_not_empty@] %]
 	[%menu id:'category-layout'%]
 		[%param *level_1%]
 			[%set [@section-title@] %][%if [@name@]%]<h1 class="text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
-
-			[%if [@css_class@] eq 'carousel'%]
-				<!-- Content -->
-				[%load_template file:'cms/includes/banner-carousel.template.html'/%]
-			[%elseif [@css_class@] eq 'featured'%]
-				<!-- Content -->
-				[%load_template file:'cms/includes/featured-products.template.html'/%]
-			[%elseif [@css_class@] eq 'categories'%]
-				<!-- Content -->
-				[%load_template file:'cms/includes/featured-adverts.template.html'/%]
-			[%elseif [@css_class@] eq 'description'%]
-				<!-- Content -->
-				[%load_template file:'cms/includes/category-description.template.html'/%]
-			[%elseif [@css_class@] eq 'products'%]
-				<!-- Content -->
-				[%load_template file:'cms/includes/category-products.template.html'/%]
-			[%else%]
-				<!-- Use Default Layout -->
-				[%load_template file:'cms/includes/banner-carousel.template.html'/%]
-				[%load_template file:'cms/includes/featured-products.template.html'/%]
-				[%load_template file:'cms/includes/featured-adverts.template.html'/%]
-				[%load_template file:'cms/includes/category-description.template.html'/%]
-			[%/if%]
+			<!-- Content: [@css_class@] -->
+			[%load_template file:'cms/includes/[@css_class@].template.html'/%]
 		[%/param%]
 	[%/menu%]
+[%/set%]
+
+<div class="col-12 col-md-9 text-center">
+	<!-- Use Menu Layout System -->
+	[%load_template file:'cms/includes/category-header.template.html'/%]
+	[%if [@menu_not_empty@] ne ''%]
+		<!-- Use Menu Layout System -->
+		[@menu_not_empty@]
+	[%else%]
+		<!-- Use Default Layout -->
+		[%load_template file:'cms/includes/banner-carousel.template.html'/%]
+		[%load_template file:'cms/includes/featured-products.template.html'/%]
+		[%load_template file:'cms/includes/featured-adverts.template.html'/%]
+		[%load_template file:'cms/includes/category-description.template.html'/%]
+	[%/if%]
 </div>
