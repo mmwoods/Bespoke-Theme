@@ -97,7 +97,7 @@
 				[%upsell_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
 					[%param header%]
 						<h1 class="text-center text-uppercase my-5">We Also Recommend</h1>
-						<div class="row products-row">
+						<div class="row">
 					[%/param%]
 					[%param footer%]
 						</div>
@@ -106,7 +106,7 @@
 				[%crosssell id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
 					[%param header%]
 						<h1 class="text-center text-uppercase my-5">You May Also Like</h1>
-						<div class="row products-row">
+						<div class="row">
 					[%/param%]
 					[%param footer%]
 						</div>
@@ -115,7 +115,7 @@
 				[%related_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
 					[%param header%]
 						<h1 class="text-center text-uppercase my-5">Others Also Bought</h1>
-						<div class="row products-row">
+						<div class="row">
 					[%/param%]
 					[%param footer%]
 						</div>
@@ -124,7 +124,7 @@
 				[%thumb_list type:'products' sortby:'random' filter_category:'[@content_id@]' template:'' filter_exsku1:'[@sku@]' limit:'[@config:upsell_limit@]'%]
 					[%param *header%]
 						<h1 class="text-center text-uppercase my-5">More From This Category</h1>
-						<div class="row products-row">
+						<div class="row">
 					[%/param%]
 					[%param footer%]
 						</div>
@@ -134,7 +134,7 @@
 					[%product_history limit:'[@config:phistory_limit@]' template:''%]
 						[%param header%]
 							<h1 class="text-center text-uppercase my-5">Browsing History</h1>
-							<div class="row products-row">
+							<div class="row">
 						[%/param%]
 						[%param footer%]
 							</div>
