@@ -86,61 +86,16 @@
 					</div>
 				[%/param%]
 			[%/free_gifts%]
-			<div class="col-12 mt-4" role="contentinfo" aria-label="Product images">
-				[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-			</div>
-			<div class="col-12 mt-4">
-				[%load_ajax_template id:'_product_information' type:'item' template:'product_information' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-				[%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'ProductDescription' /%][%/if%]
-			</div>
+			<!-- images -->
+			[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+			<!-- product_information -->
+			[%load_ajax_template id:'_product_information' type:'item' template:'product_information' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
 			<div class="col-12">
-				[%upsell_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
-					[%param header%]
-						<h1 class="text-center text-uppercase my-5">We Also Recommend</h1>
-						<div class="row">
-					[%/param%]
-					[%param footer%]
-						</div>
-					[%/param%]
-				[%/upsell_products%]
-				[%crosssell id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
-					[%param header%]
-						<h1 class="text-center text-uppercase my-5">You May Also Like</h1>
-						<div class="row">
-					[%/param%]
-					[%param footer%]
-						</div>
-					[%/param%]
-				[%/crosssell%]
-				[%related_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
-					[%param header%]
-						<h1 class="text-center text-uppercase my-5">Others Also Bought</h1>
-						<div class="row">
-					[%/param%]
-					[%param footer%]
-						</div>
-					[%/param%]
-				[%/related_products%]
-				[%thumb_list type:'products' sortby:'random' filter_category:'[@content_id@]' template:'' filter_exsku1:'[@sku@]' limit:'[@config:upsell_limit@]'%]
-					[%param *header%]
-						<h1 class="text-center text-uppercase my-5">More From This Category</h1>
-						<div class="row">
-					[%/param%]
-					[%param footer%]
-						</div>
-					[%/param%]
-				[%/thumb_list%]
-				[%if [@config:phistory_limit@]%]
-					[%product_history limit:'[@config:phistory_limit@]' template:''%]
-						[%param header%]
-							<h1 class="text-center text-uppercase my-5">Browsing History</h1>
-							<div class="row">
-						[%/param%]
-						[%param footer%]
-							</div>
-						[%/param%]
-					[%/product_history%]
-				[%/if%]
+				[%load_template file:"products/includes/upsell.template.html"/%]
+				[%load_template file:"products/includes/cross-sell.template.html"/%]
+				[%load_template file:"products/includes/related.template.html"/%]
+				[%load_template file:"products/includes/random.template.html"/%]
+				[%load_template file:"products/includes/history.template.html"/%]
 			</div><!--/.col-12-->
 		</div><!--/.row-->
 	</div><!--/.col-12-->
