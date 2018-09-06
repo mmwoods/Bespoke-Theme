@@ -1,24 +1,22 @@
-<div class="col-12 mt-4" role="contentinfo" aria-label="Product images">
-    <div class="row">
-        [%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
-            [%param *body%]
-                <div class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
-                    <div class="card thumbnail card-body">
-                        <a href="[@full_image@]" class="fancybox" rel="product_images" title="ALT Images">
-                            <img src="[@thumb_image@]" class="product-image img-fluid" title="ALT Images">
-                        </a>
-                    </div>
+<div class="row" role="contentinfo" aria-label="Product images">
+    [%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
+        [%param *body%]
+            <div class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
+                <div class="card thumbnail card-body">
+                    <a href="[@full_image@]" class="fancybox" rel="product_images" title="ALT Images">
+                        <img src="[@thumb_image@]" class="product-image img-fluid" title="ALT Images">
+                    </a>
                 </div>
-            [%/ param%]
-            [%param *brochure%]
-                <div class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
-                    <div class="card thumbnail card-body">
-                        <a href="[@file@]" target="_blank" rel="noopener">
-                            <img src="[@config:imageurl@]/pdf_brochure.gif" alt="View PDF brochure for [%NOHTML%][@name@][%END NOHTML%]" width="45" height="45">
-                        </a>
-                    </div>
+            </div>
+        [%/ param%]
+        [%param *brochure%]
+            <div class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-30p">
+                <div class="card thumbnail card-body">
+                    <a href="[@file@]" target="_blank" rel="noopener">
+                        <img src="[@config:imageurl@]/pdf_brochure.gif" alt="View PDF brochure for [%NOHTML%][@name@][%END NOHTML%]" width="45" height="45">
+                    </a>
                 </div>
-            [%/ param%]
-        [%/ THUMBNAILS%]
-    </div>
+            </div>
+        [%/ param%]
+    [%/ THUMBNAILS%]
 </div>

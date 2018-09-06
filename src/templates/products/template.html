@@ -25,10 +25,10 @@
 			<div class="col-12 mb-4">
 				[%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
 			</div>
-			<section class="col-12 col-lg-6 mt-4" role="contentinfo" aria-label="Product images">
+			<section class="col-12 col-lg-4 mt-4" role="contentinfo" aria-label="Product images">
 				[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
 			</section>
-			<section class="col-12 col-lg-6 mt-4" role="contentinfo" aria-label="Products information">
+			<section class="col-12 col-lg-8 mt-4" role="contentinfo" aria-label="Products information">
 				<!-- child products -->
 				[%load_template file:"products/includes/child_products.template.html"/%]
 				[%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
@@ -87,7 +87,9 @@
 				[%/param%]
 			[%/free_gifts%]
 			<!-- images -->
-			[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+			<section class="col-12 mt-4" role="contentinfo" aria-label="Products information">
+				[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+			</section>
 			<!-- product_information -->
 			[%load_ajax_template id:'_product_information' type:'item' template:'product_information' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
 			<div class="col-12">
