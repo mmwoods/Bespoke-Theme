@@ -1,143 +1,111 @@
 	</div>
 </div>
-<footer class="wrapper-footer mt-6 d-none d-sm-block">
+<footer class="wrapper-footer mt-6 border-top border-secondary">
 	<div class="container-fluid">
-		<div class="row justify-content-center">
-			<nav class="col-12 bg-green-fill text-center" aria-label="Footer menu">
+		<div class="justify-content-center py-4">
+			[%if [@config:show_newsletter_subscribe@]%]
+				<form class="row justify-content-center" method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
+					<input type="hidden" name="list_id" value="1">
+					<input type="hidden" name="opt_in" value="y">
+					<input type="hidden" name="inp-submit" value="y" />
+					<input type="hidden" name="inp-opt_in" value="y" />
+					<div class="input-group justify-content-center mb-2 px-2 px-sm-0">
+						<input name="inp-email" class="form-control col-6 col-sm-3 col-md-2" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
+						<div class="input-group-append col-6 col-sm-3 col-md-2 px-0"><input class="btn btn-success btn-block text-uppercase" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/></div>
+					</div>
+					<div class="checkbox">
+						<label class="mb-0">
+							<input type="checkbox" value="y" class="terms_box" required/>
+							I have read and agree to
+							<a href="#" data-toggle="modal" data-target="#termsModal">Terms &amp; Conditions</a> and
+							<a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>.
+						</label>
+					</div>
+				</form>
+			[%/if%]
+		</div>
+		<div class="row">
+			<nav class="col-12 bg-green-fill text-center py-2" aria-label="Footer menu">
 				[%menu id:'web_footer'%]
 					[%param *level_1%]
-						<ul class="nav d-inline-block">
+						<ul class="nav d-block d-sm-inline-block">
 							<li class="nav-item"><h4 class="nav-link m-0 text-light text-uppercase">[@name@]</h4></li>
-							[@next_level@]
 						</ul>
-					[%/param%]
-					[%param *level_2%]
-							<li class="nav-item hidden"><a href="[@url@]" class="nav-link">[@name@]</a></li>
 					[%/param%]
 				[%/menu%]
 			</nav>
-			<div class="col-12 text-md-left hidden">
-				<h4>Stay In Touch</h4>
-				[%if [@config:show_newsletter_subscribe@]%]
-					<p>Subscribe to our newsletter and we'll keep you up to date on our products and services.</p>
-					<form method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
-						<input type="hidden" name="list_id" value="1">
-						<input type="hidden" name="opt_in" value="y">
-						<input type="hidden" name="inp-submit" value="y" />
-						<input type="hidden" name="inp-opt_in" value="y" />
-						<div class="input-group">
-							<input name="inp-email" class="form-control" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
-							<div class="input-group-append"><input class="btn btn-outline-secondary" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/></div>
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" value="y" class="terms_box" required/>
-								I have read and agree to
-								<a href="#" data-toggle="modal" data-target="#termsModal">Terms &amp; Conditions</a> and
-								<a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>.
-							</label>
-						</div>
-					</form>
-				[%/if%]
-				<ul class="nav list-social justify-content-center justify-content-md-start pt-2" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
-					<meta itemprop="url" content="[@config:home_url@]"/>
-					<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
-					<meta itemprop="name" content="[@config:company_name@]"/>
-					<li class="nav-item px-1"><a href="[%url type:'page' id:'contact_us'/%]" target="_blank" title="Email us" rel="noopener" aria-label="Email us"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-					[%if [@config:facebook_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank" title="[@config:company_name@] on Facebook" rel="noopener"><i class="fab fa-facebook text-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
-					[%/if%]
-					[%if [@config:twitter_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank" title="[@config:company_name@] on Twitter" rel="noopener"><i class="fab fa-twitter text-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
-					[%/if%]
-					[%if [@config:googleplus_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank" title="[@config:company_name@] on Google Plus" rel="noopener"><i class="fab fa-google-plus text-google-plus" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>
-					[%/if%]
-					[%if [@config:youtube_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank" title="[@config:company_name@] on Youtube" rel="noopener"><i class="fab fa-youtube text-youtube" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>
-					[%/if%]
-					[%if [@config:instagram_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank" title="[@config:company_name@] on Instagram" rel="noopener"><i class="fab fa-instagram text-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>
-					[%/if%]
-					[%if [@config:pinterest_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank" title="[@config:company_name@] on Pinterest" rel="noopener"><i class="fab fa-pinterest text-pinterest" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>
-					[%/if%]
-					[%if [@config:tumblr_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank" title="[@config:company_name@] on Tumblr" rel="noopener"><i class="fab fa-tumblr text-tumblr" aria-hidden="true"></i><span class="sr-only">Tumblr</span></a></li>
-					[%/if%]
-					[%if [@config:linkedin_account_id@]%]
-					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank" title="[@config:company_name@] on Linkedin" rel="noopener"><i class="fab fa-linkedin-in text-linkedin" aria-hidden="true"></i><span class="sr-only">Linkedin</span></a></li>
-					[%/if%]
-				</ul>
-			</div>
-		</div>
-		<div class="row hidden">
-			<div class="col-12 col-md-8 d-none d-sm-block">
-				[%checkout_pay_icons show_icon:'1' ignore_balance:'1'%]
-					[%param header%]
-						<ul class="list-inline d-flex flex-wrap" role="contentinfo" aria-label="Accepted payment methods">
-					[%/param%]
-					[%param *body%]
-							<li class="mr-1">
-								<div class="payment-icon-container">
-									<div class="payment-icon" style="background-image: url([@processor_icon_url@]); height: 30px;"><span class="sr-only">[@name@]</span></div>
-								</div>
-							</li>
-					[%/param%]
-					[%param *footer%]
+			<div class="col-12">
+				<div class="row justify-content-center my-2 align-items-center">
+					<div class="col-12 col-sm-5 text-right d-none d-sm-block">
+						[%checkout_pay_icons show_icon:'1' ignore_balance:'1'%]
+							[%param header%]
+								<ul class="list-inline d-flex flex-wrap flex-row-reverse mb-0" role="contentinfo" aria-label="Accepted payment methods">
+							[%/param%]
+							[%param *body%]
+									<li class="m-0">
+										<div class="payment-icon-container p-0 h-auto">
+											<div class="payment-icon" style="background-image: url([@processor_icon_url@]); height: 30px;"><span class="sr-only">[@name@]</span></div>
+										</div>
+									</li>
+							[%/param%]
+							[%param *footer%]
+								</ul>
+							[%/param%]
+						[%/checkout_pay_icons%]
+					</div>
+					<div class="col-12 col-sm-2 text-center d-none d-sm-block">
+						<a href="[@config:homeurl@]" title="[@config:company_name@]">
+							<img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/>
+						</a>
+					</div>
+					<div class="col-12 col-sm-5 text-left">
+						<ul class="nav list-social justify-content-center justify-content-md-start" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
+							<meta itemprop="url" content="[@config:home_url@]"/>
+							<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+							<meta itemprop="name" content="[@config:company_name@]"/>
+							<li class="nav-item pr-3"><a href="[%url type:'page' id:'contact_us'/%]" target="_blank" title="Email us" rel="noopener" aria-label="Email us"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+							[%if [@config:facebook_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank" title="[@config:company_name@] on Facebook" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
+							[%/if%]
+							[%if [@config:twitter_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank" title="[@config:company_name@] on Twitter" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
+							[%/if%]
+							[%if [@config:googleplus_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank" title="[@config:company_name@] on Google Plus" rel="noopener"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>
+							[%/if%]
+							[%if [@config:youtube_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank" title="[@config:company_name@] on Youtube" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>
+							[%/if%]
+							[%if [@config:instagram_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank" title="[@config:company_name@] on Instagram" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>
+							[%/if%]
+							[%if [@config:pinterest_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank" title="[@config:company_name@] on Pinterest" rel="noopener"><i class="fab fa-pinterest" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>
+							[%/if%]
+							[%if [@config:tumblr_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank" title="[@config:company_name@] on Tumblr" rel="noopener"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Tumblr</span></a></li>
+							[%/if%]
+							[%if [@config:linkedin_account_id@]%]
+								<li class="nav-item pr-3"><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank" title="[@config:company_name@] on Linkedin" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">Linkedin</span></a></li>
+							[%/if%]
 						</ul>
-					[%/param%]
-				[%/checkout_pay_icons%]
-			</div>
-			<div class="col-12 col-md-4 text-md-left">
-				<p class="small">
-					<strong>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@].</strong>
-					[%if [@config:show_platform_branding@]%]<a href="https://www.netohq.com" title="Neto E-commerce Retail Management Platform" target="_blank" rel="noopener">E-commerce software by Neto</a>[%/if%]<br/>
-					[%if [@config:company_abn@]%]<strong>[%if [@config:PRIMARY_ABN_LABEL@]%][@config:PRIMARY_ABN_LABEL@][%else%]ABN[%/if%]:</strong> [@config:company_abn@]<br>[%/ if%]
-					[%if [@config:company_poaddr@]%]<strong>Address:</strong> [@config:company_poaddr@][%/ if%]
-				</p>
+					</div>
+				</div>
+				<div class="row justify-content-center py-2 border-top border-secondary">
+					<div class="col-12 text-center">
+						<p class="small mb-0">
+							<span>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@].</span>
+							[%if [@config:show_platform_branding@]%]<a href="https://www.netohq.com" title="Neto E-commerce Retail Management Platform" target="_blank" rel="noopener">E-commerce software by Neto</a>[%/if%]<br/>
+							[%if [@config:company_abn@]%]<strong>[%if [@config:PRIMARY_ABN_LABEL@]%][@config:PRIMARY_ABN_LABEL@][%else%]ABN[%/if%]:</strong> [@config:company_abn@]<br>[%/ if%]
+							[%if [@config:company_poaddr@]%]<strong>Address:</strong> [@config:company_poaddr@][%/ if%]
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </footer>
 
-[%site_value id:'footer_javascript'%]
-	<script>
-		$('#mobile-search-toggle').click(function(){
-			$('.opacity-fade').toggleClass('active');
-			$('.ajax_search').focus();
-		});
-
-		$('#mobile-search-close').click(function(){
-			$("#mobile-footer-search").submit(function(e){
-				e.preventDefault();
-			});
-
-			$('.opacity-fade').toggleClass('active');
-			$('.ajax_search').blur();
-		});
-	</script>
-[%/site_value%]
-
-<div class="d-sm-none b-shadow-1 fixed-bottom bg-white">
-	<div id="wrapper-mobile-footer" class="d-flex justify-content-around bg-white opacity-fade">
-		<a href="[@config:homeurl@]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'home'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-home'></i></a>
-		<h2 id="mobile-search-toggle" class="py-2 mb-0 text-secondary"><i class='fa fa-search'></i></h2>
-		<a href="[%url page:'checkout' type:'cart'/%]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'checkout'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-shopping-cart'></i></a>
-		<a href="[%url page:'account'/%]" class="py-2 mb-0 h2 [%if [@config:current_page_type@] ne 'customer'%]text-secondary[%/if%]" aria-label="Account"><i class='fa fa-user'></i></a>
-		<h2 class="py-2 mb-0 text-secondary"><i class='fa fa-bars'></i></h2>
-	</div>
-	<form id="mobile-footer-search" class="opacity-fade active w-100" name="productsearch" method="get" action="/" role="search" aria-label="Product Search">
-		<input type="hidden" name="rf" value="kw"/>
-		<div class="input-group">
-			<button id="mobile-search-close" class="btn btn-outline-secondary border-0 py-2"><h2 class="mb-0"><i class="fa fa-times" aria-hidden="true"></i></h2></button>
-			<input class="form-control ajax_search border-0 py-2" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search-xs" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
-			<div class="input-group-append">
-				<button type="submit" value="Search" class="btn btn-outline-secondary border-0 py-2" aria-label="Search site"><h2 class="mb-0"><i class="fa fa-search" aria-hidden="true"></i></h2></button>
-			</div>
-		</div>
-	</form>
-</div>
 <div class="modal fade" id="termsModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">

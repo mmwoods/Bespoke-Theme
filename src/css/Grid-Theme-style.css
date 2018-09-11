@@ -7,12 +7,12 @@ body {
 }
 
 a {
-	color: #006FF5 /*{link-text-colour}*/;
+	color: #888F7F /*{link-text-colour}*/;
 	font-weight: 300 /*{link-text-font-weight}*/;
 }
 a:hover,
 a:focus {
-	color: #004ca9 /*{link-text-hover-colour}*/;
+	color: #218838 /*{link-text-hover-colour}*/;
 }
 
 h1,

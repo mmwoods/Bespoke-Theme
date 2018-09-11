@@ -8253,3 +8253,17 @@ p {
 .nav-tabs .nav-link {
   border: 0;
   margin-bottom: 1px; }
+
+.list-social {
+  opacity: 0.6; }
+
+.payment-icon-container {
+  background: transparent; }
+
+.payment-icon {
+  -webkit-filter: grayscale(100%);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
+  filter: grayscale(100%);
+  opacity: 0.6;
+  -webkit-transform: scale(0.65);
+          transform: scale(0.65); }
