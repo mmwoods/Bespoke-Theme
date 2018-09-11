@@ -12,6 +12,16 @@ $bg-green-fill: #888F7F;
 .bg-green-fill {
     background-color: $bg-green-fill;
 }
+.bg-dark {
+    background-color: #373842 !important;
+}
+
+.bg-dark .dropdown-item:hover,
+.bg-dark .dropdown-item:focus,
+.bg-dark .dropdown-item.active,
+.bg-dark .dropdown-item:active {
+    background-color: $bg-green-fill;
+}
 
 // Text Styling
 p {

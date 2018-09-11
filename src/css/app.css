@@ -8148,6 +8148,15 @@ input[readonly] {
 .bg-green-fill {
   background-color: #888F7F; }
 
+.bg-dark {
+  background-color: #373842 !important; }
+
+.bg-dark .dropdown-item:hover,
+.bg-dark .dropdown-item:focus,
+.bg-dark .dropdown-item.active,
+.bg-dark .dropdown-item:active {
+  background-color: #888F7F; }
+
 p {
   line-height: 24px; }
 
