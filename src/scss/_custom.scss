@@ -13,6 +13,11 @@ $bg-green-fill: #888F7F;
     background-color: $bg-green-fill;
 }
 
+// Text Styling
+p {
+    line-height: 24px;
+}
+
 // Padding
 @media (min-width: 576px) {
     .pb-30p {

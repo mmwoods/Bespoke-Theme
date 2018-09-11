@@ -216,8 +216,8 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-success {
 	color: #fff /*{btn-success-text-colour}*/;
-	background-color: #28a745 /*{btn-success-bg-colour}*/;
-	border-color: #28a745 /*{btn-success-border-colour}*/;
+	background-color: #888F7F /*{btn-success-bg-colour}*/;
+	border-color: #888F7F /*{btn-success-border-colour}*/;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -244,8 +244,8 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-	background-color: #28a745 /*{btn-success-disabled-bg-colour}*/;
-	border-color: #28a745 /*{btn-success-disabled-border-colour}*/;
+	background-color: #888F7F /*{btn-success-disabled-bg-colour}*/;
+	border-color: #888F7F /*{btn-success-disabled-border-colour}*/;
 }
 
 .btn-info {
@@ -321,7 +321,7 @@ fieldset[disabled] .btn-info.active {
 	background-color: #006FF5 /*{label-primary-bg}*/;
 }
 .badge-success {
-	background-color: #28a745 /*{label-success-bg}*/;
+	background-color: #888F7F /*{label-success-bg}*/;
 }
 .badge-info {
 	background-color: #17a2b8 /*{label-info-bg}*/;
@@ -335,11 +335,11 @@ fieldset[disabled] .btn-info.active {
 }
 
 .card {
-	border-color: #ddd /*{panel-border-colour}*/;
+	border-color: #dfdfdf /*{panel-border-colour}*/;
 }
 .card-header {
 	background-color: #f5f5f5 /*{panel-header-bg-colour}*/;
-	border-color: #ddd /*{panel-header-border-colour}*/;
+	border-color: #dfdfdf /*{panel-header-border-colour}*/;
 }
 
 .productsave {
