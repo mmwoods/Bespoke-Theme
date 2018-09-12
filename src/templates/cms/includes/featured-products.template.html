@@ -6,14 +6,4 @@
     [%param footer%]
         </section>
     [%/param%]
-    [%param *ifempty%]
-        [%random_products filter_category:'' template:'' limit:'9'%]
-            [%param *header%]
-                <section class="row mb-neg-30p" aria-label="Featured Products">
-            [%/param%]
-            [%param *footer%]
-                </section>
-            [%/param%]
-        [%/random_products%]
-    [%/param%]
 [%/advert%]

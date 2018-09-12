@@ -1,4 +1,4 @@
-[%if [@page_content@]%]
+[%if [@page_content@] OR [@thumb@] OR [@img_url@]%]
     [@^section-title@]
 
     <div class="row justify-content-center">
@@ -7,10 +7,16 @@
             <div class="col-12 n-responsive-content">
                 <img src="[@thumb@]" itemprop="image" class="object-fit-400 w-100" alt="" rel="">
             </div>
+        [%elseif [@img_url@] ne ''%]
+            <div class="col-12 n-responsive-content">
+                <img src="[@img_url@]" itemprop="image" class="object-fit-400 w-100" alt="" rel="">
+            </div>
         [%/if%]
 
-        <div class="col-12">
-            <section id="homepage-content" class="n-responsive-content border border-secondary h-100 p-4 text-left" aria-label="Main description">[@page_content@]</section>
-        </div>
+        [%if [@page_content@] ne ''%]
+            <div class="col-12">
+                <section id="homepage-content" class="n-responsive-content border border-secondary h-100 p-4 text-left" aria-label="Main description">[@page_content@]</section>
+            </div>
+        [%/if%]
     </div>
 [%/if%]

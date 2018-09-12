@@ -3,7 +3,7 @@
 	[%param *header%]
 		[@^section-title@]
 
-		<div class="row sort_container">
+		<div class="row sort_container my-4">
 			<div class="col-4 col-md-7 col-lg-4">
 				<script language="javascript" type="text/javascript">
 					function viewtype(view) {
@@ -23,32 +23,27 @@
 			</div>
 			<div class="col-4 d-none d-lg-block">
 				<div class="btn-text">
-					<strong>[@total_results@]</strong> Product[%if [@total_results@] > 1%]s[%/if%]&nbsp;Found
+					<strong>[@total_results@]</strong> Product[%if [@total_results@] > 1%]s[%/if%]
 				</div>
 			</div>
 			<div class="col-8 col-md-5 col-lg-4">
 				<form method="get" action="[@config:CURRENT_URL@]">
 					<input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
 					<div class="form-row">
-						<label class="col-2 col-form-label" for="sortby">Sort</label>
-						<div class="col-10">
+						<div class="col-12">
 							<select id="sortby" name="sortby" onChange="return this.form.submit();" class="form-control" aria-label="Sort products by">
-								<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%/SORTBY%]>Most Popular</option>
-								<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%/SORTBY%]>Name</option>
-								<option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%/SORTBY%]>SKU</option>
-								<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%/SORTBY%]>Lowest Price</option>
-								<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%/SORTBY%]>Highest Price</option>
+								<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%/SORTBY%]>Sort by Most Popular</option>
+								<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%/SORTBY%]>Sort by Name</option>
+								<option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%/SORTBY%]>Sort by SKU</option>
+								<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%/SORTBY%]>Sort by Lowest Price</option>
+								<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%/SORTBY%]>Sort by Highest Price</option>
 							</select>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<hr aria-hidden="true" />
-			</div>
-		</div>
+
 		<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
 			<section class="row" aria-label="Products in category">
 	[%/param%]
