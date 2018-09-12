@@ -8282,3 +8282,23 @@ p {
   opacity: 0.6;
   -webkit-transform: scale(0.65);
           transform: scale(0.65); }
+
+.object-fit-200 {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px; }
+
+.object-fit-300 {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 300px; }
+
+.object-fit-400 {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 400px; }
+
+.object-fit-500 {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 400px; }

@@ -188,3 +188,24 @@ p {
     opacity: 0.6;
     transform: scale(0.65);
 }
+
+// Sizing
+.object-fit-200 {
+    object-fit: cover;
+    height: 200px;
+}
+
+.object-fit-300 {
+    object-fit: cover;
+    height: 300px;
+}
+
+.object-fit-400 {
+    object-fit: cover;
+    height: 400px;
+}
+
+.object-fit-500 {
+    object-fit: cover;
+    height: 400px;
+}
