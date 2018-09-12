@@ -11,9 +11,11 @@
 					<input type="hidden" name="inp-opt_in" value="y" />
 					<div class="input-group justify-content-center mb-2 px-2 px-sm-0">
 						<input name="inp-email" class="form-control col-6 col-sm-3 col-md-2" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
-						<div class="input-group-append col-6 col-sm-3 col-md-2 px-0"><input class="btn btn-success btn-block text-uppercase" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/></div>
+						<div class="input-group-append col-6 col-sm-3 col-md-2 px-0">
+							<input class="btn btn-success btn-block text-uppercase py-2" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/>
+						</div>
 					</div>
-					<div class="checkbox">
+					<div class="checkbox col-12 col-sm-6">
 						<label class="mb-0">
 							<input type="checkbox" value="y" class="terms_box" required/>
 							I have read and agree to
@@ -28,11 +30,12 @@
 			<nav class="col-12 bg-green-fill text-center py-2" aria-label="Footer menu">
 				[%menu id:'web_footer'%]
 					[%param *level_1%]
-						<ul class="nav d-block d-sm-inline-block">
+						<ul class="nav d-none d-sm-inline-block">
 							<li class="nav-item"><h4 class="nav-link m-0 text-light text-uppercase">[@name@]</h4></li>
 						</ul>
 					[%/param%]
 				[%/menu%]
+				<h4 class="d-block d-sm-none mb-0 text-uppercase text-light">Menu</h4>
 			</nav>
 			<div class="col-12">
 				<div class="row justify-content-center my-2 align-items-center">
