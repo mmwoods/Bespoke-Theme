@@ -53,15 +53,17 @@
 						[%/param%]
 					[%/menu%]
 				[%/ cache%]
-				<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
-					<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
-				</button>
-				<ul class="dropdown-menu dropdown-menu-right float-right">
-					<li class="box" id="neto-dropdown">
-						<div class="body" id="cartcontents"></div>
-						<div class="footer"></div>
-					</li>
-				</ul>
+				<div id="header-cart" class="btn-group" role="group">
+					<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
+						<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right float-right">
+						<li class="box" id="neto-dropdown">
+							<div class="body" id="cartcontents"></div>
+							<div class="footer"></div>
+						</li>
+					</ul>
+				</div>
 				<li class="wrapper-account nav-item dropdown">
 					<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="visible-lg visible-inline-lg text-success">Account</span></a>
 					<ul class="dropdown-menu bg-dark border-0">
