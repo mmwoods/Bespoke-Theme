@@ -1,7 +1,7 @@
 [%CACHE type:'gallery' id:'[@inventory_id@]'%]
 [%set [@bg-colour@] %][%if [@save@] > 0 AND ![@has_child@] %]yellow[%elseif [@inpromo@]%]red[%elseif [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]green[%elseif [@store_quantity@] < 1 %]red[%else%]black[%/if%][%/set%]
 
-<article class="col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-3 pb-30p" role="article" aria-label="Product thumbnail">
+<article class="wrapper-thumbnail-toggle col-6 col-sm-6 col-lg-4 px-0 px-sm-3 pb-3 pb-30p" role="article" aria-label="Product thumbnail">
 	<div class="card thumbnail card-body p-0" itemscope itemtype="http://schema.org/Product">
 		<meta itemprop="brand" content="[@brand@]"/>
 		<meta itemprop="mpn" content="[@sku@]"/>

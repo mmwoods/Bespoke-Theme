@@ -1,4 +1,4 @@
-<aside class="col-12 col-sm-3" id="left-sidebar">
+<aside class="col-12 col-sm-4" id="left-sidebar">
     [%IF [@page_type@] eq 'category'  OR [@page_type@] eq 'search' and [@config:show_filters@]%]
         [%CACHE type:'cmenu' id:'sidebar'%]
             [%CATEGORYMENU sortby:'sortorder,selected,name' show_empty:'1'%]
@@ -285,4 +285,4 @@
         [%/PARAM%]
     [%/MENU%]
 </aside>
-<div class="col-12 col-sm-9 float-right">
+<div id="category-content" class="col-12 col-sm-8 float-right">

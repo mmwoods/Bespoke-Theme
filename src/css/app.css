@@ -8174,7 +8174,7 @@ p {
   .mb-neg-30p {
     margin-bottom: -30px !important; } }
 
-.my-negative-5 {
+.mt-negative-5 {
   margin-top: -48px !important;
   margin-top: -48px !important;
   margin-top: -3rem !important; }
@@ -8307,3 +8307,8 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   height: 400px; }
+
+.collapseit {
+  display: none;
+  margin-left: -33.33333%;
+  /* same width as sidebar */ }

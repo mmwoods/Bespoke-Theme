@@ -51,7 +51,7 @@ p {
     }
 }
 
-.my-negative-5 {
+.mt-negative-5 {
     margin-top: -48px !important;
     margin-top: -3rem !important;
 }
@@ -213,4 +213,10 @@ p {
 .object-fit-500 {
     object-fit: cover;
     height: 400px;
+}
+
+// Sidebar
+.collapseit {
+    display: none;
+    margin-left: -33.33333%; /* same width as sidebar */
 }

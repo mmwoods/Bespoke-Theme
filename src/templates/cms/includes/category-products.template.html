@@ -33,18 +33,33 @@
 			});
 		});
 	</script>
+	<script>
+		$(document).ready(function() {
+			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-lg-6 col-lg-4");
+		});
+
+		$("#sidebarToggle").click(function(){
+			if($(this).html() == "Hide Sort") {
+				$(this).html("Show Sort");
+			} else {
+				$(this).html("Hide Sort");
+			}
+
+			$("#left-sidebar").toggleClass("collapseit");
+			$("#category-content").toggleClass("col-sm-12 col-sm-9");
+			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-lg-4 col-lg-6");
+		});
+	</script>
 [%/site_value%]
 
 <div class="row">
-	<div class="col-12 d-none d-lg-block sort_container my-4">
+	<div class="col-12">
 		[@^section-title@]
-		<div class="btn-text">
-			<h2 class="text-center text-uppercase text-secondary my-negative-5">Sort</h2>
-		</div>
+		<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mt-negative-5 mb-5">Hide Sort</h2>
 	</div>
 
 	[%load_template file:'cms/includes/sidebar.template.html'/%]
-	<!-- From Sidebar: .col-12 col-sm-9 pull-right -->
+	<!-- From Sidebar: #category-content -->
 		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
 			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 			[%param *header%]
@@ -83,5 +98,5 @@
 				</div>
 			[%/param%]
 		[%/thumb_list%]
-	</div><!-- /.col-12 col-sm-9 pull-right -->
+	</div><!-- /#category-content -->
 </div>
