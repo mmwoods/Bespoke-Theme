@@ -1,81 +1,86 @@
-[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
-	[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
-	[%param *header%]
-		[@^section-title@]
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function() {
+			// Collapse Sidebar Filters
+			$('.price-range-lg').hide();
+			$('.price-range').hide();
+			$('.filter, .sidebaritem').css('display','none');
+				var showfilters = $(this).attr('data-filtercode');
+				$('.filter-title[data-filtercode="'+showfilters+'"]').click();
+			});
 
-		<div class="row sort_container my-4">
-			<div class="col-4 col-md-7 col-lg-4">
-				<script language="javascript" type="text/javascript">
-					function viewtype(view) {
-						var f=document.viewForm;
-						f['viewby'].value=view;
-						f.submit();
-					}
-				</script>
-				<form method="get" name="viewForm" action="[@config:CURRENT_URL@]" class="hidden">
-					<input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
-					<input name="viewby" type="hidden" value=""/>
-				</form>
-				<div class="viewby btn-group">
-					<a href="javascript:viewtype('');" class="btn btn-outline-secondary [%VIEWBY type:'products' if:'ne' value:'list' if_true:'active' if_false:''%][%/VIEWBY%]" rel="nofollow" aria-label="Thumbnail view"><i class="fa fa-th"></i></a>
-					<a href="javascript:viewtype('list');" class="btn btn-outline-secondary [%VIEWBY type:'products' if:'eq' value:'list' if_true:'active' if_false:''%][%/VIEWBY%]" rel="nofollow" aria-label="List view"><i class="fa fa-th-list"></i></a>
+			// --- Setup Desktop Listeners ---
+			// Listener: Sidebar Filter
+			$('.sidebar-title').click(function(){
+				var sidebarcode = $(this).data('sidebaritem');
+				$('.sidebaritem[data-sidebaritem=' + '"' + sidebarcode + '"' + ']').slideToggle();
+				if ($("i", this).hasClass("fa-angle-down")) {
+					$("i", this).removeClass('fa-angle-down').addClass('fa-angle-up');
+				} else {
+					$("i", this).removeClass('fa-angle-up').addClass('fa-angle-down');
+				}
+			});
+
+			// Listener: Sidebar History Filter
+			$(document).on("click", ".sidebar-history", function(){
+				$(".sidebar-history-item").slideToggle();
+				if ($("i", this).hasClass("fa-angle-down")) {
+					$("i", this).removeClass('fa-angle-down').addClass('fa-angle-up');
+				} else {
+					$("i", this).removeClass('fa-angle-up').addClass('fa-angle-down');
+				}
+			});
+		});
+	</script>
+[%/site_value%]
+
+<div class="row">
+	<div class="col-12 d-none d-lg-block sort_container my-4">
+		[@^section-title@]
+		<div class="btn-text">
+			<h2 class="text-center text-uppercase text-secondary my-negative-5">Sort</h2>
+		</div>
+	</div>
+
+	[%load_template file:'cms/includes/sidebar.template.html'/%]
+	<!-- From Sidebar: .col-12 col-sm-9 pull-right -->
+		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
+			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
+			[%param *header%]
+				<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+					<section class="row" aria-label="Products in category">
+			[%/param%]
+			[%param *footer%]
+					</section>
 				</div>
-			</div>
-			<div class="col-4 d-none d-lg-block">
-				<div class="btn-text">
-					<strong>[@total_results@]</strong> Product[%if [@total_results@] > 1%]s[%/if%]
-				</div>
-			</div>
-			<div class="col-8 col-md-5 col-lg-4">
-				<form method="get" action="[@config:CURRENT_URL@]">
-					<input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
-					<div class="form-row">
+
+				[%IF [@total_results@] > [@config:thumb_limit@]%]
+					<div class="row">
 						<div class="col-12">
-							<select id="sortby" name="sortby" onChange="return this.form.submit();" class="form-control" aria-label="Sort products by">
-								<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%/SORTBY%]>Sort by Most Popular</option>
-								<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%/SORTBY%]>Sort by Name</option>
-								<option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%/SORTBY%]>Sort by SKU</option>
-								<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%/SORTBY%]>Sort by Lowest Price</option>
-								<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%/SORTBY%]>Sort by Highest Price</option>
-							</select>
+							<hr aria-hidden="true"/>
+							<nav aria-label="Page navigation">
+								<ul class="pagination justify-content-center">
+									[%paging limit:'3'%]
+										[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
+										[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+										[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
+										[%param *gonext_pages%]<li><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+										[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
+									[%/paging%]
+								</ul>
+							</nav>
+							<hr aria-hidden="true"/>
 						</div>
 					</div>
-				</form>
-			</div>
-		</div>
-
-		<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
-			<section class="row" aria-label="Products in category">
-	[%/param%]
-	[%param *footer%]
-			</section>
-		</div>
-
-		[%IF [@total_results@] > [@config:thumb_limit@]%]
-			<div class="row">
-				<div class="col-12">
-					<hr aria-hidden="true"/>
-					<nav aria-label="Page navigation">
-						<ul class="pagination justify-content-center">
-							[%paging limit:'3'%]
-								[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
-								[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-								[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
-								[%param *gonext_pages%]<li><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-								[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
-							[%/paging%]
-						</ul>
-					</nav>
-					<hr aria-hidden="true"/>
+				[%/IF%]
+			[%/param%]
+			[%param *ifempty%]
+				<div class="row">
+					<div class="col-12">
+						<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+					</div>
 				</div>
-			</div>
-		[%/IF%]
-	[%/param%]
-	[%param *ifempty%]
-		<div class="row">
-			<div class="col-12">
-				<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
-			</div>
-		</div>
-	[%/param%]
-[%/thumb_list%]
+			[%/param%]
+		[%/thumb_list%]
+	</div><!-- /.col-12 col-sm-9 pull-right -->
+</div>

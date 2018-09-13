@@ -8174,6 +8174,11 @@ p {
   .mb-neg-30p {
     margin-bottom: -30px !important; } }
 
+.my-negative-5 {
+  margin-top: -48px !important;
+  margin-top: -48px !important;
+  margin-top: -3rem !important; }
+
 .b-shadow-1 {
   -webkit-box-shadow: 0px -2px 5px rgba(51, 51, 51, .3);
           box-shadow: 0px -2px 5px rgba(51, 51, 51, .3); }
