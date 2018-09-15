@@ -129,10 +129,10 @@
 					<div class="product-wishlist">
 						[%IN_WISHLIST id:'[@SKU@]' %]
 							[%param if_true%]
-								<a class="wishlist_toggle btn btn-outline-secondary btn-lg btn-block" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="fas fa-star" aria-hidden="true"></i></span></a>
+								<a class="wishlist_toggle btn btn-secondary btn-lg btn-block" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]">Un-Wishlist</span></a>
 							[%/ param%]
 							[%param if_false%]
-								<a class="wishlist_toggle btn btn-outline-secondary btn-lg btn-block" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="far fa-star" aria-hidden="true"></i></span></a>
+								<a class="wishlist_toggle btn btn-secondary btn-lg btn-block" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]">Wishlist</span></a>
 							[%/ param%]
 						[%/ IN_WISHLIST%]
 					</div>
