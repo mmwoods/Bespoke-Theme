@@ -8157,6 +8157,9 @@ input[readonly] {
 .bg-dark .dropdown-item:active {
   background-color: #888F7F; }
 
+.h-35 {
+  height: 35px; }
+
 .h-60 {
   height: 60px; }
 
@@ -8168,6 +8171,11 @@ p {
     font-size: 18px; }
   .wrapper-hover-content h3 {
     font-size: 14px; } }
+
+@media (max-width: 767px) {
+  h1.section-title {
+    font-size: 24px;
+    font-weight: 400; } }
 
 @media (min-width: 576px) {
   .pb-30p {
@@ -8334,7 +8342,7 @@ p {
 
 @media (max-width: 768px) {
   .mob-logo img.logo {
-    max-height: 60px; } }
+    max-height: 35px; } }
 
 .navbar-side {
   height: 100%;
@@ -8347,7 +8355,7 @@ p {
   z-index: 1040;
   -webkit-transition: 300ms ease;
   transition: 300ms ease;
-  background-color: #f7f7f9; }
+  background-color: #fff; }
   .navbar-side.left {
     left: 0;
     -webkit-transform: translateX(-100%);

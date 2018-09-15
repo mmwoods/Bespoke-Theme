@@ -40,7 +40,7 @@
 							[%param *level_2%]
 								<li class="[%if [@next_level@]%] dropdown dropdown-hover [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">[@name@]</a>
 									[%if [@next_level@]%]
-										<ul class="dropdown-menu dropdown-menu-horizontal">
+										<ul class="dropdown-menu dropdown-menu-horizontal bg-dark border-0">
 											[@next_level@]
 										</ul>
 									[%/if%]
@@ -48,7 +48,7 @@
 								[%/param%]
 							[%param *level_3%]
 								<li class="[%if [@css_class@]%] [@css_class@][%/if%]">
-									<a class="dropdown-item" href="[@url@]">[@name@]</a>
+									<a class="dropdown-item text-light" href="[@url@]">[@name@]</a>
 								</li>
 							[%/param%]
 						[%/menu%]
@@ -121,7 +121,7 @@
 	<!-- Mobile Header -->
 	<div class="container-fluid wrapper-mob-header d-block d-md-none sb-1 fixed-top">
 		<div class="row align-items-center py-3">
-			<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
+			<button class="navbar-slide-toggler navbar-toggler h-35 col-2 text-center" type="button">
 				<span class="h2"><i class="fas fa-bars"></i></span>
 			</button>
 			<div class="col-8 mob-logo text-center">
@@ -130,7 +130,7 @@
 				</a>
 			</div>
 			<div class="col-2 mob-cart text-center">
-				<a class="navbar-toggler" href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping Cart">
+				<a href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping Cart">
 					<span class="h2"><i class="fas fa-shopping-cart" aria-hidden="true"></i></span>
 				</a>
 			</div>
@@ -166,7 +166,7 @@
 	<div id="mobile-menu" class="fixed-top navbar-side left">
 		<div class="container-fluid sb-1">
 			<div class="row align-items-center py-3">
-				<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
+				<button class="navbar-slide-toggler navbar-toggler h-35 col-2 text-center" type="button">
 					<span class="h2"><i class="fas fa-arrow-left"></i></span>
 				</button>
 			</div>
@@ -192,40 +192,40 @@
 								<li class="lvl-1 pt-4">
 									[%if [@next_level@]%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="collapsed mob-drop h3 text-primary">[@name@]</a>
-												<span data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop"></span>
+												<button data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop h3 text-primary border-0 mb-0 p-0 bg-white">[@name@]</button>
+												<a href="[@url@]" class="collapsed mob-drop h4 pr-3 text-success float-right">View</a>
 											</div>
-											<ul id="mob-menu-[@hierarchy@]" class="panel-collapse collapse collapse-menu">
+											<ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu w-100">
 												[@next_level@]
 											</ul>
 									[%else%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="h3 text-primary">[@name@]</a>
+												<a href="[@url@]" class="h3 text-success">[@name@]</a>
 											</div>
 									[%/if%]
 								</li>
 							[%/param%]
 							[%param *level_2%]
-								<li class="lvl-2 [%if [@next_level@]%]dropdown dropdown-hover[%/if%]">
+								<li class="lvl-2 list-group-item border-0">
 									[%if [@next_level@]%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="collapsed mob-drop">[@name@]</a>
-												<span data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop"></span>
+												<button data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop h3 text-primary border-0 mb-0 p-0 bg-white">[@name@]</button>
+												<a href="[@url@]" class="collapsed mob-drop h4 pl-3 text-success float-right">View</a>
 											</div>
-											<ul id="mob-menu-[@hierarchy@]" class="panel-collapse collapse collapse-menu">
+											<ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu">
 												[@next_level@]
 											</ul>
 									[%else%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]">[@name@]</a>
+												<a href="[@url@]" class="h3 text-success">[@name@]</a>
 											</div>
 									[%/if%]
 								</li>
 							[%/param%]
 							[%param *level_3%]
-								<li class="lvl-3">
-									<a href="[@url@]">[@name@]</a>
-								</li>
+												<li class="lvl-3 list-group-item border-0">
+													<a href="[@url@]" class="h3 text-success">[@name@]</a>
+												</li>
 							[%/param%]
 						[%/content_menu%]
 					[%/ cache%]
@@ -235,7 +235,7 @@
 	</div>
 
 	<!-- Mobile: Sticky Header Spacer -->
-	<div style="height: 92px;" class="d-block d-md-none" aria-hidden="true"></div>
+	<div style="height: 67px;" class="d-block d-md-none" aria-hidden="true"></div>
 
 	<div id="main-content" class="container mb-5 mb-sm-0 mt-3 mt-sm-30 mt-md-0" role="main">
 		<div class="row justify-content-center">

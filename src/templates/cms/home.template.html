@@ -1,14 +1,14 @@
 [%set [@menu_not_empty@] %]
 	[%menu id:'homepage-layout'%]
 		[%param *level_1%]
-			[%set [@section-title@] %][%if [@name@]%]<h1 class="text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
+			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
 			<!-- Content: [@css_class@] -->
 			[%load_template file:'cms/includes/[@css_class@].template.html'/%]
 		[%/param%]
 	[%/menu%]
 [%/set%]
 
-<div class="col-11 col-sm-12 col-md-9 text-center">
+<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
 	[%if [@menu_not_empty@] ne ''%]
 		<!-- Use Menu Layout System -->
 		[@menu_not_empty@]
