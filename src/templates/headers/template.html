@@ -12,102 +12,102 @@
 	<a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 	<!-- Desktop Header -->
-	<header class="container-fluid wrapper-header px-3 pb-3 d-none d-sm-block" aria-label="Header container">
+	<header class="container-fluid wrapper-header px-3 pb-3 d-none d-md-block" aria-label="Header Container">
 		<nav class="row navbar navbar-expand-md navbar-light bg-light mt-0 rounded-0">
-		<div class="collapse navbar-collapse" id="navbarMainMenu">
-			<form class="d-block d-md-none" name="productsearch" method="get" action="/" role="search" aria-label="Product search">
-				<input type="hidden" name="rf" value="kw"/>
-				<div class="input-group">
-					<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search-xs" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
-					<div class="input-group-append">
-						<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
-					</div>
-				</div>
-			</form>
-			<ul class="navbar-nav justify-content-center w-100 text-uppercase" role="navigation" aria-label="Main menu">
-				[%cache type:'menu' id:'header-content-menu'%]
-					[%menu id:'web_header'%]
-						[%param *level_1%]
-							<li class="nav-item [%if [@next_level@]%] dropdown [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]">
-								<a href="[@url@]" class="nav-link text-light [%if [@next_level@]%] dropdown-toggle[%/if%]" [%if [@next_level@]%]role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[%/if%]>[@name@]</a>
-								[%if [@next_level@]%]
-									<ul class="dropdown-menu bg-dark border-0">
-										[@next_level@]
-									</ul>
-								[%/if%]
-							</li>
-							[%/param%]
-						[%param *level_2%]
-							<li class="[%if [@next_level@]%] dropdown dropdown-hover [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">[@name@]</a>
-								[%if [@next_level@]%]
-									<ul class="dropdown-menu dropdown-menu-horizontal">
-										[@next_level@]
-									</ul>
-								[%/if%]
-							</li>
-							[%/param%]
-						[%param *level_3%]
-							<li class="[%if [@css_class@]%] [@css_class@][%/if%]">
-								<a class="dropdown-item" href="[@url@]">[@name@]</a>
-							</li>
-						[%/param%]
-					[%/menu%]
-				[%/ cache%]
-				<div id="header-cart" class="btn-group" role="group">
-					<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
-						<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right float-right">
-						<li class="box" id="neto-dropdown">
-							<div class="body" id="cartcontents"></div>
-							<div class="footer"></div>
-						</li>
-					</ul>
-				</div>
-				<li class="wrapper-account nav-item dropdown">
-					<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="visible-lg visible-inline-lg text-success">Account</span></a>
-					<ul class="dropdown-menu bg-dark border-0">
-						<li><a class="dropdown-item text-light" href="[%url page:'account'/%]">Account Home</a></li>
-						<li><a class="dropdown-item text-light" href="[%url page:'account'/%]#orders">Orders</a></li>
-						[%if [@config:allow_user_quote@]%]
-							<li><a class="dropdown-item text-light" href="[%url page:'account'/%]#quotes">Quotes</a></li>
-						[%/ if%]
-							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'payrec'/%]">Pay Invoices</a></li>
-						<li><a class="dropdown-item text-light" href="[%url page:'account' type:'favourites'/%]">Reorder</a></li>
-						[%if [@config:show_wishlist@]%]
-							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'wishlist'/%]">Wishlists</a></li>
-						[%/if%]
-						<li><a class="dropdown-item text-light" href="[%url page:'account' type:'warranty'/%]">Resolution Centre</a></li>
-						<li><a class="dropdown-item text-light" href="[%url page:'account' type:'edit_account'/%]">Edit My Details</a></li>
-						<li><a class="dropdown-item text-light" href="[%url page:'account' type:'edit_address'/%]">Edit My Address Book</a></li>
-						<li class="divider"><div class="dropdown-divider"></div></li>
-						[%if [@user:username@]%]
-							<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'edit_pwd'/%]"><i class="fa fa-lock"></i> Change My Password</a> </li>
-							<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'logout'/%]"><i class="fa fa-power-off"></i> Log Out</a> </li>
-						[%else%]
-							<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'login'/%]" title="Login">Login</a> </li>
-							<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'register'/%]" title="Register">Register</a> </li>
-						[%/if%]
-					</ul>
-				</li>
-				<li class="wrapper-account nav-item dropdown">
-					<a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Search dropdown"><span class="visible-lg visible-inline-lg text-success">Search</span></a>
-					<ul class="dropdown-menu">
-						<div class="header-search pt-2 pt-md-0">
-							<form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
-								<input type="hidden" name="rf" value="kw"/>
-								<div class="input-group">
-									<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
-									<div class="input-group-append">
-										<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
-									</div>
-								</div>
-							</form>
+			<div class="collapse navbar-collapse" id="navbarMainMenu">
+				<form class="d-block d-md-none" name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+					<input type="hidden" name="rf" value="kw"/>
+					<div class="input-group">
+						<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search-xs" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+						<div class="input-group-append">
+							<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</div>
-					</ul>
-				</li>
-			</ul>
-		</div>
+					</div>
+				</form>
+				<ul class="navbar-nav justify-content-center w-100 text-uppercase" role="navigation" aria-label="Main menu">
+					[%cache type:'menu' id:'header-content-menu'%]
+						[%menu id:'web_header'%]
+							[%param *level_1%]
+								<li class="nav-item [%if [@next_level@]%] dropdown [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]">
+									<a href="[@url@]" class="nav-link text-light [%if [@next_level@]%] dropdown-toggle[%/if%]" [%if [@next_level@]%]role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[%/if%]>[@name@]</a>
+									[%if [@next_level@]%]
+										<ul class="dropdown-menu bg-dark border-0">
+											[@next_level@]
+										</ul>
+									[%/if%]
+								</li>
+								[%/param%]
+							[%param *level_2%]
+								<li class="[%if [@next_level@]%] dropdown dropdown-hover [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">[@name@]</a>
+									[%if [@next_level@]%]
+										<ul class="dropdown-menu dropdown-menu-horizontal">
+											[@next_level@]
+										</ul>
+									[%/if%]
+								</li>
+								[%/param%]
+							[%param *level_3%]
+								<li class="[%if [@css_class@]%] [@css_class@][%/if%]">
+									<a class="dropdown-item" href="[@url@]">[@name@]</a>
+								</li>
+							[%/param%]
+						[%/menu%]
+					[%/ cache%]
+					<div id="header-cart" class="btn-group" role="group">
+						<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
+							<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right float-right">
+							<li class="box" id="neto-dropdown">
+								<div class="body" id="cartcontents"></div>
+								<div class="footer"></div>
+							</li>
+						</ul>
+					</div>
+					<li class="wrapper-account nav-item dropdown">
+						<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="visible-lg visible-inline-lg text-success">Account</span></a>
+						<ul class="dropdown-menu bg-dark border-0">
+							<li><a class="dropdown-item text-light" href="[%url page:'account'/%]">Account Home</a></li>
+							<li><a class="dropdown-item text-light" href="[%url page:'account'/%]#orders">Orders</a></li>
+							[%if [@config:allow_user_quote@]%]
+								<li><a class="dropdown-item text-light" href="[%url page:'account'/%]#quotes">Quotes</a></li>
+							[%/ if%]
+								<li><a class="dropdown-item text-light" href="[%url page:'account' type:'payrec'/%]">Pay Invoices</a></li>
+							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'favourites'/%]">Reorder</a></li>
+							[%if [@config:show_wishlist@]%]
+								<li><a class="dropdown-item text-light" href="[%url page:'account' type:'wishlist'/%]">Wishlists</a></li>
+							[%/if%]
+							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'warranty'/%]">Resolution Centre</a></li>
+							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'edit_account'/%]">Edit My Details</a></li>
+							<li><a class="dropdown-item text-light" href="[%url page:'account' type:'edit_address'/%]">Edit My Address Book</a></li>
+							<li class="divider"><div class="dropdown-divider"></div></li>
+							[%if [@user:username@]%]
+								<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'edit_pwd'/%]"><i class="fa fa-lock"></i> Change My Password</a> </li>
+								<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'logout'/%]"><i class="fa fa-power-off"></i> Log Out</a> </li>
+							[%else%]
+								<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'login'/%]" title="Login">Login</a> </li>
+								<li> <a class="dropdown-item text-light" href="[%url page:'account' type:'register'/%]" title="Register">Register</a> </li>
+							[%/if%]
+						</ul>
+					</li>
+					<li class="wrapper-account nav-item dropdown">
+						<a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Search dropdown"><span class="visible-lg visible-inline-lg text-success">Search</span></a>
+						<ul class="dropdown-menu">
+							<div class="header-search pt-2 pt-md-0">
+								<form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+									<input type="hidden" name="rf" value="kw"/>
+									<div class="input-group">
+										<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+										<div class="input-group-append">
+											<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</nav>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-9 text-center wrapper-logo my-30p">
@@ -118,39 +118,62 @@
 		</div>
 	</header>
 
-	<!-- MOBILE -->
-	<div class="wrapper-mob-header d-block d-sm-none">
-		<div class="bg-black-fill py-3">
-			<span class="mob-menu pl-3" onclick="openNav()">
-				<span class="text-white h2 mb-0"><i class="fa fa-bars"></i></span>
-			</span>
-		</div>
-		<div class="mob-logo m-4">
-			<a href="[@config:homeurl@]" title="[@config:company_name@]">
-				<img class="logo" src="[@config:imageurl@]/website_logo.png" alt="[@config:company_name@]"/>
-			</a>
+	<!-- Mobile Header -->
+	<div class="container-fluid wrapper-mob-header d-block d-md-none sb-1">
+		<div class="row align-items-center py-3">
+			<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
+				<span class="h2"><i class="fas fa-bars"></i></span>
+			</button>
+			<div class="col-8 mob-logo text-center">
+				<a href="[@config:homeurl@]" title="[@config:company_name@]">
+					<img class="logo" src="[@config:imageurl@]/website_logo.png" alt="[@config:company_name@]"/>
+				</a>
+			</div>
+			<div class="col-2 mob-cart text-center">
+				<a class="navbar-toggler" href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping Cart">
+					<span class="h2"><i class="fas fa-shopping-cart" aria-hidden="true"></i></span>
+				</a>
+			</div>
 		</div>
 	</div>
 
 	<!-- Mobile Menu Script -->
 	[%SITE_VALUE id:'footer_javascript'%]
 		<script type="text/javascript">
-		function openNav() {
-				document.getElementById("mobile-menu").style.right = "0%";
-				$('body').addClass('active');
-		}
-		function closeNav() {
-				document.getElementById("mobile-menu").style.right = "-80%";
-				$('body').removeClass('active');
-		}
+			$('.navbar-slide-toggler').on('click', function() {
+				$('#mobile-menu').toggleClass('reveal');
+				$('.overlay').toggle();
+			});
+
+			function hideMenu(){
+				$('#mobile-menu').removeClass('reveal');
+				$('.overlay').hide();
+			}
+
+			$('.overlay').on('click', function(){
+				hideMenu();
+			});
+
+			// $(window).on('load resize orientationchange', function() {
+			// 	hideMenu();
+			// });
 		</script>
 	[%END SITE_VALUE%]
 
-	<!-- Mobile Header -->
-	<div id="mobile-menu" class="d-none">
-		<div class="content-inner">
+	<!-- Mobile Menu -->
+	<div class="overlay"></div>
+
+	<div id="mobile-menu" class="navbar-side left">
+		<div class="container-fluid sb-1">
+			<div class="row align-items-center py-3">
+				<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
+					<span class="h2"><i class="fas fa-arrow-left"></i></span>
+				</button>
+			</div>
+		</div>
+		<div class="container">
 			<!-- Cart & Account -->
-			<div class="account-btn">
+			<div class="account-btn hidden">
 				<a href="[%url page:'checkout' type:'cart'/%]" class="btn btn-primary" aria-label="Shopping cart">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					<span>Cart</span><span class="cart-count" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span>
@@ -158,7 +181,7 @@
 				<a href="[%url page:'account'/%]" class="btn btn-default" aria-label="Account">
 					<i class="fa fa-user"></i> [%if [@user:username@] ne 'noreg'%]My Account[%else%]Login / Register[%/if%]
 				</a>
-				<a href="javascript:void(0)" class="closebtn visible-xs" onclick="closeNav()"><i class="fa fa-times"></i></a>
+				<a href="javascript:void(0)" class="closebtn visible-xs"><i class="fa fa-times"></i></a>
 			</div>
 
 			<div class="navbar-collapse navbar-responsive-collapse">
@@ -166,10 +189,10 @@
 					[%cache type:'menu' id:'mobile_static_menu'%]
 						[%menu id:'web_header'%]
 							[%param *level_1%]
-								<li class="lvl-1">
+								<li class="lvl-1 pt-4">
 									[%if [@next_level@]%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="collapsed mob-drop">[@name@]</a>
+												<a href="[@url@]" class="collapsed mob-drop h3 text-primary">[@name@]</a>
 												<span data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop"></span>
 											</div>
 											<ul id="mob-menu-[@hierarchy@]" class="panel-collapse collapse collapse-menu">
@@ -177,7 +200,7 @@
 											</ul>
 									[%else%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]">[@name@]</a>
+												<a href="[@url@]" class="h3 text-primary">[@name@]</a>
 											</div>
 									[%/if%]
 								</li>
@@ -211,5 +234,5 @@
 		</div>
 	</div>
 
-	<div id="main-content" class="container mb-5 mb-sm-0" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 mt-3 mt-sm-30 mt-md-0" role="main">
 		<div class="row justify-content-center">
