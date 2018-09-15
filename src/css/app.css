@@ -8344,7 +8344,7 @@ p {
   padding: 0;
   list-style: none;
   overflow-y: scroll;
-  z-index: 1000;
+  z-index: 1040;
   -webkit-transition: 300ms ease;
   transition: 300ms ease;
   background-color: #f7f7f9; }
@@ -8369,5 +8369,5 @@ p {
   bottom: 0;
   cursor: pointer;
   opacity: 0.6;
-  z-index: 990;
+  z-index: 1030;
   background-color: #ccc; }

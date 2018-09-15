@@ -119,7 +119,7 @@
 	</header>
 
 	<!-- Mobile Header -->
-	<div class="container-fluid wrapper-mob-header d-block d-md-none sb-1">
+	<div class="container-fluid wrapper-mob-header d-block d-md-none sb-1 fixed-top">
 		<div class="row align-items-center py-3">
 			<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
 				<span class="h2"><i class="fas fa-bars"></i></span>
@@ -163,7 +163,7 @@
 	<!-- Mobile Menu -->
 	<div class="overlay"></div>
 
-	<div id="mobile-menu" class="navbar-side left">
+	<div id="mobile-menu" class="fixed-top navbar-side left">
 		<div class="container-fluid sb-1">
 			<div class="row align-items-center py-3">
 				<button class="navbar-slide-toggler navbar-toggler h-60 col-2 text-center" type="button">
@@ -233,6 +233,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Mobile: Sticky Header Spacer -->
+	<div style="height: 92px;" class="d-block d-md-none" aria-hidden="true"></div>
 
 	<div id="main-content" class="container mb-5 mb-sm-0 mt-3 mt-sm-30 mt-md-0" role="main">
 		<div class="row justify-content-center">
