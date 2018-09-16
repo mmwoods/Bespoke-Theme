@@ -354,6 +354,10 @@ fieldset[disabled] .btn-info.active {
 	background-color: #373842 /*{navbar-default-bg-colour}*/ !important;
 }
 
+.wrapper-header .wrapper-search-bar {
+	background-color: #373842 /*{search-default-bg-colour}*/ !important;
+}
+
 .wrapper-header .navbar .navbar-nav .nav-link {
 	color: #696969 /*{navbar-default-link-colour}*/;
 }
