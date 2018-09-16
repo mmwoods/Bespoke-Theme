@@ -2,8 +2,8 @@
 </div>
 <footer class="wrapper-footer mt-6 border-top border-secondary">
 	<div class="container-fluid">
-		<div class="justify-content-center py-4">
-			[%if [@config:show_newsletter_subscribe@]%]
+		[%if [@config:show_newsletter_subscribe@]%]
+			<div class="justify-content-center pt-4 pb-2 pb-md-2">
 				<form class="row justify-content-center" method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
 					<input type="hidden" name="list_id" value="1">
 					<input type="hidden" name="opt_in" value="y">
@@ -24,22 +24,21 @@
 						</label>
 					</div>
 				</form>
-			[%/if%]
-		</div>
+			</div>
+		[%/if%]
 		<div class="row">
-			<nav class="col-12 bg-green-fill text-center py-2" aria-label="Footer menu">
+			<nav class="col-12 bg-green-fill text-center py-2 d-none d-md-inline-block" aria-label="Footer menu">
 				[%menu id:'web_footer'%]
 					[%param *level_1%]
-						<ul class="nav d-none d-sm-inline-block">
+						<ul class="nav d-none d-md-inline-block">
 							<li class="nav-item"><h4 class="nav-link m-0 text-light text-uppercase">[@name@]</h4></li>
 						</ul>
 					[%/param%]
 				[%/menu%]
-				<h4 class="d-block d-sm-none mb-0 text-uppercase text-light">Menu</h4>
 			</nav>
 			<div class="col-12">
 				<div class="row justify-content-center my-2 align-items-center">
-					<div class="col-12 col-sm-5 text-right d-none d-sm-block">
+					<div class="col-12 col-sm-5 text-right d-none d-md-block">
 						[%checkout_pay_icons show_icon:'1' ignore_balance:'1'%]
 							[%param header%]
 								<ul class="list-inline d-flex flex-wrap flex-row-reverse mb-0" role="contentinfo" aria-label="Accepted payment methods">
@@ -56,12 +55,12 @@
 							[%/param%]
 						[%/checkout_pay_icons%]
 					</div>
-					<div class="col-12 col-sm-2 text-center d-none d-sm-block">
+					<div class="col-12 col-sm-2 text-center d-none d-md-block">
 						<a href="[@config:homeurl@]" title="[@config:company_name@]">
 							<img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/>
 						</a>
 					</div>
-					<div class="col-12 col-sm-5 text-left">
+					<div class="col-12 col-md-5 text-left">
 						<ul class="nav list-social justify-content-center justify-content-md-start" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
 							<meta itemprop="url" content="[@config:home_url@]"/>
 							<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
