@@ -1,0 +1,13 @@
+<div class="advert-usp col-12 col-sm-12 col-lg-4 pb-30p px-0 px-sm-3">
+    <div class="advert-usp-content p-4 p-sm-3 p-lg-5 border">
+        [%if [@linktext@]%]
+            <div class="advert-usp-icon mb-4">
+                <span class="h1 text-success"><i class="fas [%format type:'text' nohtml:'1' trim:'LE2R' wordlength:'27'%][@linktext@][%/format%]"></i></span>
+            </div>
+        [%/if%]
+        <a href="[@URL@]">
+            [%if [@headline@]%]<h2 class="text-success mb-4">[@headline@]</h2>[%/if%]
+            [%if [@description@]%]<h4 class="text-primary">[@description@]</h4>[%/if%]
+        </a>
+    </div>
+</div>
