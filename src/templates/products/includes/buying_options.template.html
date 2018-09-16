@@ -6,6 +6,10 @@
 		<p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
 			[@short_description@]
 		</p>
+	[%ELSE%]
+		<div class="description-compress text-left mb-4" itemprop="description" aria-label="Product Short Description">
+			[@description@]
+		</div>
 	[%/ IF%]
 	[%multilevelpricing id:'[@SKU@]'%]
 		[%param *header%]
@@ -96,14 +100,15 @@
 	[%/ extra_options%]
 
 	[%data id:'multiplier_qty' if:'ne' value:'0' %]
-	Order In Lots Of <strong>[@multiplier_qty@]</strong>
+		Order In Lots Of <strong>[@multiplier_qty@]</strong>
 	[%end data%]
 	[%data id:'min_qty' if:'ne' value:'0' %]
-	Minimum Order Quantity <strong>[@min_qty@]</strong>
+		Minimum Order Quantity <strong>[@min_qty@]</strong>
 	[%end data%]
 	[%data id:'max_qty' if:'ne' value:'0' %]
-	Maximum Order Quantity <strong>[@max_qty@]</strong>
+		Maximum Order Quantity <strong>[@max_qty@]</strong>
 	[%end data%]
+
 	<form class="buying-options" autocomplete="off" role="form" aria-label="Product purchase form">
 		<input type="hidden" id="model[@rndm@][@SKU@]" name="model" value="[@model@]">
 		<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb" value="[@thumb@]">
@@ -115,13 +120,13 @@
 			</div>
 			<div class="col-12 col-md-4">
 				[%IF [@store_quantity@] > 0 AND [@preorder@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Pre-Order Now</button>
+					<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Pre-Order</button>
 				[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-success btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Add to Cart</button>
+					<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-success btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Add to Cart</button>
 				[%ELSEIF [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-				<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Backorder</button>
+					<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Backorder</button>
 				[%ELSE%]
-				<a href title="Notify Me When [@model@] Is Back In Stock" class="btn btn-info btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" data-toggle="modal" data-target="#notifymodal">Notify Me</a>
+					<a href title="Notify Me When [@model@] Is Back In Stock" class="btn btn-info btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" data-toggle="modal" data-target="#notifymodal">Notify Me</a>
 				[%/ IF%]
 			</div>
 			[%if [@config:show_wishlist@]%]
@@ -129,10 +134,10 @@
 					<div class="product-wishlist">
 						[%IN_WISHLIST id:'[@SKU@]' %]
 							[%param if_true%]
-								<a class="wishlist_toggle btn btn-secondary btn-lg btn-block" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]">Un-Wishlist</span></a>
+								<a class="wishlist_toggle btn btn-primary btn-lg btn-block text-uppercase" href role="button" title="Remove From Wishlist" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]">Un-Wishlist</span></a>
 							[%/ param%]
 							[%param if_false%]
-								<a class="wishlist_toggle btn btn-secondary btn-lg btn-block" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]">Wishlist</span></a>
+								<a class="wishlist_toggle btn btn-primary btn-lg btn-block text-uppercase" href role="button" title="Add To Wishlist" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]">Wishlist</span></a>
 							[%/ param%]
 						[%/ IN_WISHLIST%]
 					</div>

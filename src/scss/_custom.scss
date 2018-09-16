@@ -1,3 +1,9 @@
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 // Background Colours
 $bg-black: rgba(51, 51, 51, 0.6);
 $bg-red: rgba(174, 21, 21, 0.4);
@@ -186,6 +192,21 @@ p {
     display: none;
 }
 
+#collapseExample.show {
+    opacity: 1;
+    visibility: visible;
+    transition: 1s all;
+}
+
+#collapseExample {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.wrapper-header .header-search .ajax_search {
+    background-color: $bg-black-fill;
+}
+
 // Product Thumnails
 .thumbnail {
     &:hover .hover-overlay {
@@ -233,6 +254,13 @@ p {
 }
 
 // Product Page
+.description-compress p {
+    display: none;
+}
+.description-compress p:first-of-type {
+    display: unset;
+}
+
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
     background-color: #888F7F;
@@ -286,7 +314,7 @@ p {
     list-style: none;
     overflow-y: scroll;
     z-index: 1040;
-    transition: 300ms ease;
+    transition: 600ms ease;
     background-color: #fff;
 
     &.left {

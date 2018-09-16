@@ -13,7 +13,7 @@
 
 	<!-- Desktop Header -->
 	<header class="container-fluid wrapper-header px-3 pb-3 d-none d-md-block" aria-label="Header Container">
-		<nav class="row navbar navbar-expand-md navbar-light mt-0 rounded-0">
+		<nav class="wrapper-desktop-nav row navbar navbar-expand-md navbar-light mt-0 rounded-0">
 			<div class="collapse navbar-collapse" id="navbarMainMenu">
 				<ul class="navbar-nav justify-content-center w-100 text-uppercase" role="navigation" aria-label="Main menu">
 					[%cache type:'menu' id:'header-content-menu'%]
@@ -82,23 +82,43 @@
 						</ul>
 					</li>
 					<li class="nav-item">
-						<a class="wrapper-search-bar nav-link row p-0" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown"><span class="text-success">Search</span>
+						<a class="wrapper-search-bar nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown">
+							<span class="text-success">Search</span>
+						</a>
 					</li>
+					<a class="wrapper-search-bar nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown" style="display: none;">
+						<span class="text-success">Close</span>
+					</a>
 				</ul>
 			</div>
 		</nav>
-		<div class="col-8 m-auto collapse" id="collapseExample">
-			<div class="card card-body p-0">
-				<div class="header-search pt-2 pt-md-0">
-					<form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
-						<input type="hidden" name="rf" value="kw"/>
-						<div class="input-group">
-							<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
-							<div class="input-group-append">
-								<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
+		[%site_value id:'footer_javascript'%]
+			<script>
+				$(".wrapper-search-bar").click(function(){
+					$('.wrapper-search-bar').toggle();
+
+					if($(this).html() == "Search") {
+						$('.collapse .ajax_search').focus();
+					} else {
+						$('.collapse .ajax_search').blur();
+					}
+				});
+			</script>
+		[%/site_value%]
+		<div class="row bg-black-fill">
+			<div class="col-6 m-auto collapse" id="collapseExample">
+				<div class="card card-body p-0 border-0">
+					<div class="header-search pt-2 pt-md-0">
+						<form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+							<input type="hidden" name="rf" value="kw"/>
+							<div class="input-group">
+								<input class="form-control ajax_search border-0 bg-black-fill text-white py-2" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+								<div class="input-group-append">
+									<button type="submit" value="Search" class="btn bg-black-fill text-white" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
