@@ -334,8 +334,9 @@ fieldset[disabled] .btn-info.active {
 	background-color: #dc3545 /*{label-danger-bg}*/;
 }
 
-.card {
-	border-color: #dfdfdf /*{panel-border-colour}*/;
+.card,
+.br-sm-1 {
+	border-color: #dfdfdf /*{panel-border-colour}*/ !important;
 }
 .card-header {
 	background-color: #f5f5f5 /*{panel-header-bg-colour}*/;
