@@ -1,49 +1,9 @@
-<aside class="col-12 col-sm-4" id="left-sidebar">
+<aside class="col-12 col-sm-4 [%if [@config:current_page_type@] eq 'category'%]sidebar-collapsed[%/if%]" id="left-sidebar">
     [%IF [@page_type@] eq 'category'  OR [@page_type@] eq 'search' and [@config:show_filters@]%]
-        [%CACHE type:'cmenu' id:'sidebar'%]
-            [%CATEGORYMENU sortby:'sortorder,selected,name' show_empty:'1'%]
-                [%PARAM header%]
-                    <div class="panel panel-default hidden-xs">
-                        <div class="panel-heading">
-                            <h3 class="panel-title sidebar-title text-left" data-sidebaritem="category-menu"><i class="fa fa-angle-down float-right"></i> Categories</h3>
-                        </div>
-                        <ul class="list-group" role="navigation" aria-label="Category Menu">
-                        [%/PARAM%]
-                        [%PARAM *level_1%]
-                            <li class="sidebaritem [%DATA id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%/DATA%]" data-sidebaritem="category-menu"><a href="[@url@]" class="list-group-item dropdown-toggle" role="link">[@name@]</a>
-                                [%DATA id:'next_level' if:'ne' value:''%]
-                                    <ul class="dropdown-menu dropdown-menu-horizontal">
-                                        [@next_level@]
-                                    </ul>
-                                [%/DATA%]
-                            </li>
-                        [%/PARAM%]
-                        [%PARAM *level_2%]
-                            <li class="[%DATA id:'next_level' if:'ne' value:''%]dropdown dropdown-hover[%/DATA%]">
-                                <a href="[@url@]" role="link">[@name@]</a>
-                                [%DATA id:'next_level' if:'ne' value:''%]
-                                    <ul class="dropdown-menu dropdown-menu-horizontal">
-                                        [@next_level@]
-                                    </ul>
-                                [%/DATA%]
-                            </li>
-                        [%/PARAM%]
-                        [%PARAM *level_3%]
-                            <li class="lv3-li">
-                                <a href="[@url@]" role="link">[@name@]</a>
-                            </li>
-                        [%/PARAM%]
-                        [%PARAM footer%]
-                        </ul>
-                    </div>
-                [%/PARAM%]
-            [%/CATEGORYMENU%]
-        [%/CACHE%]
-
-        <div class="wrapper-sortby">
+        <div class="wrapper-sortby pb-4">
             <form method="get" class="form-horizontal" action="[@config:CURRENT_URL@]">
                 <input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
-                <div class="form-group">
+                <div class="form-group mb-0">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title sidebar-title text-left" data-sidebaritem="sortby-dropdown"><i class="fa fa-angle-down float-right"></i> Sort Products</h3>
@@ -64,27 +24,29 @@
             </form>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default pb-4">
             <div class="panel-heading panel-heading-thumbnails">
                 <h3 class="panel-title sidebar-title text-left" data-sidebaritem="filter-section">
                     <span><i class="fa fa-angle-down float-right"></i> Filter Products</span>
                 </h3>
             </div>
-            <ul id="filters-list" class="panel-collapse collapse list-group sidebaritem" data-sidebaritem="filter-section" role="group">
+            <ul id="filters-list" class="panel-collapse collapse list-group sidebaritem pl-3" data-sidebaritem="filter-section" role="group">
                 [%PRODUCT_FILTER type:'variations' autohide:'0' sortoption:'sortorder'%]
                     [%PARAM *header%]
-                        <li class="list-group-item sidebar-title" data-sidebaritem="[@specific_id@]"><h4><i class="fa fa-angle-down float-right"></i>[@filter_name@]</h4></li>
+                        <li class="list-group-item px-0 border-0 text-left sidebar-title" data-sidebaritem="[@specific_id@]">
+                            <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i>[@filter_name@]</h4>
+                        </li>
                     [%/PARAM%]
                     [%PARAM *body%]
                         [%data id:'selected' if:'==' value:'1'%]
                             [%param *if_true%]
-                                <li class="filter-remove filter sidebaritem" data-sidebaritem="[@specific_id@]"><a href="[@remove_single_url@]" class="list-group-item" rel="nofollow">
+                                <li class="filter-remove filter sidebaritem" data-sidebaritem="[@specific_id@]"><a href="[@remove_single_url@]" class="list-group-item px-0 border-0 text-left" rel="nofollow">
                                     [@name@] <span class="text-muted"></span></a>
                                 </li>
                             [%/param%]
                             [%param *if_false%]
                                 <li class="filter sidebaritem" data-sidebaritem="[@specific_id@]">
-                                    <a class="list-group-item" href="[@url@]"> [@name@] <span class="text-muted"></span></a>
+                                    <a class="list-group-item px-0 border-0 text-left" href="[@url@]"> [@name@] <span class="text-muted"></span></a>
                                 </li>
                             [%/param%]
                         [%/data%]
@@ -92,20 +54,20 @@
                 [%/PRODUCT_FILTER%]
                 [%PRODUCT_FILTER type:'category' limit:'100' autohide:'0' filter_parent_content:'1'%]
                     [%PARAM header%]
-                        <li class="list-group-item sidebar-title" data-sidebaritem="category">
-                            <h4><i class="fa fa-angle-down float-right"></i> Category</h4>
+                        <li class="list-group-item px-0 border-0 text-left sidebar-title" data-sidebaritem="category">
+                            <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i> Category</h4>
                         </li>
                     [%/PARAM%]
                     [%PARAM *body%]
                         [%DATA id:'selected' if:'==' value:'1'%]
                             [%PARAM *if_true%]
-                            <li class="filter-remove" data-sidebaritem="category"><a href="[@remove_url@]" class="list-group-item" rel="nofollow">
+                            <li class="filter-remove" data-sidebaritem="category"><a href="[@remove_url@]" class="list-group-item px-0 border-0 text-left" rel="nofollow">
                             [@name@] <span class="text-muted">([@total@])</span></a>
                             </li>
                             [%/PARAM%]
                             [%PARAM *if_false%]
                                 <li class="filter sidebaritem" data-sidebaritem="category">
-                                <a href="[@url@]" class="list-group-item" role="link">[@name@] <span class="text-muted">([@total@])</span></a>
+                                <a href="[@url@]" class="list-group-item px-0 border-0 text-left" role="link">[@name@] <span class="text-muted">([@total@])</span></a>
                                 </li>
                             [%/PARAM%]
                         [%/DATA%]
@@ -113,46 +75,48 @@
                 [%/PRODUCT_FILTER%]
                 [%product_filter type:'instock' autohide:'0'%]
                     [%param header%]
-                        <li class="list-group-item sidebar-title" data-sidebaritem="stock">
-                            <h4><i class="fa fa-angle-down float-right"></i> Stock</h4>
+                        <li class="list-group-item px-0 border-0 text-left sidebar-title sidebar-title" data-sidebaritem="stock">
+                            <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i> Stock</h4>
                         </li>
                     [%/param%]
                     [%param *body%]
                         [%if [@selected@]%]
                             <li class="filter-remove" data-sidebaritem="stock">
-                                <a href="[@remove_url@]" class="list-group-item" rel="nofollow" role="link">In Stock <span class="text-muted">([@total@])</span></a>
+                                <a href="[@remove_url@]" class="list-group-item px-0 border-0 text-left sidebar-title" rel="nofollow" role="link">In Stock <span class="text-muted">([@total@])</span></a>
                             </li>
                         [%else%]
                             <li class="filter sidebaritem" data-sidebaritem="stock">
-                                <a href="[@url@]" class="list-group-item" role="link">In Stock <span class="text-muted">([@total@])</span></a>
+                                <a href="[@url@]" class="list-group-item px-0 border-0 text-left sidebar-title" role="link">In Stock <span class="text-muted">([@total@])</span></a>
                             </li>
                         [%/if%]
                     [%/param%]
                 [%/product_filter%]
                     [%PRODUCT_FILTER type:'price' limit:'6'%]
                         [%PARAM header%]
-                            <li class="list-group-item hidden-md hidden-lg sidebar-title" data-sidebaritem="price"><h4><i class="fa fa-angle-down float-right"></i> Price</h4></li>
+                            <li class="list-group-item px-0 border-0 text-left sidebar-title d-md-none sidebar-title" data-sidebaritem="price">
+                                <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i> Price</h4>
+                            </li>
                         [%/PARAM%]
                         [%PARAM *body%]
                             [%DATA id:'selected' if:'==' value:'1'%]
                                 [%PARAM *if_true%]
-                                    <li class="filter-remove hidden-md hidden-lg price-range sidebaritem" data-sidebaritem="price"><a href="[@remove_url@]" class="list-group-item" rel="nofollow" role="link">
+                                    <li class="filter-remove d-md-none price-range sidebaritem" data-sidebaritem="price"><a href="[@remove_url@]" class="list-group-item px-0 border-0 text-left sidebar-title" rel="nofollow" role="link">
                                         [@name@] <span class="text-muted">([@total@])</span></a>
                                     </li>
                                 [%/PARAM%]
                                 [%PARAM *if_false%]
                                     [%DATA id:'min' if:'=' value:'0'%]
                                         [%DATA id:'max' if:'>' value:'0'%]
-                                            <li class="filter hidden-md hidden-lg price-range sidebaritem" data-sidebaritem="price"><a class="list-group-item" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%] or below</a></li>
+                                            <li class="filter d-md-none price-range sidebaritem" data-sidebaritem="price"><a class="list-group-item px-0 border-0 text-left sidebar-title" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%] or below</a></li>
                                         [%/DATA%]
                                     [%/DATA%]
                                     [%DATA id:'min' if:'>' value:'0'%]
                                         [%DATA id:'max' if:'>' value:'0'%]
-                                            <li class="filter hidden-md hidden-l price-range sidebaritem"  data-sidebaritem="price"><a class="list-group-item" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] to [%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%]</a></li>
+                                            <li class="filter d-md-none price-range sidebaritem"  data-sidebaritem="price"><a class="list-group-item px-0 border-0 text-left sidebar-title" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] to [%FORMAT type:'currency' dp:'0'%][@max@][%/FORMAT%]</a></li>
                                         [%/DATA%]
                                     [%/DATA%]
                                     [%DATA id:'max' if:'=' value:'0'%]
-                                        <li class="filter hidden-md hidden-lg price-range sidebaritem" data-sidebaritem="price"><a class="list-group-item" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] or above</a></li>
+                                        <li class="filter d-md-none price-range sidebaritem" data-sidebaritem="price"><a class="list-group-item px-0 border-0 text-left sidebar-title" href="[@url@]" role="link">[%FORMAT type:'currency' dp:'0'%][@min@][%/FORMAT%] or above</a></li>
                                     [%/DATA%]
                                 [%/PARAM%]
                             [%/DATA%]
@@ -160,7 +124,9 @@
                     [%/PRODUCT_FILTER%]
                     [%PRODUCT_FILTER type:'price' limit:'1'%]
                         [%PARAM header%]
-                            <li class="list-group-item hidden-sm hidden-xs sidebar-title" data-sidebaritem="price-lg"><h4><i class="fa fa-angle-down float-right"></i> Price</h4></li>
+                            <li class="list-group-item px-0 border-0 text-left sidebar-title d-none d-md-block sidebar-title" data-sidebaritem="price-lg">
+                                <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i> Price</h4>
+                            </li>
                         [%/PARAM%]
                         [%PARAM *body%]
                             [%SITE_VALUE id:'footer_javascript'%]
@@ -194,7 +160,7 @@
                                     });
                                 </script>
                             [%/SITE_VALUE%]
-                            <li class="list-group-item hidden-sm hidden-xs price-range-lg sidebaritem" data-sidebaritem="price-lg">
+                            <li class="list-group-item px-0 border-0 text-left sidebar-title d-none d-md-block price-range-lg sidebaritem" data-sidebaritem="price-lg">
                                 [%DATA id:'selected' if:'==' value:'1'%]
                                     [%PARAM *if_true%]
                                         <p id="price-range-text" class="price_range text-center"></p>
@@ -215,17 +181,19 @@
                     [%/PRODUCT_FILTER%]
                     [%PRODUCT_FILTER type:'brand' autohide:'0'%]
                         [%PARAM header%]
-                            <li class="list-group-item sidebar-title" data-sidebaritem="brand"><h4><i class="fa fa-angle-down float-right"></i> Brand</h4></li>
+                            <li class="list-group-item px-0 border-0 text-left sidebar-title sidebar-title" data-sidebaritem="brand">
+                                <h4 class="mb-0"><i class="fa fa-angle-down float-right"></i> Brand</h4>
+                            </li>
                         [%/PARAM%]
                         [%PARAM *body%]
                             [%DATA id:'selected' if:'==' value:'1'%]
                                 [%PARAM *if_true%]
-                                    <li class="filter-remove" data-sidebaritem="brand"><a href="[@remove_url@]" class="list-group-item" rel="nofollow" role="link">
+                                    <li class="filter-remove" data-sidebaritem="brand"><a href="[@remove_url@]" class="list-group-item px-0 border-0 text-left sidebar-title" rel="nofollow" role="link">
                                         [@brand@] <span class="text-muted">([@total@])</span></a>
                                     </li>
                                 [%/PARAM%][%PARAM *if_false%]
                                     <li class="filter sidebaritem" data-sidebaritem="brand">
-                                        <a href="[@url@]" class="list-group-item" role="link">[@brand@] <span class="text-muted">([@total@])</span></a>
+                                        <a href="[@url@]" class="list-group-item px-0 border-0 text-left sidebar-title" role="link">[@brand@] <span class="text-muted">([@total@])</span></a>
                                     </li>
                                 [%/PARAM%]
                             [%/DATA%]
@@ -237,7 +205,7 @@
     [%CONFIG id:'phistory_limit' if:'ne' value:'0'%]
         [%PRODUCT_HISTORY limit:'[@config:phistory_limit@]' template:'box'%]
             [%PARAM header%]
-                <section class="panel panel-default hidden-xs hidden-sm" role="contentinfo" aria-label="Browsing History">
+                <section class="panel panel-default d-none d-md-block pb-4" role="contentinfo" aria-label="Browsing History">
                     <div class="panel-heading panel-heading-thumbnails">
                         <h4 class="panel-title sidebar-title text-left sidebar-history" data-sidebaritem="history"><i class="fa fa-angle-down float-right"></i> Browsing History</h4>
                     </div>
@@ -251,14 +219,15 @@
     [%/CONFIG%]
     [%MENU id:'web_information'%]
         [%PARAM header%]
-        <div class="panel panel-default hidden-xs">
+        <div class="panel panel-default d-none d-sm-block pb-4">
             <div class="panel-heading">
                 <h4 class="panel-title sidebar-title text-left" data-sidebaritem="information"><i class="fa fa-angle-down float-right"></i> Information</h4>
             </div>
             <ul class="list-group" role="navigation" aria-label="Information Menu">
                 [%/PARAM%]
                 [%PARAM *level_1%]
-                    <li class="sidebaritem [%if [@next_level@]%]dropdown-submenu[%/if%]" data-sidebaritem="information"><a class="list-group-item" href="[@url@]" role="link">[@name@]</a>
+                    <li class="sidebaritem [%if [@next_level@]%]dropdown-submenu[%/if%]" data-sidebaritem="information">
+                        <a class="list-group-item px-0 border-0 text-left sidebar-title" href="[@url@]" role="link">[@name@]</a>
                         [%if [@next_level@]%]
                             <ul class="dropdown-menu">
                                 [@next_level@]
@@ -285,4 +254,5 @@
         [%/PARAM%]
     [%/MENU%]
 </aside>
-<div id="category-content" class="col-12 col-sm-8 float-right">
+
+<div id="category-content" class="col-12 col-sm-12 text-center float-right">

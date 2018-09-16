@@ -260,9 +260,13 @@ p {
 }
 
 // Sidebar
-.collapseit {
+.sidebar-collapsed {
     display: none;
     margin-left: -33.33333%; /* same width as sidebar */
+}
+
+.sidebaritem {
+    list-style: none;
 }
 
 // Mobile Header

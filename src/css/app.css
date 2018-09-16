@@ -8342,10 +8342,13 @@ p {
   -webkit-transform: scale(0.65);
           transform: scale(0.65); }
 
-.collapseit {
+.sidebar-collapsed {
   display: none;
   margin-left: -33.33333%;
   /* same width as sidebar */ }
+
+.sidebaritem {
+  list-style: none; }
 
 @media (max-width: 768px) {
   .mob-logo img.logo {

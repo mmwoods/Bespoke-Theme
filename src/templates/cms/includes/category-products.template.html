@@ -1,18 +1,14 @@
 [%site_value id:'footer_javascript'%]
 	<script>
-		$(document).ready(function() {
-			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-lg-6 col-lg-4");
-		});
-
 		$("#sidebarToggle").click(function(){
-			if($(this).html() == "Hide Sort") {
-				$(this).html("Show Sort");
-			} else {
+			if($(this).html() == "Show Sort") {
 				$(this).html("Hide Sort");
+			} else {
+				$(this).html("Show Sort");
 			}
 
-			$("#left-sidebar").toggleClass("collapseit");
-			$("#category-content").toggleClass("col-sm-12 col-sm-9");
+			$("#left-sidebar").toggleClass("sidebar-collapsed");
+			$("#category-content").toggleClass("col-sm-12 col-sm-8");
 			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-lg-4 col-lg-6");
 		});
 	</script>
@@ -27,7 +23,7 @@
 		[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 		[%param *header%]
 			<div class="col-12 mt-negative-5 mb-5">
-				<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary">Hide Sort</h2>
+				<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary">Show Sort</h2>
 			</div>
 
 			[%load_template file:'cms/includes/sidebar.template.html'/%]
