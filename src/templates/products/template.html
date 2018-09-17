@@ -1,105 +1,33 @@
 [%load_template file:"products/includes/product_scripts.template.html"/%]
-[%cache type:'display' id:'[@inventory_id@]'%]
-	<div class="col-12 col-md-9 text-center">
-		[%breadcrumb%]
-			[%param *header%]
-				<nav aria-label="breadcrumb" class="w-100 mb-0">
-					<ol class="breadcrumb justify-content-center bg-white mb-0" itemscope itemtype="http://schema.org/BreadcrumbList">
-						<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-							<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
-							<meta itemprop="position" content="0" />
-						</li>
-			[%/param%]
-			[%param *body%]
-						<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-							<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
-							<meta itemprop="position" content="[%calc [@count@] + 1 /%]" />
-						</li>
-			[%/param%]
-			[%param *footer%]
-					</ol>
-				</nav>
-			[%/param%]
-		[%/breadcrumb%]
-		<div class="row" itemscope itemtype="http://schema.org/Product">
-			<div class="col-12 mb-4">
-				[%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-			</div>
-			<section class="col-12 col-lg-4 mt-4" role="contentinfo" aria-label="Product images">
-				[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-			</section>
-			<section class="col-12 col-lg-8 mt-4" role="contentinfo" aria-label="Products information">
-				<!-- child products -->
-				[%load_template file:"products/includes/child_products.template.html"/%]
-				[%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
-					<!-- addtocart functionality -->
-					[%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-				[%/if%]
-				[%if [@has_components@]%]
-					<!-- kit components -->
-					[%load_template file:"products/includes/components.template.html"/%]
-				[%/if%]
-			</section>
-		</div>
-		<div class="row">
-			[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
-				[%param header%]
-					<div class="col-12">
-						<div class="alert alert-success">
-							<h3 class="h2">BONUS ITEMS! <small>Buy [@name@] Today &amp; Receive These For FREE!</small></h3>
-							<div class="row products-row">
-				[%/param%]
-				[%param *body%]
-								<div class="col-8 col-sm-6 col-md-3">
-									<div class="card thumbnail card-body">
-										<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image pb-2"><img src="[@thumb@]" class="product-image img-fluid" alt="[@name@]"></a>
-										<p class="card-title h4"><a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a></p>
-										<div class="text-success"><strong>FREE</strong> With This Item!</div>
-									</div>
-								</div>
-				[%/param%]
-				[%param footer%]
-							</div>
-						</div>
-					</div>
-				[%/param%]
-			[%/discount_products%]
-			[%free_gifts id:'[@SKU@]'%]
-				[%param *header%]
-					<div class="col-12">
-						<div class="alert alert-success">
-							<h3 class="h2">FREEBIES! <small>Buy [@name@] Today &amp; Choose From One Of These FREE Gifts!</small></h3>
-							<div class="row products-row">
-				[%/param%]
-				[%param *body%]
-								<div class="col-8 col-sm-6 col-md-3">
-									<div class="card thumbnail card-body">
-										<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image pb-2"><img src="[@thumb@]" class="product-image img-fluid" alt="[@name@]"></a>
-										<p class="card-title h4"><a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a></p>
-										<div class="text-success"><strong>FREE</strong> With This Item!</div>
-									</div>
-								</div>
-				[%/param%]
-				[%param *footer%]
-							</div>
-						</div>
-					</div>
-				[%/param%]
-			[%/free_gifts%]
-			<!-- images -->
-			<section class="col-12 mt-4" role="contentinfo" aria-label="Products information">
-				[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-			</section>
-			<!-- product_information -->
-			[%load_template file:"products/includes/product_information.template.html"/%]
-			<div class="col-12">
-				[%load_template file:"products/includes/upsell.template.html"/%]
-				[%load_template file:"products/includes/cross-sell.template.html"/%]
-				[%load_template file:"products/includes/related.template.html"/%]
-				[%load_template file:"products/includes/random.template.html"/%]
-				[%load_template file:"products/includes/history.template.html"/%]
-			</div><!--/.col-12-->
-		</div><!--/.row-->
-	</div><!--/.col-12-->
-[%/CACHE%]
-</div><!--/.row-->
+
+[%set [@menu_not_empty@] %]
+	[%menu id:'product-layout'%]
+		[%param *level_1%]
+			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
+			<!-- Content: [@css_class@] -->
+            [%if [@css_class@] eq 'alt_images'%]
+                [%load_ajax_template id:'_[@css_class@]' type:'item' template:'[@css_class@]' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%else%]
+                [%load_template file:'products/includes/[@css_class@].template.html'/%]
+            [%/if%]
+		[%/param%]
+	[%/menu%]
+[%/set%]
+
+<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+	[%if [@menu_not_empty@] ne ''%]
+		<!-- Use Menu Layout System -->
+		[@menu_not_empty@]
+	[%else%]
+		<!-- Use Default Layout -->
+        [%load_template file:'products/includes/introduction.template.html'/%]
+        [%load_template file:'products/includes/discounts.template.html'/%]
+        [%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+        [%load_template file:"products/includes/product_information.template.html"/%]
+        [%load_template file:"products/includes/upsell.template.html"/%]
+        [%load_template file:"products/includes/cross-sell.template.html"/%]
+        [%load_template file:"products/includes/related.template.html"/%]
+        [%load_template file:"products/includes/random.template.html"/%]
+        [%load_template file:"products/includes/history.template.html"/%]
+	[%/if%]
+</div>
