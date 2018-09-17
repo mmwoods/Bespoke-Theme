@@ -3,7 +3,7 @@
         <div class="wrapper-sortby pb-4">
             <form method="get" class="form-horizontal" action="[@config:CURRENT_URL@]">
                 <input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
-                <div class="form-group mb-0">
+                <div class="form-row mb-0">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title sidebar-title text-left" data-sidebaritem="sortby-dropdown"><i class="fa fa-angle-down float-right"></i> Sort Products</h3>
@@ -202,21 +202,6 @@
             </ul>
         </div>
     [%/IF%]
-    [%CONFIG id:'phistory_limit' if:'ne' value:'0'%]
-        [%PRODUCT_HISTORY limit:'[@config:phistory_limit@]' template:'box'%]
-            [%PARAM header%]
-                <section class="panel panel-default d-none d-md-block pb-4" role="contentinfo" aria-label="Browsing History">
-                    <div class="panel-heading panel-heading-thumbnails">
-                        <h4 class="panel-title sidebar-title text-left sidebar-history" data-sidebaritem="history"><i class="fa fa-angle-down float-right"></i> Browsing History</h4>
-                    </div>
-                    <ul class="nav list-group sidebaritem sidebar-history-item" data-sidebaritem="history" style="display: none;">
-            [%/PARAM%]
-            [%PARAM footer%]
-                    </ul>
-                </section>
-            [%/PARAM%]
-        [%/PRODUCT_HISTORY%]
-    [%/CONFIG%]
     [%MENU id:'web_information'%]
         [%PARAM header%]
         <div class="panel panel-default d-none d-sm-block pb-4">
