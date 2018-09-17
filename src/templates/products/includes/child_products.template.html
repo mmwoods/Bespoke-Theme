@@ -1,12 +1,24 @@
 <form autocomplete="off" class="variation-wrapper">
     [%list_item_variations id:'[@current_sku@]'%]
         [%param header%]
+            [%if [@subtitle@]%]
+                <h3 class="text-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
+            [%/if%]
+            [%IF [@short_description@]%]
+                <p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
+                    [@short_description@]
+                </p>
+            [%ELSE%]
+                <div class="description-compress text-left mb-4" itemprop="description" aria-label="Product Short Description">
+                    [@description@]
+                </div>
+            [%/ IF%]
+
             <input type="hidden" id="_itmspec_sku" value="[%nohtml%][@SKU@][%/nohtml%]">
-            <hr aria-hidden="true"/>
             <div class="row" role="contentinfo" aria-label="Product variation selection">
         [%/param%]
         [%param *variation_header%]
-                <div class="_itmspec_listopt col-12 col-lg-6" ref="[@specific_id@]" role="group" aria-label="[@specific_name@] variation selection">
+                <div class="_itmspec_listopt col-6" ref="[@specific_id@]" role="group" aria-label="[@specific_name@] variation selection">
                     <div class="variation-name" aria-label="[@specific_name@] variation">
                         <strong>[@specific_name@]</strong>
                     </div>
