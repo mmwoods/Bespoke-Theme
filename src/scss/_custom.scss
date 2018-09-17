@@ -207,6 +207,10 @@ p {
     background-color: $bg-black-fill;
 }
 
+.wrapper-header .header-search .ajax_search:focus {
+    box-shadow: none;
+}
+
 // Product Thumnails
 .thumbnail {
     &:hover .hover-overlay {
@@ -269,6 +273,42 @@ p {
 .nav-tabs .nav-link {
     border: 0;
     margin-bottom: 1px;
+}
+
+// Product Page: Countdown
+.wrapper-countdown {
+    .countdown-square {
+        width: 65px;
+        height: 60px;
+        border: 1px solid #333333;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 60px;
+        display: block;
+        margin-bottom: 14px;
+    }
+    .cd-time {
+        font-weight: 400;
+        color: #777777;
+        font-size: 13px;
+        text-transform: uppercase;
+        display: block;
+    }
+    .wrapper-time-section {
+        margin-left: 21px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            @media (max-width: 335px) {
+                margin-left: 0;
+                padding-top: 15px;
+                text-align: center;
+            }
+        }
+    }
 }
 
 // Footer

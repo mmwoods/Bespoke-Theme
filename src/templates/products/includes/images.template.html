@@ -19,6 +19,11 @@
 					[%else%]
 						<h1 itemprop="availability" content="http://schema.org/OutOfStock" class="card-title h1 text-uppercase text-light mb-1">Sold Out</h1>
 					[%/if%]
+					[%if [@save@] > 0 AND [@store_quantity@] < 1 AND ![@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+						<h3 class="price text-light" aria-label="Save Price">
+							SAVE [%format type:'currency'%][@save_price@][%/format%] ([%format type:'percent'%][@save@][%/format%])
+						</h3>
+					[%/if%]
 				</div>
 			</div>
 		</div>

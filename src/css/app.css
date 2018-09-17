@@ -8299,6 +8299,10 @@ p {
 .wrapper-header .header-search .ajax_search {
   background-color: #373842; }
 
+.wrapper-header .header-search .ajax_search:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
 .thumbnail:hover .hover-overlay {
   opacity: 1; }
 
@@ -8351,6 +8355,34 @@ p {
 .nav-tabs .nav-link {
   border: 0;
   margin-bottom: 1px; }
+
+.wrapper-countdown .countdown-square {
+  width: 65px;
+  height: 60px;
+  border: 1px solid #333333;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 60px;
+  display: block;
+  margin-bottom: 14px; }
+
+.wrapper-countdown .cd-time {
+  font-weight: 400;
+  color: #777777;
+  font-size: 13px;
+  text-transform: uppercase;
+  display: block; }
+
+.wrapper-countdown .wrapper-time-section {
+  margin-left: 21px; }
+  .wrapper-countdown .wrapper-time-section:first-child {
+    margin-left: 0; }
+  @media (max-width: 335px) {
+    .wrapper-countdown .wrapper-time-section:last-child {
+      margin-left: 0;
+      padding-top: 15px;
+      text-align: center; } }
 
 .list-social {
   opacity: 0.6; }

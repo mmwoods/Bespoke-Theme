@@ -114,11 +114,11 @@
 		<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb" value="[@thumb@]">
 		<input type="hidden" id="sku[@rndm@][@SKU@]" name="sku" value="[@SKU@]">
 		<div class="row btn-stack">
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-3">
 				<label class="sr-only" for="qty[@rndm@][@SKU@]">[@model@] quantity field</label>
 				<input type="number" min="[@min_qty@]" class="form-control qty form-control-lg" id="qty[@rndm@][@SKU@]" name="qty" aria-label="[@model@] quantity field" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
 			</div>
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-md-5">
 				[%IF [@store_quantity@] > 0 AND [@preorder@] %]
 					<button type="button" title="Add [@model@] to Cart" class="addtocart btn btn-warning btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" rel="[@rndm@][@SKU@]">Pre-Order</button>
 				[%ELSEIF [@store_quantity@] > 0 AND ![@preorder@] %]

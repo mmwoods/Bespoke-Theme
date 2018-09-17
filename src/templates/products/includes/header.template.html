@@ -8,46 +8,55 @@
 	</div>
 	<div class="wrapper-product-price col-12">
 		[%if ![@has_child@] || [@has_variation@]%]
-			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing col-sm-4 m-auto">
+			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing m-auto">
 				<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
 				[%if ![@inpromo@]%]
 					<div class="h2" itemprop="price" content="[@store_price@]" aria-label="Store Price">
 						[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
 					</div>
-					[%if [@save@] > 0%]
-						<div class="productrrp text-muted small" aria-label="RRP Price">
-							<s>RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]</s>
-						</div>
-						<div class="productsave small" aria-label="Save Price">
-							SAVE [%format type:'currency'%][@save_price@][%/format%] ([%format type:'percent'%][@save@][%/format%])
-						</div>
-					[%/if%]
 				[%else%]
-					<div class="productwasprice h3" aria-label="Was price">
-						WAS [%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
+					[%site_value id:'footer_javascript'%]
+						<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
+						<script type="x-template" id="countdownTemplate">
+							<div class="wrapper-time-section d-inline-block">
+								<span class="countdown-square">%d</span>
+								<span class='cd-time'>days</span>
+							</div>
+							<div class="wrapper-time-section d-inline-block">
+								<span class="countdown-square">%h</span>
+								<span class='cd-time'>hours</span>
+							</div>
+							<div class="wrapper-time-section d-inline-block">
+								<span class="countdown-square">%i</span>
+								<span class='cd-time'>minutes</span>
+							</div>
+							<div class="wrapper-time-section d-inline-block">
+								<span class="countdown-square">%s</span>
+								<span class='cd-time'>seconds</span>
+							</div>
+						</script>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$("#sale-end").countdown({
+									date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]",
+									htmlTemplate: $('#countdownTemplate').html(),
+									leadingZero: true
+								});
+
+								var dateSetting = $("#sale-end").countdown("getSettings", "htmlTemplate");
+							});
+						</script>
+					[%/site_value%]
+
+					<div class="productpromo h2 text-success font-weight-bold" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
+						[%FORMAT type:'currency'%][@promo_price@][%/FORMAT%] FOR
 					</div>
-					[%if [@save@] > 0%]
-						<div class="productrrp text-muted small" aria-label="RRP Price">
-							<s>RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]</s>
-						</div>
-					[%/if%]
-					<div class="productpromo h2" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
-						NOW [%FORMAT type:'currency'%][@promo_price@][%/FORMAT%]
-					</div>
-					[%if [@save@] > 0%]
-						<div class="productsave small" aria-label="Save Price">
-							SAVE [%format type:'percent'%][@save@][%/format%]!
-						</div>
-					[%/if%]
-					<div class="productsavetext text-danger font-weight-bold">
-						Sale Ends in <span id="sale-end" class="time"></span>
-					</div>
-					<div class="time-text" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]">
-						[%format type:'date' format:' #H:#I #a, #d #K #Y'%][@promo_end@][%/format%]
+					<div class="wrapper-countdown time-text mt-4" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%/format%]">
+						<div id="sale-end" class="text-center"></div>
 					</div>
 				[%/if%]
 				[%if [@form:disable_scripts@] ne 'true'%]
-				[%tracking_code type:'BuyingOptions' /%]
+					[%tracking_code type:'BuyingOptions' /%]
 				[%/if%]
 				[%if [@availability_description@]%]
 					<div class="availability_description">
