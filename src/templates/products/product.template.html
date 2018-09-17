@@ -5,7 +5,11 @@
 		[%param *level_1%]
 			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
 			<!-- Content: [@css_class@] -->
-			[%load_template file:'cms/includes/[@css_class@].template.html'/%]
+            [%if [@css_class@] eq 'alt_images'%]
+                [%load_ajax_template id:'_[@css_class@]' type:'item' template:'[@css_class@]' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%else%]
+                [%load_template file:'cms/includes/[@css_class@].template.html'/%]
+            [%/if%]
 		[%/param%]
 	[%/menu%]
 [%/set%]
@@ -18,6 +22,7 @@
 		<!-- Use Default Layout -->
         [%load_template file:'products/includes/introduction.template.html'/%]
         [%load_template file:'products/includes/discounts.template.html'/%]
+        [%load_template file:"products/includes/product_information.template.html"/%]
         [%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
         [%load_template file:"products/includes/upsell.template.html"/%]
         [%load_template file:"products/includes/cross-sell.template.html"/%]
