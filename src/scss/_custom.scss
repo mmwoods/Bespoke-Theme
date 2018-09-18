@@ -38,24 +38,7 @@ $bg-green-fill: #888F7F;
     height: 60px;
 }
 
-// Padding
-@media (min-width: 576px) {
-    .pb-30p {
-        padding-bottom: 30px !important;
-    }
-    .mb-30p {
-        margin-bottom: 30px !important;
-    }
-    .mb-neg-30p {
-        margin-bottom: -30px !important;
-    }
-}
-
 // Margins
-.my-30p {
-    margin-bottom: 30px !important;
-    margin-top: 30px !important;
-}
 .mt-6 {
     margin-top: 60px !important;
 }
@@ -390,6 +373,19 @@ p {
 }
 
 // USPs
-.advert-usp h4 {
-    line-height: 24px;
+.advert-usp .advert-usp-content {
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+        h4 {
+            line-height: 24px;
+            height: 48px;
+            overflow-y: hidden;
+
+            @media (min-width: 768px) {
+                height: 72px;
+            }
+        }
+    }
 }

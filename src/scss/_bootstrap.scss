@@ -83,7 +83,7 @@ $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
 // Breadcrumbs
 //
-$breadcrumb-bg: $gray-100;
+$breadcrumb-bg: $white;
 
 // Gutter Width
 $grid-gutter-width: 32px;
@@ -98,6 +98,12 @@ $grid-gutter-width: 32px;
 $spacer: 1rem !default;
 $spacers: () !default;
 $spacers: map-merge((
+  -6: ($spacer * - 2),
+  -5: ($spacer * - 3),
+  -4: ($spacer * - 1.5),
+  -3: - $spacer,
+  -2: ($spacer * - .5),
+  -1: ($spacer * - .25),
   0: 0,
   1: ($spacer * .25),
   2: ($spacer * .5),

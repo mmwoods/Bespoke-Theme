@@ -1,21 +1,23 @@
-<div class="advert-usp col-12 col-sm-12 col-lg-4 pb-3 pb-30p px-0 px-sm-3 border">
+<div class="advert-usp col-12 col-sm-12 col-lg-4 my-3">
     <div class="row">
         <div class="col-12">
-        [%if [@linktext@]%]
-                <div class="advert-usp-icon pt-4 pt-sm-3 pt-lg-5">
-                    <div class="advert-usp-icon">
-                        <span class="h1 text-success"><i class="fas [%format type:'text' nohtml:'1' trim:'LE2R' wordlength:'27'%][@linktext@][%/format%]"></i></span>
+            <div class="border">
+                [%if [@linktext@]%]
+                    <div class="advert-usp-icon pt-4 pt-lg-5">
+                        <div class="advert-usp-icon">
+                            <span class="h1 text-success"><i class="fas [%format type:'text' nohtml:'1' trim:'LE2R' wordlength:'27'%][@linktext@][%/format%]"></i></span>
+                        </div>
                     </div>
-                </div>
-        [%/if%]
-        [%if [@headline@] OR [@description@]%]
-            <div class="advert-usp-conten pt-4 pt-sm-3 pt-lg-5">
-                <a href="[@URL@]">
-                    [%if [@headline@]%]<h2 class="text-success mb-4">[@headline@]</h2>[%/if%]
-                    [%if [@description@]%]<h4 class="text-primary">[@description@]</h4>[%/if%]
-                </a>
+                [%/if%]
+                [%if [@headline@] OR [@description@]%]
+                    <div class="advert-usp-content py-4 pt-lg-4 px-3">
+                        <a href="[@URL@]">
+                            [%if [@headline@]%]<h2 class="text-success mb-4">[@headline@]</h2>[%/if%]
+                            [%if [@description@]%]<h4 class="text-primary">[@description@]</h4>[%/if%]
+                        </a>
+                    </div>
+                [%/if%]
             </div>
-        [%/if%]
         </div>
     </div>
 </div>
