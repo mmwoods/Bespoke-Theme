@@ -355,8 +355,16 @@ fieldset[disabled] .btn-info.active {
 	background-color: #373842 /*{navbar-default-bg-colour}*/ !important;
 }
 
-.wrapper-header .wrapper-search-bar {
-	background-color: #373842 /*{search-default-bg-colour}*/ !important;
+.wrapper-header .wrapper-search-bar,
+.wrapper-header .header-search .ajax_search,
+.wrapper-header .header-search button {
+	background-color: #888F7F /*{desktop-search-default-bg-colour}*/ !important;
+}
+
+.wrapper-header .header-search .ajax_search,
+.wrapper-header .header-search button,
+.wrapper-header .header-search .ajax_search::placeholder {
+	color: #fff /*{desktop-search-font-colour}*/;
 }
 
 .wrapper-header .navbar .navbar-nav .nav-link {
