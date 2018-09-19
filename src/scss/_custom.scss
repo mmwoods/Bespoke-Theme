@@ -29,6 +29,15 @@ $bg-green-fill: #888F7F;
     background-color: $bg-green-fill;
 }
 
+@media (min-width: 768px) {
+    .bg-md-black {
+        background-color: $bg-black-fill !important;
+    }
+    .bg-md-white {
+        background-color: #fff !important;
+    }
+}
+
 // Heights
 .h-35 {
     height: 35px;
@@ -224,7 +233,7 @@ p {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    background-color: #888F7F;
+    background-color: #888F7F !important;
 }
 
 .nav-tabs .nav-link {

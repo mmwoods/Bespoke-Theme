@@ -1,8 +1,8 @@
 [%if [@config:phistory_limit@]%]
+    [@^section-title@]
     [%product_history limit:'[@config:phistory_limit@]' template:''%]
         [%param header%]
-            <h1 class="text-center text-uppercase my-5">Browsing History</h1>
-            <div class="row">
+            <div class="row justify-content-center">
         [%/param%]
         [%param footer%]
             </div>

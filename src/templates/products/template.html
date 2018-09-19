@@ -1,33 +1,32 @@
 [%load_template file:"products/includes/product_scripts.template.html"/%]
+[%SET [@page_type@]='product'/%]
 
-[%set [@menu_not_empty@] %]
+<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+	[%set [@no-menu@] %]true[%/set%]
 	[%menu id:'product-layout'%]
+		[%param *header%]
+			<!-- Use Menu Layout System -->
+			[%set [@^no-menu@] %]false[%/set%]
+		[%/param%]
 		[%param *level_1%]
-			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
+			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-4 my-sm-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
 			<!-- Content: [@css_class@] -->
-            [%if [@css_class@] eq 'alt_images'%]
+			[%if [@css_class@] eq 'alt_images'%]
                 [%load_ajax_template id:'_[@css_class@]' type:'item' template:'[@css_class@]' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
             [%else%]
                 [%load_template file:'products/includes/[@css_class@].template.html'/%]
             [%/if%]
 		[%/param%]
 	[%/menu%]
-[%/set%]
-
-<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
-	[%if [@menu_not_empty@] ne ''%]
-		<!-- Use Menu Layout System -->
-		[@menu_not_empty@]
-	[%else%]
+	[%if [@no-menu@] eq 'true'%]
 		<!-- Use Default Layout -->
         [%load_template file:'products/includes/introduction.template.html'/%]
-        [%load_template file:'products/includes/discounts.template.html'/%]
+		[%load_template file:"products/includes/product_information.template.html"/%]
+		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-4 my-sm-5">More Images</h1>[%/set%]
         [%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-        [%load_template file:"products/includes/product_information.template.html"/%]
-        [%load_template file:"products/includes/upsell.template.html"/%]
-        [%load_template file:"products/includes/cross-sell.template.html"/%]
-        [%load_template file:"products/includes/related.template.html"/%]
-        [%load_template file:"products/includes/random.template.html"/%]
-        [%load_template file:"products/includes/history.template.html"/%]
+		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-4 my-sm-5">Related Products</h1>[%/set%]
+		[%load_template file:"products/includes/related.template.html"/%]
+		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-4 my-sm-5">Product History</h1>[%/set%]
+		[%load_template file:"products/includes/history.template.html"/%]
 	[%/if%]
 </div>
