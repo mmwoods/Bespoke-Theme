@@ -1,5 +1,5 @@
 [%CACHE type:'gallery' id:'[@inventory_id@]-product'%]
-[%set [@bg-colour@] %][%if [@save@] > 0 AND ![@has_child@] %]yellow[%elseif [@inpromo@]%]red[%elseif [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]green[%elseif [@store_quantity@] < 1 %]red[%else%]black[%/if%][%/set%]
+[%set [@bg-colour@] %][%if [@CONFIG:show_thumbnail_names@] %]black[%elseif [@save@] > 0 AND ![@has_child@]%]yellow[%elseif [@inpromo@]%]red[%elseif [@store_quantity@] > 0 AND [@preorder@] %]green[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]green[%elseif [@store_quantity@] < 1 %]red[%else%]black[%/if%][%/set%]
 
 <article class="wrapper-thumbnail-toggle col-6 col-sm-6 col-lg-4 py-3 pr-0 pr-sm-3" role="article" aria-label="Product thumbnail">
 	<div class="card thumbnail card-body p-0 br-0 br-sm-1" itemscope itemtype="http://schema.org/Product">
@@ -12,18 +12,22 @@
 			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
 				<div class="wrapper-hover-content">
 					<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1" itemprop="name">
-						[%if [@store_quantity@] > 0 AND [@preorder@] %]
-							Pre-Order
-						[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-							Back-Order
-						[%elseif [@save@] > 0 AND ![@has_child@] %]
-							[%format type:'percent'%][@save@][%/format%] OFF
-						[%elseif [@inpromo@]%]
-							Sale
-						[%elseif [@store_quantity@] < 1 %]
-							Sold Out
-						[%else%]
+						[%if [@CONFIG:show_thumbnail_names@]%]
 							[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
+						[%else%]
+							[%if [@store_quantity@] > 0 AND [@preorder@] %]
+								Pre-Order
+							[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+								Back-Order
+							[%elseif [@save@] > 0 AND ![@has_child@] %]
+								[%format type:'percent'%][@save@][%/format%] OFF
+							[%elseif [@inpromo@]%]
+								Sale
+							[%elseif [@store_quantity@] < 1 %]
+								Sold Out
+							[%else%]
+								[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
+							[%/if%]
 						[%/if%]
 					</h1>
 					[%if [@store_quantity@] > 0 AND [@preorder@] %]
@@ -52,18 +56,22 @@
 		<div class="hover-overlay show [@bg-colour@]-bg text-center mr-3">
 			<div class="wrapper-hover-content px-2">
 				<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1" itemprop="name">
-					[%if [@store_quantity@] > 0 AND [@preorder@] %]
-						Pre-Order
-					[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
-						Back-Order
-					[%elseif [@save@] > 0 AND ![@has_child@] %]
-						[%format type:'percent'%][@save@][%/format%] OFF
-					[%elseif [@inpromo@]%]
-						Sale
-					[%elseif [@store_quantity@] < 1 %]
-						Sold Out
-					[%else%]
+					[%if [@CONFIG:show_thumbnail_names@]%]
 						[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
+					[%else%]
+						[%if [@store_quantity@] > 0 AND [@preorder@] %]
+							Pre-Order
+						[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+							Back-Order
+						[%elseif [@save@] > 0 AND ![@has_child@] %]
+							[%format type:'percent'%][@save@][%/format%] OFF
+						[%elseif [@inpromo@]%]
+							Sale
+						[%elseif [@store_quantity@] < 1 %]
+							Sold Out
+						[%else%]
+							[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
+						[%/if%]
 					[%/if%]
 				</h1>
 				<h3 class="price text-light" itemprop="offers" itemscope itemtype="http://schema.org/Offer" aria-label="[@model@] price">
