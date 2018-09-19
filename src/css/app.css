@@ -9457,6 +9457,9 @@ input[readonly] {
 .spacer {
   height: 32px; }
 
+.spacer.home {
+  height: 0; }
+
 p {
   line-height: 24px; }
 
