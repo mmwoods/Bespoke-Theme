@@ -38,31 +38,9 @@ $bg-green-fill: #888F7F;
     height: 60px;
 }
 
-// Margins
-.mt-6 {
-    margin-top: 60px !important;
-}
-.mb-6 {
-    margin-bottom: 80px !important;
-}
-.mt-negative-5 {
-    margin-top: -48px !important;
-    margin-top: -3rem !important;
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-    .mt-sm-30 {
-        margin-top: 30px !important;
-    }
-}
-
 // Spacers
 .spacer {
-    height: 43px;
-}
-
-.spacer:first-of-type {
-    display: none;
+    height: 32px;
 }
 
 // Text Styling
