@@ -9708,3 +9708,6 @@ p {
   @media (min-width: 768px) {
     .advert-usp .advert-usp-content a h4 {
       height: 72px; } }
+
+.carousel-caption {
+  text-shadow: none; }
