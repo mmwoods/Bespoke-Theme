@@ -1,24 +1,22 @@
-[%set [@menu_not_empty@] %]
+<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+	[%set [@no-menu@] %]true[%/set%]
 	[%menu id:'homepage-layout'%]
+		[%param *header%]
+			<!-- Use Menu Layout System -->
+			[%set [@^no-menu@] %]false[%/set%]
+		[%/param%]
 		[%param *level_1%]
 			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
 			<!-- Content: [@css_class@] -->
 			[%load_template file:'cms/includes/[@css_class@].template.html'/%]
 		[%/param%]
 	[%/menu%]
-[%/set%]
-
-<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
-	[%if [@menu_not_empty@] ne ''%]
-		<!-- Use Menu Layout System -->
-		[@menu_not_empty@]
-	[%else%]
+	[%if [@no-menu@] eq 'true'%]
 		<!-- Use Default Layout -->
-		[%load_template file:'cms/includes/banner-carousel.template.html'/%]
-		[%load_template file:'cms/includes/featured-products.template.html'/%]
+		[%load_template file:'cms/includes/carousel.template.html'/%]
+		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-5">Featured Adverts</h1>[%/set%]
 		[%load_template file:'cms/includes/featured-adverts.template.html'/%]
-		[%load_template file:'cms/includes/brands.template.html'/%]
-		[%load_template file:'cms/includes/instagram.template.html'/%]
+		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-5">Description</h1>[%/set%]
 		[%load_template file:'cms/includes/description.template.html'/%]
 	[%/if%]
 </div>
