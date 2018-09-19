@@ -256,5 +256,5 @@
 	<!-- Mobile: Sticky Header Spacer -->
 	<div style="height: 67px;" class="d-block d-md-none" aria-hidden="true"></div>
 
-	<div id="main-content" class="container mb-5 mb-sm-0 mt-0" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] ne 'home' OR [@config:current_page_type@] ne 'category' OR 'product'%]mt-3 mt-sm-6 mt-md-0 [%else%]mt-0 [%/if%]" role="main">
 		<div class="row justify-content-center">

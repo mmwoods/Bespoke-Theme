@@ -283,7 +283,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .breadcrumb {
-	background-color: #f8f9fa /*{breadcrumb-background-colour}*/;
+	background-color: #fff /*{breadcrumb-background-colour}*/;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {

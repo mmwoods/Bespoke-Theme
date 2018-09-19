@@ -381,3 +381,9 @@ p {
 .carousel-caption {
     text-shadow: none;
 }
+
+// Extra
+.breadcrumb,
+.pagination {
+    justify-content: center !important;
+}

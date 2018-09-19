@@ -9717,3 +9717,9 @@ p {
 
 .carousel-caption {
   text-shadow: none; }
+
+.breadcrumb,
+.pagination {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important; }
