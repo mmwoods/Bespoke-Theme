@@ -9448,6 +9448,9 @@ input[readonly] {
   .bg-md-white {
     background-color: #fff !important; } }
 
+textarea {
+  resize: none; }
+
 .h-35 {
   height: 35px; }
 
@@ -9726,3 +9729,31 @@ p {
   -webkit-box-pack: center !important;
       -ms-flex-pack: center !important;
           justify-content: center !important; }
+
+.wrapper-default-page .form-group {
+  margin-top: 20px; }
+  .wrapper-default-page .form-group label {
+    text-align: center;
+    margin-bottom: 0; }
+  .wrapper-default-page .form-group p.small.text-danger {
+    text-align: center;
+    margin-bottom: 0; }
+  .wrapper-default-page .form-group input.form-control, .wrapper-default-page .form-group input#stloc_selector_cysel,
+  .wrapper-default-page .form-group input#stloc_state_sel,
+  .wrapper-default-page .form-group input#suburb_sl,
+  .wrapper-default-page .form-group input._itmspec_opt,
+  .wrapper-default-page .form-group select.form-control,
+  .wrapper-default-page .form-group #stloc_selector_cysel,
+  .wrapper-default-page .form-group #stloc_state_sel,
+  .wrapper-default-page .form-group #suburb_sl,
+  .wrapper-default-page .form-group ._itmspec_opt,
+  .wrapper-default-page .form-group .n-wrapper-form-control select,
+  .n-wrapper-form-control .wrapper-default-page .form-group select {
+    margin-top: 10px; }
+  .wrapper-default-page .form-group textarea.form-control.col-xs-12.col-md-6, .wrapper-default-page .form-group textarea.col-xs-12.col-md-6#stloc_selector_cysel,
+  .wrapper-default-page .form-group textarea.col-xs-12.col-md-6#stloc_state_sel,
+  .wrapper-default-page .form-group textarea.col-xs-12.col-md-6#suburb_sl,
+  .wrapper-default-page .form-group textarea.col-xs-12.col-md-6._itmspec_opt {
+    text-align: center;
+    margin: auto;
+    margin-top: 10px; }

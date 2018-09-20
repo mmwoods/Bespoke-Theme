@@ -1,8 +1,8 @@
-[%load_template file:'cms/includes/sidebar.template.html'/%]
+<div class="wrapper-default-page [%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
 [%breadcrumb%]
 	[%PARAM *header%]
 		<nav aria-label="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-		<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+		<ol class="breadcrumb mb-0" itemscope itemtype="http://schema.org/BreadcrumbList">
 			<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
 			</li>
@@ -18,10 +18,12 @@
 	[%/PARAM%]
 [%/breadcrumb%]
 <h1 class="display-4">[@content_name@]</h1>
-<p class="text-muted">
-	[%if [@content_author@]%]Author: [@content_author@] &nbsp;[%/if%]
-	[%if [@date_posted@] != 0000-00-00 00:00:00%]Date Posted:[%FORMAT type:'date'%][@date_posted@][%/FORMAT%]&nbsp;[%/if%]
-</p>
+[%if [@content_author@] ne '' OR [@date_posted@] ne ''%]
+	<p class="text-muted">
+		[%if [@content_author@]%]Author: [@content_author@] &nbsp;[%/if%]
+		[%if [@date_posted@] != 0000-00-00 00:00:00%]Date Posted:[%FORMAT type:'date'%][@date_posted@][%/FORMAT%]&nbsp;[%/if%]
+	</p>
+[%/if%]
 [%advert type:'text' template:'carousel' limit:'10' ad_group:''%]
 	[%param *header%]
 		<section id="homepageCarousel" class="carousel slide" data-ride="carousel" aria-label="Banner images">
