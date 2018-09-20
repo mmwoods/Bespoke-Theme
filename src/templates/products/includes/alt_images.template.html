@@ -1,15 +1,17 @@
-[@^section-title@]
+[%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
+    [%param *header%]
+        [@^section-title@]
 
-<div class="row justify-content-center" role="contentinfo" aria-label="Product images">
-    [%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
-        [%param *body%]
+        <div class="row justify-content-center" role="contentinfo" aria-label="Product images">
+    [%/ param%]
+    [%param *body%]
             <div class="col-6 col-sm-6 col-lg-4 p-3">
                 <div class="card thumbnail card-body">
                     <img src="[@thumb_image@]" class="product-image img-fluid" title="ALT Images">
                 </div>
             </div>
-        [%/ param%]
-        [%param *brochure%]
+    [%/ param%]
+    [%param *brochure%]
             <div class="col-6 col-sm-6 col-lg-4 p-3">
                 <div class="card thumbnail card-body">
                     <a href="[@file@]" target="_blank" rel="noopener">
@@ -17,6 +19,8 @@
                     </a>
                 </div>
             </div>
-        [%/ param%]
-    [%/ THUMBNAILS%]
-</div>
+    [%/ param%]
+    [%param *footer%]
+        </div>
+    [%/ param%]
+[%/ THUMBNAILS%]

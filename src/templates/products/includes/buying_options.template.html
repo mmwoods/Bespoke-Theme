@@ -1,16 +1,18 @@
 <div class="extra-options">
 	[%if [@subtitle@]%]
-		<h3 class="text-center text-lg-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
+	<h3 class="text-center text-lg-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
 	[%/if%]
-	[%IF [@short_description@]%]
-		<p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
-			[@short_description@]
-		</p>
-	[%ELSE%]
-		<div class="description-compress text-left mb-4" itemprop="description" aria-label="Product Short Description">
-			[@description@]
-		</div>
-	[%/ IF%]
+	[%if ![@has_variation@] %]
+		[%IF [@short_description@]%]
+			<p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
+				[@short_description@]
+			</p>
+		[%ELSE%]
+			<div class="description-compress text-left mb-4" itemprop="description" aria-label="Product Short Description">
+				[@description@]
+			</div>
+		[%/ IF%]
+	[%/if%]
 	[%multilevelpricing id:'[@SKU@]'%]
 		[%param *header%]
 			<table class="table table-sm mt-3">
