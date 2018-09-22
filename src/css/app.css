@@ -9757,3 +9757,6 @@ p {
     text-align: center;
     margin: auto;
     margin-top: 10px; }
+
+.wrapper-product-share .dropdown-toggle::after {
+  display: none; }

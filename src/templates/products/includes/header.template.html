@@ -6,9 +6,9 @@
 		[%set [@review_sku@]%][%if [@parent_sku@]%][@parent_sku@][%else%][@sku@][%/if%][%/set%]
 		[%load_ajax_template id:'_reviews' type:'item' template:'reviews' preload:'1' tmpl_sku:'[@review_sku@]' /%]
 	</div>
-	<div class="wrapper-product-price col-12">
+	<div class="wrapper-product-price  col-12">
 		[%if ![@has_child@] || [@has_variation@]%]
-			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing m-auto">
+			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing m-auto d-inline-block align-middle">
 				<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
 				[%if ![@inpromo@]%]
 					<div class="h2" itemprop="price" content="[@store_price@]" aria-label="Store Price">
@@ -65,18 +65,20 @@
 				[%/if%]
 			</div>
 		[%/if%]
-	</div>
-	<div class="wrapper-product-share col-12 hidden">
-		<div class="dropdown">
-			<button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenu[@sku@]" data-toggle="dropdown" aria-controls="shareDropdown[@sku@]" aria-label="Share product">
-				<i class="fas fa-share" aria-hidden="true"></i>
-			</button>
-			<ul id="shareDropdown[@sku@]" class="dropdown-menu" aria-labelledby="dropdownMenu[@sku@]">
-				<li><a class="dropdown-item js-social-share" href="//www.facebook.com/sharer/sharer.php?u=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-facebook text-facebook" aria-hidden="true"></i> Facebook</a></li>
-				<li><a class="dropdown-item js-social-share" href="//twitter.com/intent/tweet/?text=[%url_encode%][@name@][%/url_encode%]&amp;url=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-twitter text-twitter" aria-hidden="true"></i> Twitter</a></li>
-				<li><a class="dropdown-item js-social-share" href="//www.pinterest.com/pin/create/button/?url=[%url_encode%][@url@][%/url_encode%]&amp;media=[%url_encode%][@config:homeurl@][%asset_url type:'product' id:'[@SKU@]' thumb:'full' check_parent:'y'/%][%/url_encode%]&amp;description=[%url_encode%][@name@][%/url_encode%]"><i class="fab fa-pinterest text-pinterest" aria-hidden="true"></i> Pinterest</a></li>
-				<li><a class="dropdown-item js-social-share" href="//plus.google.com/share?url=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-google-plus text-google-plus" aria-hidden="true"></i> Google+</a></li>
-			</ul>
-		</div>
+		[%if [@CONFIG:show_product_share@]%]
+			<div class="wrapper-product-share d-inline-block align-middle mb-2">
+				<div class="dropdown">
+					<button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenu[@sku@]" data-toggle="dropdown" aria-controls="shareDropdown[@sku@]" aria-label="Share product">
+						<i class="fas fa-share-square" aria-hidden="true"></i>
+					</button>
+					<ul id="shareDropdown[@sku@]" class="dropdown-menu" aria-labelledby="dropdownMenu[@sku@]">
+						<li><a class="dropdown-item js-social-share" href="//www.facebook.com/sharer/sharer.php?u=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-facebook text-facebook" aria-hidden="true"></i> Facebook</a></li>
+						<li><a class="dropdown-item js-social-share" href="//twitter.com/intent/tweet/?text=[%url_encode%][@name@][%/url_encode%]&amp;url=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-twitter text-twitter" aria-hidden="true"></i> Twitter</a></li>
+						<li><a class="dropdown-item js-social-share" href="//www.pinterest.com/pin/create/button/?url=[%url_encode%][@url@][%/url_encode%]&amp;media=[%url_encode%][@config:homeurl@][%asset_url type:'product' id:'[@SKU@]' thumb:'full' check_parent:'y'/%][%/url_encode%]&amp;description=[%url_encode%][@name@][%/url_encode%]"><i class="fab fa-pinterest text-pinterest" aria-hidden="true"></i> Pinterest</a></li>
+						<li><a class="dropdown-item js-social-share" href="//plus.google.com/share?url=[%url_encode%][@url@][%/url_encode%]"><i class="fab fa-google-plus text-google-plus" aria-hidden="true"></i> Google+</a></li>
+					</ul>
+				</div>
+			</div>
+		[%/if%]
 	</div>
 </div>

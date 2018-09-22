@@ -421,3 +421,8 @@ p {
         }
     }
 }
+
+// Share Dropdown
+.wrapper-product-share .dropdown-toggle::after {
+    display: none;
+}
