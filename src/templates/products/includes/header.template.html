@@ -15,45 +15,49 @@
 						[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
 					</div>
 				[%else%]
-					[%site_value id:'footer_javascript'%]
-						<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
-						<script type="x-template" id="countdownTemplate">
-							<div class="wrapper-time-section d-inline-block">
-								<span class="countdown-square">%d</span>
-								<span class='cd-time'>days</span>
-							</div>
-							<div class="wrapper-time-section d-inline-block">
-								<span class="countdown-square">%h</span>
-								<span class='cd-time'>hours</span>
-							</div>
-							<div class="wrapper-time-section d-inline-block">
-								<span class="countdown-square">%i</span>
-								<span class='cd-time'>minutes</span>
-							</div>
-							<div class="wrapper-time-section d-inline-block">
-								<span class="countdown-square">%s</span>
-								<span class='cd-time'>seconds</span>
-							</div>
-						</script>
-						<script type="text/javascript">
-							$(document).ready(function() {
-								$("#sale-end").countdown({
-									date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]",
-									htmlTemplate: $('#countdownTemplate').html(),
-									leadingZero: true
-								});
+					[%if [@CONFIG:show_product_countdown_timer@]%]
+						[%site_value id:'footer_javascript'%]
+							<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
+							<script type="x-template" id="countdownTemplate">
+								<div class="wrapper-time-section d-inline-block">
+									<span class="countdown-square">%d</span>
+									<span class='cd-time'>days</span>
+								</div>
+								<div class="wrapper-time-section d-inline-block">
+									<span class="countdown-square">%h</span>
+									<span class='cd-time'>hours</span>
+								</div>
+								<div class="wrapper-time-section d-inline-block">
+									<span class="countdown-square">%i</span>
+									<span class='cd-time'>minutes</span>
+								</div>
+								<div class="wrapper-time-section d-inline-block">
+									<span class="countdown-square">%s</span>
+									<span class='cd-time'>seconds</span>
+								</div>
+							</script>
+							<script type="text/javascript">
+								$(document).ready(function() {
+									$("#sale-end").countdown({
+										date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]",
+										htmlTemplate: $('#countdownTemplate').html(),
+										leadingZero: true
+									});
 
-								var dateSetting = $("#sale-end").countdown("getSettings", "htmlTemplate");
-							});
-						</script>
-					[%/site_value%]
+									var dateSetting = $("#sale-end").countdown("getSettings", "htmlTemplate");
+								});
+							</script>
+						[%/site_value%]
+					[%/if%]
 
 					<div class="productpromo h2 text-success font-weight-bold" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
-						[%FORMAT type:'currency'%][@promo_price@][%/FORMAT%] FOR
+						[%FORMAT type:'currency'%][@promo_price@][%/FORMAT%]
 					</div>
-					<div class="wrapper-countdown time-text mt-4" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%/format%]">
-						<div id="sale-end" class="text-center"></div>
-					</div>
+					[%if [@CONFIG:show_product_countdown_timer@]%]
+						<div class="wrapper-countdown time-text mt-4" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%/format%]">
+							<div id="sale-end" class="text-center"></div>
+						</div>
+					[%/if%]
 				[%/if%]
 				[%if [@form:disable_scripts@] ne 'true'%]
 					[%tracking_code type:'BuyingOptions' /%]
@@ -66,7 +70,7 @@
 			</div>
 		[%/if%]
 		[%if [@CONFIG:show_product_share@]%]
-			<div class="wrapper-product-share d-inline-block align-middle mb-2">
+			<div class="wrapper-product-share [%if ![@has_child@] AND [@inpromo@] AND [@CONFIG:show_product_countdown_timer@] || [@has_variation@] AND [@inpromo@] AND [@CONFIG:show_product_countdown_timer@]%]my-2[%else%]d-inline-block align-middle mb-2[%/if%]">
 				<div class="dropdown">
 					<button class="dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenu[@sku@]" data-toggle="dropdown" aria-controls="shareDropdown[@sku@]" aria-label="Share product">
 						<i class="fas fa-share-square" aria-hidden="true"></i>

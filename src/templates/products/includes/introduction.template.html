@@ -22,21 +22,24 @@
 [%/breadcrumb%]
 
 <div class="row" itemscope itemtype="http://schema.org/Product">
+    <!-- Content: header -->
     <div class="col-12 mb-4">
         [%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
     </div>
+    <!-- Content: images -->
     <section class="col-12 col-lg-4 mt-4" role="contentinfo" aria-label="Product images">
         [%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
     </section>
+    <!-- Content: header -->
     <section class="col-12 col-lg-8 mt-4" role="contentinfo" aria-label="Products information">
-        <!-- child products -->
+        <!-- Content: child products -->
         [%load_template file:"products/includes/child_products.template.html"/%]
         [%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
-            <!-- addtocart functionality -->
+            <!-- Content: buying_options -->
             [%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
         [%/if%]
         [%if [@has_components@]%]
-            <!-- kit components -->
+            <!-- Content: components -->
             [%load_template file:"products/includes/components.template.html"/%]
         [%/if%]
     </section>
