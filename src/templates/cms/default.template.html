@@ -1,4 +1,4 @@
-<div class="wrapper-default-page [%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+<div class="wrapper-default-page [%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]">
 [%breadcrumb%]
 	[%PARAM *header%]
 		<nav aria-label="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -17,7 +17,7 @@
 		</nav>
 	[%/PARAM%]
 [%/breadcrumb%]
-<h1 class="display-4">[@content_name@]</h1>
+<h1 class="display-4 text-center">[@content_name@]</h1>
 [%if [@content_author@] ne '' OR [@date_posted@] ne ''%]
 	<p class="text-muted">
 		[%if [@content_author@]%]Author: [@content_author@] &nbsp;[%/if%]

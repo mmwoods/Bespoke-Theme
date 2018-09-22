@@ -240,8 +240,8 @@
     [%/MENU%]
 </aside>
 
-[%if [@config:current_page_type@] ne 'home' OR [@config:current_page_type@] ne 'category' OR [@config:current_page_type@] ne 'product'%]
-    <div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
-[%else%]
+[%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]
     <div id="category-content" class="col-12 col-sm-12 text-center float-right">
+[%else%]
+    <div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
 [%/if%]

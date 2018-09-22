@@ -5,33 +5,9 @@
 }
 
 // Background Colours
-$bg-black: rgba(51, 51, 51, 0.6);
-$bg-red: rgba(174, 21, 21, 0.4);
-$bg-yellow: rgba(193, 124, 22, 0.4);
-$bg-green: rgba(20, 146, 70, 0.4);
-$bg-black-fill: #373842;
-$bg-green-fill: #888F7F;
-
-.bg-black-fill {
-    background-color: $bg-black-fill;
-}
-.bg-green-fill {
-    background-color: $bg-green-fill;
-}
-.bg-dark {
-    background-color: #373842 !important;
-}
-
-.bg-dark .dropdown-item:hover,
-.bg-dark .dropdown-item:focus,
-.bg-dark .dropdown-item.active,
-.bg-dark .dropdown-item:active {
-    background-color: $bg-green-fill;
-}
-
 @media (min-width: 768px) {
     .bg-md-black {
-        background-color: $bg-black-fill !important;
+        background-color: #373842 !important;
     }
     .bg-md-white {
         background-color: #fff !important;
@@ -50,6 +26,11 @@ textarea {
 
 .h-60 {
     height: 60px;
+}
+
+.object-fit-400 {
+    object-fit: cover;
+    height: 400px;
 }
 
 // Spacers
@@ -108,41 +89,6 @@ p {
     box-shadow: 2px 0px 5px rgba(51, 51, 51, 0.3);
 }
 
-// Transitions
-.opacity-fade {
-    right: 0;
-    opacity: 1;
-    transition: 1s all;
-}
-
-.opacity-fade.active {
-    position: absolute;
-    right: 100%;
-    opacity: 0;
-}
-
-
-// Sizing
-.object-fit-200 {
-    object-fit: cover;
-    height: 200px;
-}
-
-.object-fit-300 {
-    object-fit: cover;
-    height: 300px;
-}
-
-.object-fit-400 {
-    object-fit: cover;
-    height: 400px;
-}
-
-.object-fit-500 {
-    object-fit: cover;
-    height: 400px;
-}
-
 // iOS Zoom
 .ajax_search {
     font-size: 16px;
@@ -152,7 +98,7 @@ p {
 
 // Header
 .wrapper-logo img.logo {
-    width: 350px;
+    max-width: 350px;
 }
 
 @media (min-width: 768px) {
@@ -210,19 +156,6 @@ p {
     right: 0;
     cursor: pointer;
 
-    &.black-bg{
-        background-color: $bg-black;
-    }
-    &.red-bg{
-        background-color: $bg-red;
-    }
-    &.yellow-bg{
-        background-color: $bg-yellow;
-    }
-    &.green-bg{
-        background-color: $bg-green;
-    }
-
     &.show {
         opacity: 1;
     }
@@ -238,11 +171,6 @@ p {
 }
 .description-compress p:first-of-type {
     display: unset;
-}
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-    background-color: #888F7F !important;
 }
 
 .nav-tabs .nav-link {
@@ -330,7 +258,6 @@ p {
     overflow-y: scroll;
     z-index: 1040;
     transition: 600ms ease;
-    background-color: #fff;
 
     &.left {
         left: 0;
@@ -356,7 +283,6 @@ p {
     cursor: pointer;
     opacity: 0.6;
     z-index: 1030;
-    background-color: #ccc;
 }
 
 // Mobile Search Preview
