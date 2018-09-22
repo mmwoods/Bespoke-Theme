@@ -1,6 +1,6 @@
 <div class="extra-options">
 	[%if [@subtitle@]%]
-	<h3 class="text-center text-lg-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
+		<h3 class="text-center text-lg-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
 	[%/if%]
 	[%if ![@has_variation@] %]
 		[%IF [@short_description@]%]
@@ -12,6 +12,19 @@
 				[@description@]
 			</div>
 		[%/ IF%]
+	[%/if%]
+	[%if [@is_kit@] AND ![@has_components@]%]
+		[%ITEM_KITTING id:'[@SKU@]' variation_kitting:1%]
+			[%param *header%]
+				<div class="text-left mb-4">
+			[%/ param%]
+			[%param *body%]
+					<p class="card-title h5">[@qty@] x [%format type:'text' maxlength:'50' rmhtml:'1'%][@model@][%/FORMAT%]</p>
+			[%/ param%]
+			[%param *footer%]
+				</div>
+			[%/ param%]
+		[%/ITEM_KITTING%]
 	[%/if%]
 	[%multilevelpricing id:'[@SKU@]'%]
 		[%param *header%]

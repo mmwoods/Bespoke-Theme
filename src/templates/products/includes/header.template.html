@@ -3,8 +3,10 @@
 	<div class="wrapper-product-title col-12">
 		<h1 class="text-center text-uppercase mb-1" itemprop="name" aria-label="Product Name">[@name@]</h1>
 
-		[%set [@review_sku@]%][%if [@parent_sku@]%][@parent_sku@][%else%][@sku@][%/if%][%/set%]
-		[%load_ajax_template id:'_reviews' type:'item' template:'reviews' preload:'1' tmpl_sku:'[@review_sku@]' /%]
+		<div class="my-2">
+			[%set [@review_sku@]%][%if [@parent_sku@]%][@parent_sku@][%else%][@sku@][%/if%][%/set%]
+			[%load_ajax_template id:'_reviews' type:'item' template:'reviews' preload:'1' tmpl_sku:'[@review_sku@]' /%]
+		</div>
 	</div>
 	<div class="wrapper-product-price  col-12">
 		[%if ![@has_child@] || [@has_variation@]%]
