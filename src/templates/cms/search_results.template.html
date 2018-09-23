@@ -1,25 +1,40 @@
+[%site_value id:'footer_javascript'%]
+	<script>
+		$("#sidebarToggle").click(function(){
+			if($(this).html() == "Show Sort") {
+				$(this).html("Hide Sort");
+			} else {
+				$(this).html("Show Sort");
+			}
+
+			$("#left-sidebar").toggleClass("sidebar-collapsed");
+			$("#category-content").toggleClass("col-md-6 col-lg-8");
+			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
+		});
+	</script>
+[%/site_value%]
+
 [%SET [@page_type@]='category'/%]
-[%load_template file:'cms/includes/sidebar.template.html'/%]
+<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
 	[%breadcrumb%]
 		[%param *header%]
-		<nav aria-label="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-					<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
-				</li>
+			<nav aria-label="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" class="w-100 mb-0">
+				<ol class="breadcrumb justify-content-center bg-white mb-0">
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+					</li>
 		[%/param%]
 		[%param *body%]
-			<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
-			</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+					</li>
 		[%/param%]
 		[%param *footer%]
-			</ol>
-		</nav>
+				</ol>
+			</nav>
 		[%/param%]
 	[%/breadcrumb%]
 	[%filter ID:'keywords' if:'ne' value:''%]
-		<h1 class="display-4">Search [@config:website_name@]</h1>
 		<div class="search-results-search">
 			<form class="" name="productsearch" method="get" action="/">
 				<input type="hidden" name="rf" value="kw" />
@@ -32,92 +47,48 @@
 			</form>
 		</div>
 	[%/filter%]
-	[%filter ID:'keywords' if:'eq' value:''%]
-		<h1>
-			[%url_info name:'page_heading' if:'eq' value:''%]
-				[%param if_true%][@name@][%/param%]
-				[%param if_false%][%url_info name:'page_heading'/%][%/param%]
-			[%/url_info%]
-			[%if [@id@] eq ''%]
-				[%filter ID:'keywords' if:'ne' value:''%][%NOHTML%][%filter ID:'keywords'/%][%/NOHTML%][%/filter%]
-			[%/if%]
-		</h1>
-	[%/filter%]
-	[%filter ID:'keywords' if:'ne' value:' '%]
-		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
-			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
+
+	<div class="wrapper-category-products row">
+		[%filter ID:'keywords' if:'ne' value:' '%]
+			[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
+				[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 				[%param *header%]
-					<hr aria-hidden="true"/>
-					<div class="row sort_container">
-						<div class="col-4 col-md-7 col-lg-4">
-							<script language="javascript" type="text/javascript">
-								function viewtype(view) {
-									var f=document.viewForm;
-									f['viewby'].value=view;
-									f.submit();
-								}
-							</script>
-							<form method="get" name="viewForm" action="[@config:CURRENT_URL@]" class="hidden">
-								<input name="rf" type="hidden" value="[%filter_code/%]" >
-								<input name="viewby" type="hidden" value="" />
-							</form>
-							<div class="viewby btn-group">
-								<a href="javascript:viewtype('');" class="btn btn-outline-secondary [%VIEWBY type:'products' if:'ne' value:'list' if_true:'active' if_false:''%][%/VIEWBY%]" rel="nofollow" aria-label="Thumbnail view"><i class="fa fa-th"></i></a>
-								<a href="javascript:viewtype('list');" class="btn btn-outline-secondary [%VIEWBY type:'products' if:'eq' value:'list' if_true:'active' if_false:''%][%/VIEWBY%]" rel="nofollow" aria-label="List view"><i class="fa fa-th-list"></i></a>
+					<div class="col-12 mb-5">
+						<h1 class="section-title text-center text-uppercase my-4 my-sm-5">Search [@config:website_name@]</h1>
+						<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mb-0">Show Sort</h2>
+					</div>
+
+					[%load_template file:'cms/includes/sidebar.template.html'/%]
+						<!-- From Sidebar: #category-content -->
+						<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+							<div class="row">
+				[%/param%]
+				[%param *footer%]
 							</div>
 						</div>
-						<div class="col-4 d-none d-lg-block">
-							<div class="btn-text"><strong>[@total_results@]</strong> Products Found</div>
-						</div>
-						<div class="col-8 col-md-5 col-lg-4">
-							<form method="get" class="form-horizontal" action="[@config:CURRENT_URL@]">
-								<input name="rf" type="hidden" value="[%filter_code/%]" >
-								<div class="form-row">
-									<label class="col-2 col-form-label" for="sortby">Sort</label>
-									<div class="col-10">
-										<select name="sortby" onChange="return this.form.submit();" class="form-control" aria-label="Sort products by">
-											<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%/SORTBY%]>Most Popular</option>
-											<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%/SORTBY%]>Name</option>
-											<option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%/SORTBY%]>SKU</option>
-											<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%/SORTBY%]>Lowest Price</option>
-											<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%/SORTBY%]>Highest Price</option>
-										</select>
-									</div>
+						[%IF [@total_results@] > [@config:thumb_limit@]%]
+							<div class="row">
+								<div class="col-12">
+									<hr aria-hidden="true"/>
+									<nav aria-label="Page navigation">
+										<ul class="pagination justify-content-center">
+											[%paging limit:'3'%]
+												[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
+												[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+												[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
+												[%param *gonext_pages%]<li class="page-item"><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+												[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
+											[%/paging%]
+										</ul>
+									</nav>
+									<hr aria-hidden="true"/>
 								</div>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12"><hr></div>
-					</div>
-					<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
-						<div class="row products-row">
-					[%/param%]
-					[%param *footer%]
-						</div>
-					</div>
-					[%IF [@total_results@] > [@config:thumb_limit@]%]
-						<div class="row">
-							<div class="col-12">
-								<hr aria-hidden="true"/>
-								<nav aria-label="Page navigation">
-									<ul class="pagination justify-content-center">
-										[%paging limit:'3'%]
-											[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
-											[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-											[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
-											[%param *gonext_pages%]<li class="page-item"><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-											[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
-										[%/paging%]
-									</ul>
-								</nav>
-								<hr aria-hidden="true"/>
 							</div>
-						</div>
-					[%/IF%]
+						[%/IF%]
+					</div><!-- /#category-content -->
 				[%/param%]
 				[%param *ifempty%]
-					<div class="row">
+					<div class="row mt-3">
 						<div class="col-12">
 							[%filter ID:'keywords' if:'ne' value:''%]
 								<p>Search was unable to find any product results for '[%NOHTML%][%filter ID:'keywords'/%][%/NOHTML%]' you may have typed your word incorrectly, or are being too specific. Try using a broader search phrase.</p>
@@ -125,11 +96,10 @@
 							[%filter ID:'keywords' if:'eq' value:''%]
 								<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
 							[%/filter%]
-							<hr aria-hidden="true"/>
 						</div>
 					</div>
 				[%/param%]
 			[%/thumb_list%]
-		</div>
-	[%/filter%]
+		[%/filter%]
+	</div>
 </div>

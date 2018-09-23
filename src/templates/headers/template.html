@@ -23,6 +23,7 @@
 									<a href="[@url@]" class="nav-link text-light [%if [@next_level@]%] dropdown-toggle[%/if%]" [%if [@next_level@]%]role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[%/if%]>[@name@]</a>
 									[%if [@next_level@]%]
 										<ul class="dropdown-menu bg-dark border-0">
+											<li class="[%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">> All [@name@]</a>
 											[@next_level@]
 										</ul>
 									[%/if%]
