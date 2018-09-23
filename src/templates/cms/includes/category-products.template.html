@@ -1,63 +1,65 @@
-[%site_value id:'footer_javascript'%]
-	<script>
-		$("#sidebarToggle").click(function(){
-			if($(this).html() == "Show Sort") {
-				$(this).html("Hide Sort");
-			} else {
-				$(this).html("Show Sort");
-			}
+[%if [@config:current_page_type@] eq 'category'%]
+	[%site_value id:'footer_javascript'%]
+		<script>
+			$("#sidebarToggle").click(function(){
+				if($(this).html() == "Show Sort") {
+					$(this).html("Hide Sort");
+				} else {
+					$(this).html("Show Sort");
+				}
 
-			$("#left-sidebar").toggleClass("sidebar-collapsed");
-			$("#category-content").toggleClass("col-md-6 col-lg-8");
-			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
-		});
-	</script>
-[%/site_value%]
+				$("#left-sidebar").toggleClass("sidebar-collapsed");
+				$("#category-content").toggleClass("col-md-6 col-lg-8");
+				$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
+			});
+		</script>
+	[%/site_value%]
 
-<div class="wrapper-category-products row">
-	[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
-		[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
-		[%param *header%]
-			<div class="col-12 mb-5">
-				[@^section-title@]
-				<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mb-0">Show Sort</h2>
-			</div>
+	<div class="wrapper-category-products row">
+		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
+			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
+			[%param *header%]
+				<div class="col-12 mb-5">
+					[@^section-title@]
+					<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mb-0">Show Sort</h2>
+				</div>
 
-			[%load_template file:'cms/includes/sidebar.template.html'/%]
-				<!-- From Sidebar: #category-content -->
-					<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
-						<section class="row" aria-label="Products in category">
-		[%/param%]
-		[%param *footer%]
-						</section>
-					</div>
-
-					[%IF [@total_results@] > [@config:thumb_limit@]%]
-						<div class="row">
-							<div class="col-12">
-								<hr aria-hidden="true"/>
-								<nav aria-label="Page navigation">
-									<ul class="pagination justify-content-center">
-										[%paging limit:'3'%]
-											[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
-											[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-											[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
-											[%param *gonext_pages%]<li><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
-											[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
-										[%/paging%]
-									</ul>
-								</nav>
-								<hr aria-hidden="true"/>
-							</div>
+				[%load_template file:'cms/includes/sidebar.template.html'/%]
+					<!-- From Sidebar: #category-content -->
+						<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+							<section class="row" aria-label="Products in category">
+			[%/param%]
+			[%param *footer%]
+							</section>
 						</div>
-					[%/IF%]
-				</div><!-- /#category-content -->
-		[%/param%]
-		[%param *ifempty%]
-			<div class="col-12">
-				[@^section-title@]
-				<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
-			</div>
-		[%/param%]
-	[%/thumb_list%]
-</div>
+
+						[%IF [@total_results@] > [@config:thumb_limit@]%]
+							<div class="row">
+								<div class="col-12">
+									<hr aria-hidden="true"/>
+									<nav aria-label="Page navigation">
+										<ul class="pagination justify-content-center">
+											[%paging limit:'3'%]
+												[%param *previous_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go back one page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>[%/param%]
+												[%param *goback_pages%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+												[%param *current_page%]<li class="page-item active"><a class="page-link" href="[@url@]" aria-label="Current page">[@page@]</a></li>[%/param%]
+												[%param *gonext_pages%]<li><a href="[@url@]" class="page-link" aria-label="Go to page [@page@]">[@page@]</a></li>[%/param%]
+												[%param *next_page%]<li class="page-item"><a class="page-link" href="[@url@]" aria-label="Go forward one page"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>[%/param%]
+											[%/paging%]
+										</ul>
+									</nav>
+									<hr aria-hidden="true"/>
+								</div>
+							</div>
+						[%/if%]
+					</div><!-- /#category-content -->
+			[%/param%]
+			[%param *ifempty%]
+				<div class="col-12">
+					[@^section-title@]
+					<p class="mt-4">This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+				</div>
+			[%/param%]
+		[%/thumb_list%]
+	</div>
+[%/if%]
