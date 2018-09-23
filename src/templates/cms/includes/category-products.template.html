@@ -8,22 +8,19 @@
 			}
 
 			$("#left-sidebar").toggleClass("sidebar-collapsed");
-			$("#category-content").toggleClass("col-sm-12 col-sm-8");
-			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-lg-4 col-lg-6");
+			$("#category-content").toggleClass("col-md-6 col-lg-8");
+			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
 		});
 	</script>
 [%/site_value%]
 
-<div class="row">
-	<div class="col-12">
-		[@^section-title@]
-	</div>
-
+<div class="wrapper-category-products row">
 	[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
 		[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 		[%param *header%]
-			<div class="col-12 mt--5 mb-5">
-				<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary">Show Sort</h2>
+			<div class="col-12 mb-5">
+				[@^section-title@]
+				<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mb-0">Show Sort</h2>
 			</div>
 
 			[%load_template file:'cms/includes/sidebar.template.html'/%]
@@ -57,10 +54,9 @@
 				</div><!-- /#category-content -->
 		[%/param%]
 		[%param *ifempty%]
-			<div class="row">
-				<div class="col-12">
-					<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
-				</div>
+			<div class="col-12">
+				[@^section-title@]
+				<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
 			</div>
 		[%/param%]
 	[%/thumb_list%]

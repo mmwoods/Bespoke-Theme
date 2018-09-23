@@ -352,3 +352,13 @@ p {
 .wrapper-product-share .dropdown-toggle::after {
     display: none;
 }
+
+// Category Page
+.wrapper-category-products {
+    .section-title {
+        margin-bottom: 0 !important;
+    }
+    #sidebarToggle {
+        cursor: pointer;
+    }
+}

@@ -9705,3 +9705,9 @@ p {
 
 .wrapper-product-share .dropdown-toggle::after {
   display: none; }
+
+.wrapper-category-products .section-title {
+  margin-bottom: 0 !important; }
+
+.wrapper-category-products #sidebarToggle {
+  cursor: pointer; }

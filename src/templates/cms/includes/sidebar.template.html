@@ -1,6 +1,6 @@
-<aside class="col-12 col-sm-4 [%if [@config:current_page_type@] eq 'category'%]sidebar-collapsed[%/if%]" id="left-sidebar">
+<aside class="col-12 col-md-6 col-lg-4 [%if [@config:current_page_type@] eq 'category'%]sidebar-collapsed[%/if%]" id="left-sidebar">
     [%IF [@page_type@] eq 'category' and [@config:show_filters@]%]
-        <div class="card mb-2">
+        <div class="card mt-3 mb-2">
             <div class="card-header border-bottom">
                 <h3 class="h4 mb-0">
                     <a class="text-dark d-block" role="button" data-toggle="collapse" aria-expanded="false" href="#filters" aria-controls="#filters">Filter Products</a>
@@ -143,85 +143,10 @@
             </div>
         </div>
     [%/IF%]
-    [%CACHE type:'cmenu' id:'sidebar'%]
-    [%CATEGORYMENU sortby:'sortorder,selected,name' show_empty:'1'%]
-        [%param header%]
-            <div class="card d-none d-md-block mb-2">
-                <div class="card-header"><h3 class="h4 mb-0">Categories</h3></div>
-                <div class="list-group list-group-flush" role="navigation" aria-label="Category menu">
-        [%/param%]
-        [%param *level_1%]
-            <div class="position-relative border-bottom [%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
-                <a class="text-dark list-group-item list-group-item-action" href="[@url@]">[@name@]</a>
-                [%if [@next_level@]%]
-                    <ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
-                [%/if%]
-            </div>
-        [%/param%]
-        [%param *level_2%]
-                <li class="[%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
-                    <a class="dropdown-item" href="[@url@]">[@name@]</a>
-                    [%if [@next_level@]%]
-                        <ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
-                    [%/if%]
-                </li>
-        [%/param%]
-        [%param *level_3%]
-                <li><a class="dropdown-item" href="[@url@]">[@name@]</a></li>
-        [%/param%]
-        [%param footer%]
-                </div>
-            </div>
-        [%/param%]
-    [%/CATEGORYMENU%]
-    [%/CACHE%]
-    [%CONFIG id:'phistory_limit' if:'ne' value:'0'%]
-        [%PRODUCT_HISTORY limit:'[@config:phistory_limit@]' template:'box'%]
-            [%param header%]
-                <section class="card d-none d-md-block my-2" role="contentinfo" aria-label="Browsing history">
-                    <div class="card-header"><h3 class="h4 mb-0">Browsing History</h3></div>
-                    <ul class="nav list-group">
-            [%/param%]
-            [%param footer%]
-                    </ul>
-                </section>
-            [%/param%]
-        [%/PRODUCT_HISTORY%]
-    [%/CONFIG%]
-    [%MENU id:'web_information'%]
-        [%param header%]
-            <div class="card d-none d-md-block my-2">
-                <div class="card-header"><h3 class="h4 mb-0">Information</h3></div>
-                <div class="list-group list-group-flush" role="navigation" aria-label="Information menu">
-        [%/param%]
-        [%param *level_1%]
-            <div class="position-relative border-bottom [%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
-                <a class="text-dark list-group-item list-group-item-action" href="[@url@]">[@name@]</a>
-                [%if [@next_level@]%]
-                    <ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
-                [%/if%]
-            </div>
-        [%/param%]
-        [%param *level_2%]
-            <li class="[%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
-                <a class="dropdown-item" href="[@url@]">[@name@]</a>
-                [%if [@next_level@]%]
-                    <ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
-                [%/if%]
-            </li>
-        [%/param%]
-        [%param *level_3%]
-            <li><a class="dropdown-item" href="[@url@]">[@name@]</a></li>
-        [%/param%]
-        [%param footer%]
-            </div>
-        </div>
-        [%/param%]
-    [%/MENU%]
 </aside>
 
 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]
-    <div id="category-content" class="col-12 col-sm-12 text-center float-right">
+    <div id="category-content" class="col-12 text-center float-right">
 [%else%]
     <div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
 [%/if%]
