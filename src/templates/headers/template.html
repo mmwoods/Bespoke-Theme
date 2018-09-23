@@ -23,7 +23,9 @@
 									<a href="[@url@]" class="nav-link text-light [%if [@next_level@]%] dropdown-toggle[%/if%]" [%if [@next_level@]%]role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[%/if%]>[@name@]</a>
 									[%if [@next_level@]%]
 										<ul class="dropdown-menu bg-dark border-0">
-											<li class="[%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">> All [@name@]</a>
+											[%if [@url@] ne ''%]
+												<li class="[%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="text-light nuhover dropdown-item">> All [@name@]</a>
+											[%/if%]
 											[@next_level@]
 										</ul>
 									[%/if%]
@@ -202,11 +204,13 @@
 												</button>
 											</div>
 											<ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu w-100">
-												<li class="lvl-2 list-group-item border-0">
-													<div class="menu-level-wrapper">
-														<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
-													</div>
-												</li>
+												[%if [@url@] ne ''%]
+													<li class="lvl-2 list-group-item border-0">
+														<div class="menu-level-wrapper">
+															<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
+														</div>
+													</li>
+												[%/if%]
 												[@next_level@]
 											</ul>
 									[%else%]
@@ -225,9 +229,11 @@
 												</button>
 											</div>
 											<ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu">
-												<li class="lvl-3 list-group-item border-0">
-													<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
-												</li>
+												[%if [@url@] ne ''%]
+													<li class="lvl-3 list-group-item border-0">
+														<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
+													</li>
+												[%/if%]
 												[@next_level@]
 											</ul>
 									[%else%]
