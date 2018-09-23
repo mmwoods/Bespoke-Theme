@@ -405,30 +405,30 @@ fieldset[disabled] .btn-info.active {
 /* Product Page */
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    background-color: #888F7F !important;
+    background-color: #888F7F /*{product-page-accordion-bg}*/ !important;
 }
 
 /* Sidebar */
 .navbar-side {
-    background-color: #fff;
+    background-color: #fff /*{mobile-sidebar-bg}*/;
 }
 
 .overlay {
-    background-color: #ccc;
+    background-color: #ccc /*{mobile-overlay-bg}*/;
 }
 
 /* Thumnail Hover */
 .hover-overlay.black-bg {
-    background-color: rgba(51, 51, 51, 0.6);
+    background-color: rgba(51, 51, 51, 0.6) /*{thumbnail-bg-hover-black}*/;
 }
 .hover-overlay.red-bg {
-    background-color: rgba(174, 21, 21, 0.4);
+    background-color: rgba(174, 21, 21, 0.4) /*{thumbnail-bg-hover-red}*/;
 }
 .hover-overlay.yellow-bg {
-    background-color: rgba(193, 124, 22, 0.4);
+    background-color: rgba(193, 124, 22, 0.4) /*{thumbnail-bg-hover-yellow}*/;
 }
 .hover-overlay.green-bg {
-    background-color: rgba(20, 146, 70, 0.4);
+    background-color: rgba(20, 146, 70, 0.4) /*{thumbnail-bg-hover-green}*/;
 }
 
 /* Header Dropdown */
@@ -436,15 +436,15 @@ fieldset[disabled] .btn-info.active {
 .bg-dark .dropdown-item:focus,
 .bg-dark .dropdown-item.active,
 .bg-dark .dropdown-item:active {
-    background-color: #888F7F;
+    background-color: #888F7F /*{header-dropdown-colour}*/;
 }
 
 .bg-black-fill {
-    background-color: #373842;
+    background-color: #373842 /*{bg-primary}*/;
 }
 .bg-green-fill {
-    background-color: #888F7F;
+    background-color: #888F7F /*{bg-secondary}*/;
 }
 .bg-dark {
-    background-color: #373842 !important;
+    background-color: #373842 /*{bg-tertiary}*/ !important;
 }
