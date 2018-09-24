@@ -1,0 +1,38 @@
+[%advert type:'text' template:'carousel' limit:'10' ad_group:'carousel-wide'%]
+    [%param *header%]
+        </div><!-- .container -->
+        </div><!-- .row -->
+        </div><!-- .col -->
+        [@^section-title@]
+
+        <section id="homepageCarousel" class="carousel slide" data-ride="carousel" aria-label="Banner images">
+            [%if [@total_showing@] > 1%]
+                <ol class="carousel-indicators">
+                    [%site_value id:'counter' type:'load'/%]
+                </ol>
+            [%/if%]
+            <div class="carousel-inner py-3">
+    [%/param%]
+    [%param *footer%]
+            </div>
+            [%if [@total_showing@] > 1%]
+                <a class="carousel-control-prev" href="#homepageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#homepageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            [%/if%]
+        </section>
+        <div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] ne 'home' OR [@config:current_page_type@] ne 'category' OR [@config:current_page_type@] ne 'product'%]mt-3 mt-sm-6 mt-md-0 [%else%]mt-0 [%/if%]" role="main">
+		    <div class="row justify-content-center">
+                <div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+    [%/param%]
+    [%param *ifempty%]
+        <a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+            Click to add a banner<br/>
+        </a>
+    [%/param%]
+[%/advert%]
