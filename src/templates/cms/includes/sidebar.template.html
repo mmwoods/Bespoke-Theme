@@ -79,21 +79,21 @@
                     [%/product_filter%]
                     [%product_filter type:'price' limit:'6'%]
                         [%param header%]
-                            <div class="list-group-item d-l-none d-xl-none"><h3 class="h4 mb-0">Filter By Price Range</h3></div>
+                            <div class="list-group-item d-block d-sm-none text-center"><h3 class="h4 mb-0">Filter By Price Range</h3></div>
                         [%/param%]
                         [%param *body%]
                             [%if [@selected@]%]
-                                <a class="filter-remove list-group-item d-l-none d-xl-none d-flex justify-content-between align-items-center" href="[@remove_url@]" class="list-group-item" rel="nofollow">
+                                <a class="filter-remove list-group-item d-block d-sm-none text-left d-flex justify-content-between align-items-center" href="[@remove_url@]" class="list-group-item" rel="nofollow">
                                     <span><i class="fa fa-check-square"></i> [@name@]</span>
                                     <span class="badge badge-secondary badge-pill">[@total@]</span>
                                 </a>
                             [%else%]
                                 [%if [@min@] == 0 AND [@max@] > 0%]
-                                    <a class="text-dark filter list-group-item d-l-none d-xl-none" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@max@][%/format%] or below</a>
+                                    <a class="text-dark filter list-group-item d-block d-sm-none text-left" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@max@][%/format%] or below</a>
                                 [%elseif [@min@] > 0 AND [@max@] > 0%]
-                                    <a class="text-dark filter list-group-item d-l-none d-xl-none" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@min@][%/format%] to [%format type:'currency' dp:'0'%][@max@][%/format%]</a>
+                                    <a class="text-dark filter list-group-item d-block d-sm-none text-left" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@min@][%/format%] to [%format type:'currency' dp:'0'%][@max@][%/format%]</a>
                                 [%elseif [@max@] == 0%]
-                                    <a class="text-dark filter list-group-item d-l-none d-xl-none" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@min@][%/format%] or above</a>
+                                    <a class="text-dark filter list-group-item d-block d-sm-none text-left" href="[@url@]"><i class="far fa-square"></i> [%format type:'currency' dp:'0'%][@min@][%/format%] or above</a>
                                 [%/if%]
                             [%/if%]
                         [%/param%]

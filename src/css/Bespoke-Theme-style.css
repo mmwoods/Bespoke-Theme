@@ -8,7 +8,7 @@ body {
 
 a {
 	color: #afa3ed /*{link-text-colour}*/;
-	font-weight: 300 /*{link-text-font-weight}*/;
+	font-weight: 400 /*{link-text-font-weight}*/;
 }
 a:hover,
 a:focus {
