@@ -47,16 +47,10 @@
 							[%/param%]
 						[%/menu%]
 					[%/ cache%]
-					<li id="header-cart" class="nav-item" role="group">
-						<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
-							<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
-						</button>
-						<ul class="dropdown-menu dropdown-menu-right float-right">
-							<li class="box" id="neto-dropdown">
-								<div class="body" id="cartcontents"></div>
-								<div class="footer"></div>
-							</li>
-						</ul>
+					<li class="nav-item">
+						<a class="wrapper-search-icon nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown">
+							<span class="text-success">Search</span>
+						</a>
 					</li>
 					<li class="wrapper-account nav-item dropdown">
 						<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="visible-lg visible-inline-lg text-success">Account</span></a>
@@ -84,10 +78,16 @@
 							[%/if%]
 						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="wrapper-search-icon nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown">
-							<span class="text-success">Search</span>
-						</a>
+					<li id="header-cart" class="nav-item" role="group">
+						<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
+							<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items</p>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right float-right">
+							<li class="box" id="neto-dropdown">
+								<div class="body" id="cartcontents"></div>
+								<div class="footer"></div>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</div>
