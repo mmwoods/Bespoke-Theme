@@ -1,3 +1,14 @@
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript">
+        $('.trigger-video').click(function(){
+            var videoSource = $(this).data('src');
+            $('.youtube-embed-wrapper').show();
+            $('.embed-responsive-item').attr('src', videoSource);
+            $('.trigger-video').hide();
+        });
+    </script>
+[%END SITE_VALUE%]
+
 [%advert type:'text' template:'' limit:'1' ad_group:'video'%]
     [%param *header%]
         [@^section-title@]
@@ -6,8 +17,17 @@
     [%/param%]
     [%param *body%]
                 <div class="col-12 py-3">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/[@description@]"></iframe>
+                    [%if [@headline@] OR [@linktext@]%]
+                        <div class="trigger-video hover-overlay black-bg text-center m-3 show" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1">
+                            <div class="wrapper-hover-content px-2">
+                                [%if [@headline@]%]<h1 class="h2 text-uppercase text-light mb-1">[@headline@]</h1>[%/if%]
+                                [%if [@linktext@]%]<h3 class="h3 text-light">[@linktext@]</h3>[%/if%]
+                            </div>
+                        </div>
+                    [%/if%]
+                    <img class="trigger-video video-placeholder" src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/ param%][%/ asset_url%]" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1" width="100%" alt="[@headline@]" />
+                    <div class="youtube-embed-wrapper embed-responsive embed-responsive-16by9" style="display: none;">
+                        <iframe class="embed-responsive-item" scrolling="auto"></iframe>
                     </div>
                 </div>
     [%/param%]
