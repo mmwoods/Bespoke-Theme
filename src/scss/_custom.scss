@@ -160,6 +160,10 @@ p {
         opacity: 1;
     }
 
+    &.hide-cursor {
+        cursor: auto;
+    }
+
     a {
         text-decoration: none;
     }

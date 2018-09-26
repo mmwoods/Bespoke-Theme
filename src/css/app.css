@@ -9549,6 +9549,8 @@ p {
   cursor: pointer; }
   .hover-overlay.show {
     opacity: 1; }
+  .hover-overlay.hide-cursor {
+    cursor: auto; }
   .hover-overlay a {
     text-decoration: none; }
 
