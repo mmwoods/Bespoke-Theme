@@ -1,10 +1,10 @@
 [%SITE_VALUE id:'footer_javascript'%]
     <script type="text/javascript">
-        $('.trigger-video').click(function(){
+        $('#homepageVideo .trigger-video').click(function(){
             var videoSource = $(this).data('src');
-            $('.youtube-embed-wrapper').show();
-            $('.embed-responsive-item').attr('src', videoSource);
-            $('.trigger-video').hide();
+            $('#homepageVideo .youtube-embed-wrapper').show();
+            $('#homepageVideo .embed-responsive-item').attr('src', videoSource);
+            $('#homepageVideo .trigger-video').hide();
         });
     </script>
 [%END SITE_VALUE%]
@@ -12,7 +12,7 @@
 [%advert type:'text' template:'' limit:'1' ad_group:'video'%]
     [%param *header%]
         [@^section-title@]
-        <section class="wrapper-video">
+        <section id="homepageVideo" class="wrapper-video">
             <div class="row justify-content-center">
     [%/param%]
     [%param *body%]

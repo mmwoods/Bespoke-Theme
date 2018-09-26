@@ -1,0 +1,63 @@
+[%if [@count@] eq 0%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            // Remove top margin
+            $('#main-content').addClass('d-none');
+            $('#homepageVideoWide .video-item').toggleClass('py-3 pb-3 px-0');
+            $('#homepageVideoWide .hover-overlay').toggleClass('m-3 mb-3');
+            // Determining header height
+            if ($(window).width() < 768) {
+                var headerHeight = $('.wrapper-mob-header').height();
+            }
+            else {
+                var headerHeight = $('.wrapper-header').height();
+            }
+            $('#homepageVideoWide img').css('max-height', 'calc(100vh - ' + headerHeight + 'px)');
+        </script>
+    [%END SITE_VALUE%]
+[%/if%]
+
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript">
+        $('#homepageVideoWide .trigger-video').click(function(){
+            var videoSource = $(this).data('src');
+            $('#homepageVideoWide .youtube-embed-wrapper').show();
+            $('#homepageVideoWide .embed-responsive-item').attr('src', videoSource);
+            $('#homepageVideoWide .trigger-video').hide();
+        });
+    </script>
+[%END SITE_VALUE%]
+
+[%advert type:'text' template:'' limit:'1' ad_group:'video-wide'%]
+    [%param *header%]
+        </div><!-- .container -->
+        </div><!-- .row -->
+        </div><!-- .col -->
+        [@^section-title@]
+        <section id="homepageVideoWide" class="container-fluid wrapper-video">
+            <div class="row justify-content-center">
+    [%/param%]
+    [%param *body%]
+                <div class="video-item position-relative col-12 py-3">
+                    [%if [@headline@] OR [@linktext@]%]
+                        <div class="trigger-video hover-overlay black-bg text-center show m-3" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1">
+                            <div class="wrapper-hover-content px-2">
+                                [%if [@headline@]%]<h1 class="h2 text-uppercase text-light mb-1">[@headline@]</h1>[%/if%]
+                                [%if [@linktext@]%]<h3 class="h3 text-light">[@linktext@]</h3>[%/if%]
+                            </div>
+                        </div>
+                    [%/if%]
+                    <img class="trigger-video video-placeholder" src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/ param%][%/ asset_url%]" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1" width="100%" alt="[@headline@]" />
+                    <div class="youtube-embed-wrapper embed-responsive embed-responsive-16by9" style="display: none;">
+                        <iframe class="embed-responsive-item" scrolling="auto"></iframe>
+                    </div>
+                </div>
+    [%/param%]
+    [%param *footer%]
+            </div>
+        </section>
+        <div id="main-content-second" class="container" role="main">
+		    <div class="row justify-content-center">
+                <div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+    [%/param%]
+[%/advert%]
