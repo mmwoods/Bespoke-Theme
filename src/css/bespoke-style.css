@@ -402,6 +402,11 @@ fieldset[disabled] .btn-info.active {
 	background-color: #f5f5f5 /*{dropdown-menu-link-bg-hover}*/;
 }
 
+/* Footer */
+.wrapper-footer nav {
+	background-color: #373842 /*{footer-default-bg-colour}*/ !important;
+}
+
 /* Product Page */
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
