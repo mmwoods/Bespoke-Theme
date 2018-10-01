@@ -1,7 +1,7 @@
 [%load_template file:"products/includes/product_scripts.template.html"/%]
 [%SET [@page_type@]='product'/%]
 
-<div class="[%if [@CONFIG:website_large_width@]%]col-12 [%else%]col-11 col-sm-12 col-md-9 [%/if%]text-center">
+<div class="col-12 text-center">
 	[%set [@no-menu@] %]true[%/set%]
 	[%menu id:'product-layout'%]
 		[%param *header%]
