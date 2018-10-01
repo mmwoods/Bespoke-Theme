@@ -16,7 +16,7 @@
         [%/PARAM%]
         [%PARAM *body%]
             [%if ![@has_variation@]%]
-                <div class="col-6 pb-2 wrapper-components-thumbnail">
+                <div class="col-6 col-md-4 pb-2 wrapper-components-thumbnail">
                     <input type="checkbox" id="[@sku@]a" class="hidden" checked>
                     <div class="card components-thumbnail thumbnail border-0 component[@group_count@]">
                         <img class="component-var-thumb card-img-top" component-id="[@component_count@]" src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumb'%][%/asset_url%]" alt="[@model@]" border="0" id="main-image">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             [%else%]
-                <div class="col-6 pb-2 wrapper-components-thumbnail">
+                <div class="col-6 col-md-4 pb-2 wrapper-components-thumbnail">
                     [%if [@variation_available@] > '0'%]<input type="checkbox" id="[@sku@]a" class="hidden" checked>[%/if%]
                     <div class="card components-thumbnail thumbnail border-0 component[@group_count@]">
                         <img class="component-var-thumb card-img-top" component-id="[@component_count@]" src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumb'%][%/asset_url%]" alt="[@model@]" border="0" id="main-image">
