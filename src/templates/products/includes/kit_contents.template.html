@@ -6,9 +6,28 @@
             <div class="row justify-content-center" role="contentinfo" aria-label="Product images">
         [%/ param%]
         [%param *body%]
-                <div class="col-6 col-sm-6 col-lg-4 p-3">
-                    <div class="card thumbnail card-body p-0">
+                <div class="col-6 col-sm-6 col-lg-4 py-3 pr-0 pr-sm-3">
+                    <div class="card thumbnail n-responsive-content border-0 border-sm-1">
                         <img class="product-image img-fluid" component-id="[@component_count@]" src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL'%][%/asset_url%]" alt="[@model@]" border="0">
+
+                        <div class="d-none d-sm-block">
+                            <div class="hover-overlay black-bg text-center p-3 hide-cursor">
+                                <div class="wrapper-hover-content px-2">
+                                    <h1 class="h2 text-uppercase text-light mb-1">[@model@]</h1>
+                                    <h3 class="h3 text-light">Quantity: [@qty@]</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 d-block d-sm-none my-3">
+                    <div>
+                        <div class="hover-overlay show black-bg text-center mr-3 hide-cursor">
+                            <div class="wrapper-hover-content px-2">
+                                <h1 class="h2 text-uppercase text-light mb-1">[@model@]</h1>
+                                <h3 class="h3 text-light">Quantity: [@qty@]</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
         [%/ param%]
