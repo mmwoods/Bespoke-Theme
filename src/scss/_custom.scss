@@ -112,6 +112,11 @@ p {
     }
 }
 
+#header-cart .dropdown-menu {
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 .wrapper-cart.dropdown-toggle::after,
 .wrapper-account .dropdown-toggle::after {
     display: none;
