@@ -40,7 +40,7 @@
     [%param *body%]
                 <div class="video-item position-relative col-12 py-3">
                     [%if [@headline@] OR [@linktext@]%]
-                        <div class="trigger-video hover-overlay black-bg text-center show m-3" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1">
+                        <div class="trigger-video hover-overlay black-bg text-center show m-3" data-src="https://www.youtube.com/embed/[@description@]?rel=0&amp;autoplay=1;controls=0&amp;showinfo=0">
                             <div class="wrapper-hover-content px-2">
                                 [%if [@headline@]%]<h1 class="h2 text-uppercase text-light mb-1">[@headline@]</h1>[%/if%]
                                 [%if [@linktext@]%]<h3 class="h3 text-light">[@linktext@]</h3>[%/if%]
