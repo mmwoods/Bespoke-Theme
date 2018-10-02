@@ -1,5 +1,5 @@
-<aside class="col-12 col-md-6 col-lg-4 [%if [@config:current_page_type@] eq 'category'%]sidebar-collapsed[%/if%]" id="left-sidebar">
-    [%IF [@page_type@] eq 'category' and [@config:show_filters@]%]
+<aside class="col-12 col-md-6 col-lg-4 [%if [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'content'%]sidebar-collapsed[%/if%]" id="left-sidebar">
+    [%IF [@page_type@] eq 'category' and [@config:show_filters@] OR [@page_type@] eq 'content' and [@config:show_filters@] %]
         <div class="card mt-3 mb-2">
             <div class="card-header border-bottom">
                 <h3 class="h4 mb-0">
@@ -160,7 +160,7 @@
     [%/IF%]
 </aside>
 
-[%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]
+[%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'content' OR [@config:current_page_type@] eq 'product'%]
     <div id="category-content" class="col-12 text-center float-right">
 [%else%]
     <div class="col-12 text-center">

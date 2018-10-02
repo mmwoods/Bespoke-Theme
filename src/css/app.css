@@ -9550,7 +9550,8 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
-  cursor: pointer; }
+  cursor: pointer;
+  overflow-y: hidden; }
   .hover-overlay.show {
     opacity: 1; }
   .hover-overlay.hide-cursor {

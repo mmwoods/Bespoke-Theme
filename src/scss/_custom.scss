@@ -160,6 +160,7 @@ p {
     left: 0;
     right: 0;
     cursor: pointer;
+    overflow-y: hidden;
 
     &.show {
         opacity: 1;

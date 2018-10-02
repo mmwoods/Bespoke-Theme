@@ -7,14 +7,16 @@
         </section>
     [%/param%]
     [%param *ifempty%]
-        [%random_products filter_category:'' template:'' limit:'9'%]
-            [%param *header%]
-                [@^section-title@]
-                <section class="row" aria-label="Featured Products">
-            [%/param%]
-            [%param *footer%]
-                </section>
-            [%/param%]
-        [%/random_products%]
+        [%if [@config:current_page_type@] eq 'home'%]
+            [%random_products filter_category:'' template:'' limit:'9'%]
+                [%param *header%]
+                    [@^section-title@]
+                    <section class="row" aria-label="Featured Products">
+                [%/param%]
+                [%param *footer%]
+                    </section>
+                [%/param%]
+            [%/random_products%]
+        [%/if%]
     [%/param%]
 [%/advert%]

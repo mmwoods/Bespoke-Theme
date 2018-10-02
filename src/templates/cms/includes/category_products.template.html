@@ -1,4 +1,4 @@
-[%if [@config:current_page_type@] eq 'category'%]
+[%if [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'content'%]
 	[%site_value id:'footer_javascript'%]
 		<script>
 			$("#sidebarToggle").click(function(){
