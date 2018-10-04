@@ -112,15 +112,26 @@
 		[%/ param%]
 	[%/ extra_options%]
 
-	[%data id:'multiplier_qty' if:'ne' value:'0' %]
-		Order In Lots Of <strong>[@multiplier_qty@]</strong>
-	[%end data%]
-	[%data id:'min_qty' if:'ne' value:'0' %]
-		Minimum Order Quantity <strong>[@min_qty@]</strong>
-	[%end data%]
-	[%data id:'max_qty' if:'ne' value:'0' %]
-		Maximum Order Quantity <strong>[@max_qty@]</strong>
-	[%end data%]
+	<div class="row py-3">
+		[%data id:'multiplier_qty' if:'ne' value:'0' %]
+			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+				<div class="btn-success btn-block p-1">Order In Lots Of</div>
+				<div class="card p-1">[@multiplier_qty@]</div>
+			</div>
+		[%end data%]
+		[%data id:'min_qty' if:'ne' value:'0' %]
+			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+				<div class="btn-success btn-block p-1">Min Order Quantity</div>
+				<div class="card p-1">[@min_qty@]</div>
+			</div>
+		[%end data%]
+		[%data id:'max_qty' if:'ne' value:'0' %]
+			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+				<div class="btn-success btn-block p-1">Max Order Quantity</div>
+				<div class="card p-1">[@max_qty@]</div>
+			</div>
+		[%end data%]
+	</div>
 
 	<form class="buying-options" autocomplete="off" role="form" aria-label="Product purchase form">
 		<input type="hidden" id="model[@rndm@][@SKU@]" name="model" value="[@model@]">
