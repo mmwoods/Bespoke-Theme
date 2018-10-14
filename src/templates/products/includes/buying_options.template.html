@@ -28,35 +28,39 @@
 	[%/if%]
 	[%multilevelpricing id:'[@SKU@]'%]
 		[%param *header%]
-			<table class="table table-sm mt-3">
-				<thead>
-					<tr>
-						<th colspan="2">
-							Buy In Bulk &amp; Save!
-						</th>
-					</tr>
-				</thead>
-				<tbody>
+			<div class="wrapper-multi-table row mb-3">
+				<div class="col-12 col-sm-8">
+					<table class="table table-sm mt-3">
+						<thead class="bg-success text-light">
+							<tr>
+								<th colspan="2">
+									Buy In Bulk &amp; Save!
+								</th>
+							</tr>
+						</thead>
+						<tbody>
 		[%/ param%]
 		[%param *body%]
-					<tr>
-						<td width="20%" nowrap="nowrap">
-							<span class="productmultilevelqty">Buy [%FORMAT type:'number' dp:'0' sp:','%][@minqty@][%/ FORMAT%]
-								[%IF [@maxqty@] > 0%]
-									to [%FORMAT type:'number' dp:'0' sp:','%][@maxqty@][%/ FORMAT%]:
-								[%ELSE%]
-									or more:
-								[%/ IF%]
-							</span>
-						</td>
-						<td nowrap="nowrap">
-							<span class="productmultilevelprice"> Pay [%FORMAT type:'currency'%][@price@][%/ FORMAT%]</span>
-						</td>
-					</tr>
+							<tr>
+								<td width="30%" nowrap="nowrap" class="text-left">
+									<span class="productmultilevelqty">Buy [%FORMAT type:'number' dp:'0' sp:','%][@minqty@][%/ FORMAT%]
+										[%IF [@maxqty@] > 0%]
+											to [%FORMAT type:'number' dp:'0' sp:','%][@maxqty@][%/ FORMAT%]:
+										[%ELSE%]
+											or more:
+										[%/ IF%]
+									</span>
+								</td>
+								<td nowrap="nowrap" class="text-left">
+									<span class="productmultilevelprice"> Pay [%FORMAT type:'currency'%][@price@][%/ FORMAT%]</span>
+								</td>
+							</tr>
 		[%/ param%]
 		[%param *footer%]
-				</tbody>
-			</table>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		[%/ param%]
 	[%/ multilevelpricing%]
 	<!-- PRODUCT OPTIONS -->
@@ -112,26 +116,28 @@
 		[%/ param%]
 	[%/ extra_options%]
 
-	<div class="row pt-3 py-4">
-		[%data id:'multiplier_qty' if:'ne' value:'0' %]
-			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
-				<div class="btn-success btn-block p-1">Order In Lots Of</div>
-				<div class="card p-1">[@multiplier_qty@]</div>
-			</div>
-		[%end data%]
-		[%data id:'min_qty' if:'ne' value:'0' %]
-			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
-				<div class="btn-success btn-block p-1">Min Order Quantity</div>
-				<div class="card p-1">[@min_qty@]</div>
-			</div>
-		[%end data%]
-		[%data id:'max_qty' if:'ne' value:'0' %]
-			<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
-				<div class="btn-success btn-block p-1">Max Order Quantity</div>
-				<div class="card p-1">[@max_qty@]</div>
-			</div>
-		[%end data%]
-	</div>
+	[%if [@multiplier_qty@] ne 0 OR [@min_qty@] ne 0 OR [@max_qty@] ne 0%]
+		<div class="row pt-3 py-4">
+			[%if [@multiplier_qty@] ne 0 %]
+				<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+					<div class="btn-success btn-block p-1">Order In Lots Of</div>
+					<div class="card p-1">[@multiplier_qty@]</div>
+				</div>
+			[%/if%]
+			[%if [@min_qty@] ne 0 %]
+				<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+					<div class="btn-success btn-block p-1">Min Order Quantity</div>
+					<div class="card p-1">[@min_qty@]</div>
+				</div>
+			[%/if%]
+			[%if [@max_qty@] ne 0%]
+				<div class="col-12 col-sm-6 col-md-4 pb-2 pb-md-0">
+					<div class="btn-success btn-block p-1">Max Order Quantity</div>
+					<div class="card p-1">[@max_qty@]</div>
+				</div>
+			[%/if%]
+		</div>
+	[%/if%]
 
 	<form class="buying-options" autocomplete="off" role="form" aria-label="Product purchase form">
 		<input type="hidden" id="model[@rndm@][@SKU@]" name="model" value="[@model@]">

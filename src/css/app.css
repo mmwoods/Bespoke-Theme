@@ -9569,6 +9569,9 @@ p {
   border: 0;
   margin-bottom: 1px; }
 
+.wrapper-multi-table .table td {
+  border: 1px solid #dfdfdf; }
+
 .wrapper-countdown .countdown-square {
   width: 65px;
   height: 60px;
