@@ -2,7 +2,7 @@
 	[%if [@subtitle@]%]
 		<h3 class="text-center text-lg-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
 	[%/if%]
-	[%if ![@has_variation@] %]
+	[%if ![@has_variation@] AND [@parent_sku@] eq ''%]
 		[%IF [@short_description@]%]
 			<p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
 				[@short_description@]

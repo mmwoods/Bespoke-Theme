@@ -4,14 +4,6 @@
             // Remove top margin
             $('#main-content').addClass('d-none');
             $('#homepageCarouselWide .carousel-item').toggleClass('my-3 mb-3');
-            // Determining header height
-            if ($(window).width() < 768) {
-                var headerHeight = $('.wrapper-mob-header').height();
-            }
-            else {
-                var headerHeight = $('.wrapper-header').height();
-            }
-            $('#homepageCarouselWide img').css('max-height', 'calc(100vh - ' + headerHeight + 'px)');
         </script>
     [%END SITE_VALUE%]
 [%/if%]
