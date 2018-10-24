@@ -5,13 +5,14 @@
 	<div class="card thumbnail card-body p-0 br-0 br-sm-1" itemscope itemtype="http://schema.org/Product">
 		<meta itemprop="brand" content="[@brand@]"/>
 		<meta itemprop="mpn" content="[@sku@]"/>
+		<meta itemprop="name" content="[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]"/>
 		<a href="[@URL@]" class="thumbnail-image">
 			<img src="[%asset_url type:'product' thumb:'thumbL' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" itemprop="image" class="product-image img-fluid" alt="[@model@]" rel="itmimg[@SKU@]">
 		</a>
 		<a href="[@URL@]" class="d-none d-sm-block">
 			<div class="hover-overlay [@bg-colour@]-bg text-center p-3">
 				<div class="wrapper-hover-content">
-					<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1" itemprop="name">
+					<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1">
 						[%if [@CONFIG:show_thumbnail_names@]%]
 							[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
 						[%else%]
@@ -55,7 +56,7 @@
 	<a href="[@URL@]">
 		<div class="hover-overlay show [@bg-colour@]-bg text-center mr-3">
 			<div class="wrapper-hover-content px-2">
-				<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1" itemprop="name">
+				<h1 class="card-title [%if [@bg-colour@] eq 'black' OR [@bg-colour@] eq 'green'%] h2 [%else%] h1 [%/if%] text-uppercase text-light mb-1">
 					[%if [@CONFIG:show_thumbnail_names@]%]
 						[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]
 					[%else%]
@@ -74,16 +75,14 @@
 						[%/if%]
 					[%/if%]
 				</h1>
-				<h3 class="price text-light" itemprop="offers" itemscope itemtype="http://schema.org/Offer" aria-label="[@model@] price">
+				<h3 class="price text-light" aria-label="[@model@] price">
 					[%if [@inpromo@]%]
 						Now&nbsp;[%if [@has_child@]%]from&nbsp;[%/if%]
-						<meta itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]"/>
-						<span itemprop="price" content="[@promo_price@]">[%format type:'currency'%][@promo_price@][%/format%]</span>
+						<span>[%format type:'currency'%][@promo_price@][%/format%]</span>
 					[%else%]
 						[%if [@has_child@]%]From&nbsp;[%/if%]
-						<span itemprop="price" content="[@store_price@]">[%format type:'currency'%][@store_price@][%/format%]</span>
+						<span>[%format type:'currency'%][@store_price@][%/format%]</span>
 					[%/if%]
-					<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
 				</h3>
 			</div>
 		</div>
