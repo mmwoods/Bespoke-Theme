@@ -473,6 +473,19 @@ fieldset[disabled] .btn-info.active {
     background-color: rgba(20, 146, 70, 0.4) /*{Product Thumbnails | thumbnail-bg-hover-green}*/;
 }
 
+/* Product Thumbnails: Alternate Layout */
+.alt-thumb-description h4 {
+	color: #333 /*{Product Thumbnails Alternate | name-text-colour}*/;
+}
+
+.alt-thumb-description span {
+	color: #999 /*{Product Thumbnails Alternate | price-text-colour}*/;
+}
+
+.alt-thumb-description {
+	border-color: #dee2e6 !important /*{Product Thumbnails Alternate | description-border-colour}*/;
+}
+
 /* Header Dropdown */
 .bg-dark .dropdown-item:hover,
 .bg-dark .dropdown-item:focus,
