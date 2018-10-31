@@ -50,7 +50,8 @@
 	</div>
 	<div class="alt-thumb-description border border-top-0 py-3 px-2 m-0">
 		<a href="[@URL@]">
-			<h4 class="py-1 m-0">[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]</h4>
+			<h5 class="py-1 m-0 d-md-none">[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]</h5>
+			<h4 class="py-1 m-0 d-none d-md-block">[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]</h4>
 			[%if [@inpromo@]%]
 				<span>[%format type:'currency'%][@promo_price@][%/format%]</span>
 			[%else%]
