@@ -8,7 +8,7 @@
 			[%set [@^no-menu@] %]false[%/set%]
 		[%/param%]
 		[%param *level_1%]
-			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center text-uppercase my-4 my-sm-5">[@name@]</h1>[%else%]<div class="spacer home"></div>[%/if%][%/set%]
+			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center my-4 my-sm-5">[@name@]</h1>[%else%]<div class="spacer home"></div>[%/if%][%/set%]
 			<!-- Content: [@css_class@] -->
 			[%load_template file:'cms/includes/[@css_class@].template.html'/%]
 		[%/param%]
@@ -16,11 +16,11 @@
 	[%if [@no-menu@] eq 'true'%]
 		<!-- Use Default Layout -->
 		[%load_template file:'cms/includes/carousel.template.html'/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-5">Featured Adverts</h1>[%/set%]
+		[%set [@section-title@] %]<h1 class="section-title text-center my-5">Featured Adverts</h1>[%/set%]
 		[%load_template file:'cms/includes/featured_adverts.template.html'/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-5">Featured Products</h1>[%/set%]
+		[%set [@section-title@] %]<h1 class="section-title text-center my-5">Featured Products</h1>[%/set%]
 		[%load_template file:'cms/includes/featured_products.template.html'/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center text-uppercase my-5">Description</h1>[%/set%]
+		[%set [@section-title@] %]<h1 class="section-title text-center my-5">Description</h1>[%/set%]
 		[%load_template file:'cms/includes/description.template.html'/%]
 	[%/if%]
 </div>

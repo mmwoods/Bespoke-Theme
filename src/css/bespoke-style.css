@@ -508,3 +508,8 @@ fieldset[disabled] .btn-info.active {
 .text-success {
 	color: #afa3ed /*{Utilities | text-success}*/ !important;
 }
+
+/* Brands */
+.wrapper-brands .border {
+	border-color: #dee2e6 /*{Brands | border-color}*/ !important;
+}
