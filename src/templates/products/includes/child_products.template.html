@@ -18,9 +18,9 @@
             <div class="row mb-4" role="contentinfo" aria-label="Product variation selection">
         [%/param%]
         [%param *variation_header%]
-                <div class="_itmspec_listopt col-6" ref="[@specific_id@]" role="group" aria-label="[@specific_name@] variation selection">
+                <div class="_itmspec_listopt col-12 py-2 text-left" ref="[@specific_id@]" role="group" aria-label="[@specific_name@] variation selection">
                     <div class="variation-name mt-2" aria-label="[@specific_name@] variation">
-                        <strong>[@specific_name@]</strong>
+                        <label>[@specific_name@]</label>
                     </div>
                     <div class="specific">
                         <input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
@@ -40,7 +40,7 @@
                             </div>
         [%/param%]
         [%param *variation_body_radio%]
-                            <label class="_itmspec_listitm btn btn-default" ref="[@specific_id@]_[@value_id@]">
+                            <label class="_itmspec_listitm btn btn-default mr-2" ref="[@specific_id@]_[@value_id@]">
                                 <input class="_itmspec_radio" type="radio" name="_itmspec_radio[@specific_id@]" value="[@value_id@]" ref="[@specific_id@]_[@value_id@]" [%if [@selected@]%]checked[%/if%]> [@value_name@]
                             </label>
         [%/param%]
@@ -61,7 +61,7 @@
                 </div>
         [%/param%]
         [%param *variation_header_select%]
-                <div class="_itmspec_listopt col-12 col-lg-6" ref="[@specific_id@]" aria-label="[@specific_name@] variation selection">
+                <div class="_itmspec_listopt col-12 col-lg-6 py-2" ref="[@specific_id@]" aria-label="[@specific_name@] variation selection">
                     <div class="variation-name mt-2">
                         <label for="[@specific_id@]_itmspec_opt">[@specific_name@]</label>
                     </div>

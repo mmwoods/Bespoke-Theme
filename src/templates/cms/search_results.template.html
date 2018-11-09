@@ -1,18 +1,20 @@
-[%site_value id:'footer_javascript'%]
-	<script>
-		$("#sidebarToggle").click(function(){
-			if($(this).html() == "Show Sort") {
-				$(this).html("Hide Sort");
-			} else {
-				$(this).html("Show Sort");
-			}
+[%if [@config:show_filters@]%]
+	[%site_value id:'footer_javascript'%]
+		<script>
+			$("#sidebarToggle").click(function(){
+				if($(this).html() == "Show Sort") {
+					$(this).html("Hide Sort");
+				} else {
+					$(this).html("Show Sort");
+				}
 
-			$("#left-sidebar").toggleClass("sidebar-collapsed");
-			$("#category-content").toggleClass("col-md-6 col-lg-8");
-			$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
-		});
-	</script>
-[%/site_value%]
+				$("#left-sidebar").toggleClass("sidebar-collapsed");
+				$("#category-content").toggleClass("col-md-6 col-lg-8");
+				$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
+			});
+		</script>
+	[%/site_value%]
+[%/if%]
 
 [%SET [@page_type@]='category'/%]
 <div class="col-12 text-center">
@@ -55,10 +57,16 @@
 				[%param *header%]
 					<div class="col-12 mb-5">
 						<h1 class="section-title text-center text-uppercase my-4 my-sm-5">Search [@config:website_name@]</h1>
-						<h2 id="sidebarToggle" class="text-center text-uppercase text-secondary mb-0">Show Sort</h2>
+						[%if [@config:show_filters@]%]
+							<h2 id="sidebarToggle" class="text-center text-uppercase text-success mb-0">Show Sort</h2>
+						[%/if%]
 					</div>
 
-					[%load_template file:'cms/includes/sidebar.template.html'/%]
+					[%if [@config:show_filters@]%]
+						[%load_template file:'cms/includes/sidebar.template.html'/%]
+					[%else%]
+						<div id="category-content" class="col-12 text-center">
+					[%/if%]
 						<!-- From Sidebar: #category-content -->
 						<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
 							<div class="row">

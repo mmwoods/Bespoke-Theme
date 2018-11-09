@@ -1,0 +1,7 @@
+[%set [@total_remainder@] %][%calc [@total@]%2 /%][%/set%]
+[%set [@last_item@] %][%calc [@total@]-1 /%][%/set%]
+
+<!-- If odd number of adverts, make last item full-width -->
+<div class="[%if [@count@] eq [@last_item@] AND [@total_remainder@] ne 0%]col-12 [%else%]col-6 [%/if%]col-md-4 py-3">
+    [%load_template file:'thumbs/advert/grid.template.html'/%]
+</div>
