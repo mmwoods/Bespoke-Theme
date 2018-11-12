@@ -1,0 +1,22 @@
+[%thumb_list type:'products' limit:'[@limit_update@]' filter_category:'[@sku@]'%]
+    [%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
+    [%param *header%]
+            <!-- From Sidebar: #category-content -->
+                <div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+                    <section class="row" aria-label="Products in category">
+    [%/param%]
+    [%param *footer%]
+                    </section>
+                </div>
+
+            <div id="infinite_spinner" class="my-4 d-none">
+                <i class='fa fa-spinner fa-spin' style='font-size: 32px'></i>
+            </div>
+    [%/param%]
+    [%param *ifempty%]
+        <div class="col-12">
+            [@^section-title@]
+            <p class="mt-4">This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+        </div>
+    [%/param%]
+[%/thumb_list%]
