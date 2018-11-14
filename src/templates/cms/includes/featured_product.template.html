@@ -1,0 +1,22 @@
+[%advert type:'product' limit:'1' template:'featured_product' ad_group:'featured_product'%]
+    [%param *header%]
+        [@^section-title@]
+        <section class="row" aria-label="Featured Product">
+    [%/param%]
+    [%param footer%]
+        </section>
+    [%/param%]
+    [%param *ifempty%]
+        [%if [@config:current_page_type@] eq 'home'%]
+            [%random_products filter_category:'' template:'featured_product' limit:'1'%]
+                [%param *header%]
+                    [@^section-title@]
+                    <section class="row" aria-label="Featured Product">
+                [%/param%]
+                [%param *footer%]
+                    </section>
+                [%/param%]
+            [%/random_products%]
+        [%/if%]
+    [%/param%]
+[%/advert%]
