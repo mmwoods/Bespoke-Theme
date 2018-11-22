@@ -1,0 +1,40 @@
+[%if [@count@] eq 0%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            // Remove top margin
+            $('#main-content').addClass('d-none');
+            $('#homepageVideoWide .video-item').toggleClass('py-3 pb-3 px-0');
+            $('#homepageVideoWide .hover-overlay').toggleClass('m-3 mb-3');
+        </script>
+    [%END SITE_VALUE%]
+[%/if%]
+
+[%advert type:'text' template:'' limit:'1' ad_group:'parallax'%]
+    [%param *header%]
+        </div><!-- .container -->
+        </div><!-- .row -->
+        </div><!-- .col -->
+        [@^section-title@]
+        <section class="container-fluid wrapper-video">
+            <div class="row justify-content-center">
+    [%/param%]
+    [%param *body%]
+                <div class="col-12 py-3 parallax-effect" style="background-image: url([%asset_url type:'adw' id:'[@ad_id@]' thumb:'alt_1' default:'[@config:imageurl@]/pixel.gif'/%])">
+                    [%if [@headline@] OR [@linktext@]%]
+                        <div class="hover-overlay show text-center m-3">
+                            <div class="wrapper-hover-content px-2">
+                                [%if [@headline@]%]<h2 class="display-2 text-uppercase text-success mb-1 font-weight-bold">[@headline@]</h2>[%/if%]
+                                [%if [@linktext@]%]<h3 class="h3 text-light">[@linktext@]</h3>[%/if%]
+                            </div>
+                        </div>
+                    [%/if%]
+                </div>
+    [%/param%]
+    [%param *footer%]
+            </div>
+        </section>
+        <div id="main-content-second" class="container" role="main">
+		    <div class="row justify-content-center">
+                <div class="col-12 text-center">
+    [%/param%]
+[%/advert%]
