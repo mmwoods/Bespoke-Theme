@@ -513,3 +513,8 @@ fieldset[disabled] .btn-info.active {
 .wrapper-brands .border {
 	border-color: #dee2e6 /*{Brands | border-color}*/ !important;
 }
+
+.wrapper-brands.brands-bg,
+#brands-title h1 {
+	background: #f5f5f5 /*{Brands | background-color}*/;
+}
