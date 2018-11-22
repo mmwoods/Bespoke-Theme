@@ -12,7 +12,7 @@
 	<a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 	<!-- Desktop Header -->
-	<header class="container-fluid wrapper-header px-3 d-none d-md-block" aria-label="Header Container">
+	<header class="container-fluid wrapper-header px-3 d-none d-lg-block" aria-label="Header Container">
 		<nav class="wrapper-desktop-nav row navbar navbar-expand-md navbar-light mt-0 rounded-0">
 			<div class="collapse navbar-collapse" id="navbarMainMenu">
 				<ul class="navbar-nav justify-content-center w-100 text-uppercase flex-wrap" role="navigation" aria-label="Main menu">
@@ -49,11 +49,11 @@
 					[%/ cache%]
 					<li class="nav-item">
 						<a class="wrapper-search-icon nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search dropdown">
-							<span class="text-success">Search</span>
+							<span class="h3 text-success"><i class="fa fa-search" aria-hidden="true"></i></span><span class="text-success pl-2">Search</span>
 						</a>
 					</li>
 					<li class="wrapper-account nav-item dropdown">
-						<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="visible-lg visible-inline-lg text-success">Account</span></a>
+						<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown"><span class="text-success h3"><i class="fas fa-user"></i></span><span class="text-success pl-2">Account</span></a>
 						<ul class="dropdown-menu border-0">
 							<li><a class="dropdown-item" href="[%url page:'account'/%]">Account Home</a></li>
 							<li><a class="dropdown-item" href="[%url page:'account'/%]#orders">Orders</a></li>
@@ -79,8 +79,8 @@
 						</ul>
 					</li>
 					<li id="header-cart" class="nav-item position-relative" role="group">
-						<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
-							<p class="text-uppercase text-success mb-0"><span rel="a2c_item_count">[%format type:'number' dp:'0'%][%cart id:'total_items'/%][%/format%]</span> Items</p>
+						<button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split py-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
+							<span class="h3 text-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="text-success pl-2" rel="a2c_item_count">[%format type:'number' dp:'0'%][%cart id:'total_items'/%][%/format%]</span><span class="text-success text-uppercase"> Items</span>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-right float-right">
 							<li class="box" id="neto-dropdown">
@@ -95,10 +95,12 @@
 		[%site_value id:'footer_javascript'%]
 			<script>
 				$(".wrapper-search-icon").click(function(){
-					if($('.wrapper-search-icon span').html() == "Search") {
-						$('.wrapper-search-icon span').text('Close');
+					var searchIcon = $('.wrapper-search-icon span i');
+
+					if(searchIcon.hasClass('fa-search')) {
+						searchIcon.toggleClass('fa-search').toggleClass('fa-times');
 					} else {
-						$('.wrapper-search-icon span').text('Search');
+						searchIcon.toggleClass('fa-times').toggleClass('fa-search');
 					}
 				});
 			</script>
@@ -130,7 +132,7 @@
 	</header>
 
 	<!-- Mobile Header -->
-	<div class="container-fluid wrapper-mob-header d-block d-md-none sb-1 fixed-top">
+	<div class="container-fluid wrapper-mob-header d-block d-lg-none sb-1 fixed-top">
 		<div class="row align-items-center py-3">
 			<button class="navbar-slide-toggler navbar-toggler h-35 col-3 text-center" type="button">
 				<span class="h2"><i class="fas fa-bars"></i></span>
@@ -171,7 +173,7 @@
 	<!-- Mobile Menu -->
 	<div class="overlay"></div>
 
-	<div id="mobile-menu" class="fixed-top navbar-side left d-block d-md-none">
+	<div id="mobile-menu" class="fixed-top navbar-side left d-block d-lg-none">
 		<div class="container-fluid sb-1">
 			<div class="row align-items-center py-3">
 				<button class="navbar-slide-toggler navbar-toggler h-35 col-2 text-center" type="button">
@@ -262,7 +264,7 @@
 	</div>
 
 	<!-- Mobile: Sticky Header Spacer -->
-	<div style="height: 67px;" class="d-block d-md-none" aria-hidden="true"></div>
+	<div style="height: 67px;" class="d-block d-lg-none" aria-hidden="true"></div>
 
-	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] ne 'home' OR [@config:current_page_type@] ne 'category' OR [@config:current_page_type@] ne 'product'%]mt-3 mt-sm-6 mt-md-0 [%else%]mt-0 [%/if%]" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
 		<div class="row justify-content-center">
