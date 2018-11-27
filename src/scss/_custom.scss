@@ -142,6 +142,27 @@ p {
     box-shadow: none;
 }
 
+// Menu with Logo
+#menu-with-logo .wrapper-account .dropdown-menu {
+    left: unset;
+    right: 0;
+}
+
+// Parts Finder
+.compatibility_list {
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+span.loading_span {
+    display: none;
+}
+
 // Product Thumnails
 .thumbnail {
     &:hover .hover-overlay {

@@ -376,6 +376,10 @@ fieldset[disabled] .btn-info.active {
 	color: #fff /*{Header Desktop | announcement-bar-text-colour}*/ !important;
 }
 
+.parts-finder-outer-wrapper {
+	background-color: #f5f5f5 /*{Header Desktop | product-finder-bg-colour}*/;
+}
+
 /* Header Desktop: Search */
 .wrapper-header .wrapper-search-bar,
 .wrapper-header .header-search .ajax_search,
