@@ -1,0 +1,38 @@
+[%if [@CONFIG:instagram_userID@] AND [@CONFIG:instagram_accesstoken@]%]
+    [%if [@count@] eq 0%]
+        [%SITE_VALUE id:'footer_javascript'%]
+            <script type="text/javascript">
+                // Remove top margin
+                $('#main-content').addClass('d-none');
+            </script>
+        [%END SITE_VALUE%]
+    [%/if%]
+
+    </div><!-- .container -->
+    </div><!-- .row -->
+    </div><!-- .col -->
+
+    [@^section-title@]
+
+    <section class="wrapper-instagram">
+        <div id="instafeedwide" class="row no-gutters justify-content-center pt-3"></div>
+        [%site_value id:'footer_javascript'%]
+            <script type="text/javascript" src="[%ntheme_asset%]js/instafeed.min.js[%/ntheme_asset%]"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                var feedWide = new Instafeed({
+                    target: 'instafeedwide',
+                    get: 'user',
+                    userId: '[@CONFIG:instagram_userID@]',
+                    accessToken: '[@CONFIG:instagram_accesstoken@]',
+                    template: '<div class="col-4 col-sm-3 col-lg-2"><div class="card thumbnail n-responsive-content border-0"><a href="{{link}}"><img class="img-responsive block-center" src="{{image}}" alt="Instagram Feed"/></a><a href="{{link}}"><div class="hover-overlay black-bg text-center p-3"><div class="wrapper-hover-content px-2"><h2 class="h1 text-light mb-2"><i class="fab fa-instagram" aria-hidden="true"></i></h2></div></div></a></div></div>',
+                    resolution: 'standard_resolution',
+                    limit: '12',
+                    sortBy: 'most-recent'
+                });
+                feedWide.run();
+            });
+            </script>
+        [%/site_value%]
+    </section>
+[%/if%]
