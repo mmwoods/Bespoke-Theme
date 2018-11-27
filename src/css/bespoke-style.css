@@ -31,7 +31,7 @@ h6,
 .h6 {
 	font-family: 'Montserrat', sans-serif /*{Headings | headers-font-family}*/;
 	color: #333 /*{Headings | headers-colour}*/;
-	font-weight: 300 /*{Headings | headers-font-weight}*/;
+	font-weight: 400 /*{Headings | headers-font-weight}*/;
 }
 
 .carousel-caption h3, .carousel-caption h2,.carousel-caption .h3,.carousel-caption p {
@@ -368,6 +368,14 @@ fieldset[disabled] .btn-info.active {
 	background-color: #373842 /*{Header Desktop | navbar-default-bg-colour}*/ !important;
 }
 
+.wrapper-header .wrapper-announcement {
+	background-color: #afa3ed /*{Header Desktop | announcement-bar-bg-colour}*/ !important;
+}
+.wrapper-header .wrapper-announcement a,
+.wrapper-header .wrapper-announcement span {
+	color: #fff /*{Header Desktop | announcement-bar-text-colour}*/ !important;
+}
+
 /* Header Desktop: Search */
 .wrapper-header .wrapper-search-bar,
 .wrapper-header .header-search .ajax_search,
@@ -471,6 +479,9 @@ fieldset[disabled] .btn-info.active {
 }
 .hover-overlay.green-bg {
     background-color: rgba(20, 146, 70, 0.4) /*{Product Thumbnails | thumbnail-bg-hover-green}*/;
+}
+.hover-overlay.white-bg {
+    background-color: rgb(255, 255, 255, 0.4) /*{Product Thumbnails | thumbnail-bg-hover-white}*/;
 }
 
 /* Product Thumbnails: Alternate Layout */

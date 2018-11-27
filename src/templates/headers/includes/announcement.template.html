@@ -1,0 +1,15 @@
+[%advert type:'text' template:'' limit:'1' ad_group:'announcement' category:'0'%]
+    [%param *header%]
+        <section class="wrapper-announcement row text-center">
+    [%/param%]
+    [%param *body%]
+            <div class="col-12 py-2 text-center">
+                [%if [@url@] ne ''%]<a href="[@url@]">[%/if%]
+                    <span>[%if [@description@] ne ''%]<i class="[@description@]"></i> [%/if%][@headline@]</span>
+                [%if [@url@] ne ''%]</a>[%/if%]
+            </div>
+    [%/param%]
+    [%param *footer%]
+        </section>
+    [%/param%]
+[%/advert%]

@@ -9487,6 +9487,11 @@ p {
 .wrapper-logo img.logo {
   max-height: 100px; }
 
+.wrapper-logo-left img.logo {
+  max-width: 150px;
+  width: 100%;
+  height: auto; }
+
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-nav .nav-link {
     padding-right: 0.75rem;
