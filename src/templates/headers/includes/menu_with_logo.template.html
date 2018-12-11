@@ -1,7 +1,7 @@
 <nav id="menu-with-logo" class="wrapper-desktop-nav row navbar navbar-expand-md navbar-light mt-0 rounded-0">
     <div class="collapse navbar-collapse" id="navbarMainMenu">
         <a class="wrapper-logo-left col-2 text-left" href="[@config:homeurl@]" title="[@config:company_name@]">
-            <img class="logo" src="[@config:imageurl@]/mobile_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/>
+            <img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/>
         </a>
         <ul class="navbar-nav col justify-content-center text-uppercase flex-wrap" role="navigation" aria-label="Main menu">
             [%cache type:'menu' id:'header-content-menu'%]
@@ -69,7 +69,7 @@
                 </ul>
             </li>
             <li id="header-cart" class="nav-item position-relative" role="group">
-                <button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split py-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
+                <button type="button" class="wrapper-cart btn bg-transparent border-0 dropdown-toggle dropdown-toggle-split py-2 font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown">
                     <span class="h3 text-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="text-success pl-2" rel="a2c_item_count">[%format type:'number' dp:'0'%][%cart id:'total_items'/%][%/format%]</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right float-right">
