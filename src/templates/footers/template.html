@@ -1,6 +1,7 @@
 	</div>
 </div>
-<footer class="wrapper-footer mt-7 border-top border-secondary">
+
+<footer class="wrapper-footer [%if [@config:current_page_type@] eq 'home'%]mt-0 [%else%]mt-7 [%/if%]">
 	<div class="container-fluid">
 		[%if [@config:show_newsletter_subscribe@]%]
 			<div class="justify-content-center pt-4 pb-2 pb-md-2">
@@ -32,7 +33,7 @@
 					[%param *level_1%]
 						<ul class="nav d-none d-md-inline-block">
 							<li class="nav-item">
-								<a class="nav-link m-0 text-light text-uppercase" href="[@url@]">[@name@]</a>
+								<a class="nav-link m-0 text-uppercase" href="[@url@]">[@name@]</a>
 							</li>
 						</ul>
 					[%/param%]
