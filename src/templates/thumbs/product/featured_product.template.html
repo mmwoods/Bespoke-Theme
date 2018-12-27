@@ -5,8 +5,8 @@
 		<meta itemprop="brand" content="[@brand@]"/>
 		<meta itemprop="mpn" content="[@sku@]"/>
 		<meta itemprop="name" content="[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/format%]"/>
-        <div class="row">
-            <div class="col-12 col-sm-5">
+        <div class="row justify-content-center">
+            <div class="col-8 col-sm-5 pb-3 pb-sm-0">
                 <a href="[@URL@]" class="thumbnail-image">
                     <img src="[%asset_url type:'product' thumb:'thumbL' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" itemprop="image" class="product-image img-fluid" alt="[@model@]" rel="itmimg[@SKU@]">
                 </a>
