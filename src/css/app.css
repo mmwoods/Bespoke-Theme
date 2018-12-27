@@ -452,7 +452,7 @@ pre {
   margin-left: auto; }
   @media (min-width: 1200px) {
     .container {
-      max-width: 1140px; } }
+      max-width: 1280px; } }
 
 .container-fluid {
   width: 100%;
@@ -9448,10 +9448,11 @@ p {
   line-height: 24px; }
 
 @media (max-width: 575.98px) {
-  .wrapper-hover-content h1 {
-    font-size: 18px; }
   .wrapper-hover-content h3 {
-    font-size: 14px; } }
+    font-size: 14px; }
+  .display-1 {
+    font-size: 30px;
+    font-weight: 400; } }
 
 @media (max-width: 767px) {
   h1.section-title {
@@ -9491,6 +9492,15 @@ p {
   max-width: 150px;
   width: 100%;
   height: auto; }
+
+.wrapper-header .navbar {
+  border-bottom: 1px solid #dfdfdf;
+  border-top: 1px solid #dfdfdf; }
+  .wrapper-header .navbar .navbar-nav .nav-link {
+    letter-spacing: 0.4px;
+    font-size: 16px; }
+    .wrapper-header .navbar .navbar-nav .nav-link::after {
+      display: none; }
 
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-nav .nav-link {
@@ -9568,8 +9578,35 @@ span.loading_span {
     opacity: 1; }
   .hover-overlay.hide-cursor {
     cursor: auto; }
+  .hover-overlay.resize {
+    top: unset; }
+  .hover-overlay.left {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    text-align: left !important; }
+  .hover-overlay.right {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    text-align: right !important; }
   .hover-overlay a {
     text-decoration: none; }
+
+.hover-overlay-parent.overlay-show .hover-overlay {
+  opacity: 1; }
+
+.hover-overlay-parent.overlay-left .hover-overlay {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  text-align: left !important; }
+
+.hover-overlay-parent.overlay-right .hover-overlay {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right !important; }
 
 .description-compress p {
   display: none; }
@@ -9691,6 +9728,13 @@ span.loading_span {
 .carousel-caption {
   text-shadow: none; }
 
+.carousel .carousel-item img,
+.banner .bannerInner img {
+  max-height: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto; }
+
 .breadcrumb,
 .pagination {
   -webkit-box-pack: center !important;
@@ -9746,12 +9790,15 @@ span.loading_span {
           box-shadow: 0px 2px 5px rgba(51, 51, 51, .3); }
 
 .parallax-effect {
-  height: 260px;
   display: table;
   position: relative;
   background-size: cover;
   background-attachment: fixed;
   width: 100%; }
+
+@media (min-width: 576px) {
+  .parallax-effect {
+    height: 400px; } }
 
 @media (min-width: 768px) {
   .parallax-effect {

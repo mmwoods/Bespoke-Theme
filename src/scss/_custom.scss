@@ -48,12 +48,12 @@ p {
 }
 
 @media (max-width: 575.98px) {
-    .wrapper-hover-content h1 {
-      font-size: 18px;
-    }
-
     .wrapper-hover-content h3 {
         font-size: 14px;
+    }
+    .display-1 {
+        font-size: 30px;
+        font-weight: 400;
     }
 }
 
@@ -104,6 +104,20 @@ p {
     max-width: 150px;
     width: 100%;
     height: auto;
+}
+
+.wrapper-header .navbar {
+	border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #dfdfdf;
+
+    .navbar-nav .nav-link {
+        letter-spacing: 0.4px;
+        font-size: 16px;
+
+        &::after{
+            display: none;
+        }
+    }
 }
 
 @media (min-width: 768px) {
@@ -196,8 +210,35 @@ span.loading_span {
         cursor: auto;
     }
 
+    &.resize {
+        top: unset;
+    }
+
+    &.left {
+        justify-content: start;
+        text-align: left !important;
+    }
+    &.right {
+        justify-content: flex-end;
+        text-align: right !important;
+    }
+
     a {
         text-decoration: none;
+    }
+}
+
+.hover-overlay-parent {
+    &.overlay-show .hover-overlay {
+        opacity: 1;
+    }
+    &.overlay-left .hover-overlay {
+        justify-content: start;
+        text-align: left !important;
+    }
+    &.overlay-right .hover-overlay {
+        justify-content: flex-end;
+        text-align: right !important;
     }
 }
 
@@ -357,6 +398,13 @@ span.loading_span {
     text-shadow: none;
 }
 
+.carousel .carousel-item img,
+.banner .bannerInner img {
+        max-height: 700px;
+        object-fit: cover;
+        height: auto;
+}
+
 // Extra
 .breadcrumb,
 .pagination {
@@ -417,12 +465,17 @@ span.loading_span {
 // Parallax Component
 
 .parallax-effect {
-    height: 260px;
     display: table;
     position: relative;
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
+}
+
+@media (min-width: 576px) {
+    .parallax-effect {
+        height: 400px;
+    }
 }
 
 @media (min-width: 768px) {
