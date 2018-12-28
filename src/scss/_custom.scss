@@ -48,7 +48,8 @@ p {
 }
 
 @media (max-width: 575.98px) {
-    .wrapper-hover-content h3 {
+    .wrapper-hover-content h3,
+    .wrapper-banner-mobile h3 {
         font-size: 14px;
     }
     .display-1 {
