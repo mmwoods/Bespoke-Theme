@@ -1,0 +1,16 @@
+<!-- Layout 4 -->
+[%SET [@page_type@]='home'/%]
+
+<div class="col-12 text-center">
+    [%set [@count@] %]0[%/set%]
+    [%load_template file:'cms/includes/carousel_wide.template.html'/%]
+    [%set [@count@] %]1[%/set%]
+    [%load_template file:'cms/includes/description.template.html'/%]
+    [%load_template file:'cms/includes/brands_bg.template.html'/%]
+    [%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Featured Categories</h1>[%/set%]
+    [%load_template file:'cms/includes/featured_adverts.template.html'/%]
+    [%set [@section-title@] %]<div class="spacer home"></div>[%/set%]
+    [%load_template file:'cms/includes/parallax_advert.template.html'/%]
+    [%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Featured Products</h1>[%/set%]
+    [%load_template file:'cms/includes/featured_products.template.html'/%]
+</div>

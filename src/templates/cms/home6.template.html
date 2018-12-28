@@ -1,0 +1,11 @@
+<!-- Layout 6 -->
+[%SET [@page_type@]='home'/%]
+
+<div class="col-12 text-center">
+    [%set [@count@] %]0[%/set%]
+    [%set [@section-title@] %]<div class="spacer home"></div>[%/set%]
+    [%load_template file:'cms/includes/banners_stacked.template.html'/%]
+    [%set [@count@] %]1[%/set%]
+    [%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Our Instagram</h1>[%/set%]
+    [%load_template file:'cms/includes/instagram_wide.template.html'/%]
+</div>

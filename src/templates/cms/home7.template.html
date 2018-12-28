@@ -1,0 +1,14 @@
+<!-- Layout 7 -->
+[%SET [@page_type@]='home'/%]
+
+<div class="col-12 text-center">
+    [%set [@count@] %]0[%/set%]
+    [%load_template file:'cms/includes/carousel_wide.template.html'/%]
+    [%set [@count@] %]1[%/set%]
+    [%load_template file:'cms/includes/usps.template.html'/%]
+    [%load_template file:'cms/includes/banner_right.template.html'/%]
+    [%load_template file:'cms/includes/banner_left.template.html'/%]
+    [%load_template file:'cms/includes/featured_product.template.html'/%]
+    [%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Instagram</h1>[%/set%]
+    [%load_template file:'cms/includes/instagram_small.template.html'/%]
+</div>
