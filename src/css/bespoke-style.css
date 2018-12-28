@@ -410,7 +410,7 @@ fieldset[disabled] .btn-info.active {
 
 .wrapper-header .navbar {
 	background-color: #fff /*{Header Desktop | navbar-default-bg-colour}*/ !important;
-	border-color: #dfdfdf /*{Header Desktop | navbar-default-border-colour}*/;
+	border-color: #fff /*{Header Desktop | navbar-default-border-colour}*/;
 }
 
 .wrapper-header .wrapper-announcement,
