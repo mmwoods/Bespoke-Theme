@@ -533,7 +533,7 @@ fieldset[disabled] .btn-info.active {
     background-color: rgba(20, 146, 70, 0.4) /*{Product Thumbnails | thumbnail-bg-hover-green}*/;
 }
 .hover-overlay.white-bg {
-    background-color: rgb(255, 255, 255, 0.6) /*{Product Thumbnails | thumbnail-bg-hover-white}*/;
+    background-color: rgba(255, 255, 255, 0.6) /*{Product Thumbnails | thumbnail-bg-hover-white}*/;
 }
 
 .hover-overlay h1,
