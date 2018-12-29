@@ -9804,3 +9804,12 @@ span.loading_span {
 @media (min-width: 768px) {
   .parallax-effect {
     height: 600px; } }
+
+@media (max-width: 767px) {
+  .wrapper-grid .thumbnail img {
+    max-height: 350px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    height: auto; } }

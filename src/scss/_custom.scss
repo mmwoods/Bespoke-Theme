@@ -401,9 +401,9 @@ span.loading_span {
 
 .carousel .carousel-item img,
 .banner .bannerInner img {
-        max-height: 700px;
-        object-fit: cover;
-        height: auto;
+    max-height: 700px;
+    object-fit: cover;
+    height: auto;
 }
 
 // Extra
@@ -464,7 +464,6 @@ span.loading_span {
 }
 
 // Parallax Component
-
 .parallax-effect {
     display: table;
     position: relative;
@@ -482,5 +481,15 @@ span.loading_span {
 @media (min-width: 768px) {
     .parallax-effect {
         height: 600px;
+    }
+}
+
+// Adverts
+@media (max-width: 767px) {
+    .wrapper-grid .thumbnail img {
+        max-height: 350px;
+        object-fit: cover;
+        object-position: center;
+        height: auto;
     }
 }
