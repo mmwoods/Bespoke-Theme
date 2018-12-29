@@ -62,7 +62,7 @@ h5,
 .carousel-caption .h2,
 .carousel-caption h3,
 .carousel-caption .h3 {
-	color: #333 !important /*{Carousel | carousel-text-colour}*/;
+	color: #333 /*{Carousel | carousel-text-colour}*/ !important ;
 }
 
 .carousel-caption .btn-outline-dark {
@@ -554,6 +554,10 @@ fieldset[disabled] .btn-info.active {
 	color: #333 /*{Product Thumbnails | thumbnail-hover-dark-text-colour}*/;
 }
 
+.wrapper-thumbnail-toggle .card-body {
+	border-color: transparent /*{Product Thumbnails | thumbnail-border-colour}*/ !important;
+}
+
 /* Product Thumbnails: Alternate Layout */
 .alt-thumb-description h4 {
 	color: #333 /*{Product Thumbnails Alternate | name-text-colour}*/;
@@ -564,7 +568,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .alt-thumb-description {
-	border-color: transparent !important /*{Product Thumbnails Alternate | description-border-colour}*/;
+	border-color: transparent /*{Product Thumbnails Alternate | description-border-colour}*/ !important;
 }
 
 /* Header Dropdown */
@@ -589,8 +593,12 @@ fieldset[disabled] .btn-info.active {
 .text-success {
 	color: #26262d /*{Utilities | text-success}*/ !important;
 }
+a.text-success:hover,
+a.text-success:focus {
+	color: #26262d /*{Utilities | text-success-hover}*/ !important;
+}
 
-/* Brands */
+/* Brands BG */
 .wrapper-brands .border {
 	border-color: #dee2e6 /*{Brands | border-color}*/ !important;
 }
@@ -598,4 +606,44 @@ fieldset[disabled] .btn-info.active {
 .wrapper-brands.brands-bg,
 #brands-title h1 {
 	background: #f5f5f5 /*{Brands | background-color}*/;
+}
+
+/* USPS BG */
+.wrapper-usps .border {
+	border-color: #f5f5f5 /*{USPS | border-color}*/ !important;
+}
+
+.wrapper-usps.usps-bg,
+#usps-title h1 {
+	background: #f5f5f5 /*{USPS | background-color}*/;
+}
+
+/* Banners Stacked */
+/* Dark */
+.banners-stacked .carousel-caption.dark h1,
+.banners-stacked .carousel-caption.dark .h1,
+.banners-stacked .carousel-caption.dark h2,
+.banners-stacked .carousel-caption.dark .h2,
+.banners-stacked .carousel-caption.dark h3,
+.banners-stacked .carousel-caption.dark .h3 {
+	color: #333 /*{Banners Stacked: Dark | text-colour}*/ !important ;
+}
+.banners-stacked .carousel-caption.dark .btn-success {
+	color: #fff /*{Banners Stacked: Dark | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked: Dark | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked: Dark | btn-border-colour}*/;
+}
+/* Light */
+.banners-stacked .carousel-caption.light h1,
+.banners-stacked .carousel-caption.light .h1,
+.banners-stacked .carousel-caption.light h2,
+.banners-stacked .carousel-caption.light .h2,
+.banners-stacked .carousel-caption.light h3,
+.banners-stacked .carousel-caption.light .h3 {
+	color: #fff /*{Banners Stacked: Light | text-colour}*/ !important ;
+}
+.banners-stacked .carousel-caption.light .btn-success {
+	color: #26262d /*{Banners Stacked: Light | btn-text-colour}*/;
+    background-color: #fff /*{Banners Stacked: Light | btn-bg-colour}*/;
+    border-color: #fff /*{Banners Stacked: Light | btn-border-colour}*/;
 }
