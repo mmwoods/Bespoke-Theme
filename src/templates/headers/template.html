@@ -14,6 +14,7 @@
 	<!-- Desktop Header -->
 	<header class="container-fluid wrapper-header px-3 d-none d-lg-block" aria-label="Header Container">
 		[%set [@no-header-menu@] %]true[%/set%]
+		[%set [@no-announcement@] %]true[%/set%]
 		[%menu id:'header-layout'%]
 			[%param *header%]
 				<!-- Use Menu Layout System -->
@@ -34,7 +35,10 @@
 
 	<!-- Mobile Header -->
 	<div class="container-fluid wrapper-mob-header d-block d-lg-none fixed-top">
-		<div class="row align-items-center py-3">
+		[%if [@no-announcement@] eq 'false'%]
+			[%load_template file:'headers/includes/announcement.template.html'/%]
+		[%/if%]
+		<div class="wrapper-mobile-contents row align-items-center py-3">
 			<button class="navbar-slide-toggler navbar-toggler h-35 col-3 text-center" type="button">
 				<span class="h2"><i class="fas fa-bars"></i></span>
 			</button>
@@ -45,7 +49,7 @@
 			</div>
 			<div class="col-3 mob-cart text-center">
 				<a href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping Cart">
-					<span class="text-uppercase text-success h2 font-weight-bold" rel="a2c_item_count">[@total_cart_items_mobile@]</span>
+					<span class="text-uppercase text-success h2 font-weight-bold" rel="a2c_item_count">[@total_cart_items_mobile@] </span>
 					<span class="h2"><i class="fas fa-shopping-bag" aria-hidden="true"></i></span>
 				</a>
 			</div>
@@ -67,6 +71,11 @@
 
 			$('.overlay').on('click', function(){
 				hideMenu();
+			});
+
+			$(document).ready(function(){
+				var mobileHeaderHeight = $('.wrapper-mob-header').height();
+				$('#mobile-sticky-spacer').css('height', mobileHeaderHeight);
 			});
 		</script>
 	[%END SITE_VALUE%]
@@ -165,7 +174,7 @@
 	</div>
 
 	<!-- Mobile: Sticky Header Spacer -->
-	<div style="height: 67px;" class="d-block d-lg-none" aria-hidden="true"></div>
+	<div id="mobile-sticky-spacer" class="d-block d-lg-none" aria-hidden="true"></div>
 
 	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
 		<div class="row justify-content-center">
