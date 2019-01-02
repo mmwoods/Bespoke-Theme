@@ -22,7 +22,7 @@
                     [%if [@headline@] OR [@description@] OR [@linktext@]%]
                         <div class="carousel-caption hover-overlay show text-center m-3">
                             <div class="wrapper-hover-content px-2">
-                                [%if [@headline@]%]<h2 class="display-1 text-uppercase mb-1">[@headline@]</h2>[%/if%]
+                                [%if [@headline@]%]<h2 class="display-1 mb-1">[@headline@]</h2>[%/if%]
                                 [%if [@description@]%]<h3 class="h2">[@description@]</h3>[%/if%]
                                 [%if [@linktext@]%] <button class="btn btn-success my-3">[@linktext@]</button>[%/if%]
                             </div>
@@ -34,7 +34,7 @@
                     <img src="[%asset_url type:'adw' id:'[@ad_id@]' thumb:'alt_1' default:'[@config:imageurl@]/pixel.gif'/%]" class="d-block w-100" alt="[@headline@]"/>
                         <div class="carousel-caption hover-overlay show text-center m-3">
                             <div class="wrapper-hover-content px-2">
-                                [%if [@headline@]%]<h2 class="display-1 text-uppercase mb-1">[@headline@]</h2>[%/if%]
+                                [%if [@headline@]%]<h2 class="display-1 mb-1">[@headline@]</h2>[%/if%]
                                 [%if [@description@]%]<h3 class="h2">[@description@]</h3>[%/if%]
                             </div>
                         </div>
