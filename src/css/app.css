@@ -9447,15 +9447,13 @@ textarea {
 p {
   line-height: 24px; }
 
-@media (max-width: 575.98px) {
+@media (max-width: 767px) {
   .wrapper-hover-content h3,
   .wrapper-banner-mobile h3 {
     font-size: 14px; }
   .display-1 {
     font-size: 30px;
-    font-weight: 400; } }
-
-@media (max-width: 767px) {
+    font-weight: 400; }
   h1.section-title {
     font-size: 24px;
     font-weight: 400; } }
@@ -9810,6 +9808,6 @@ span.loading_span {
     max-height: 350px;
     -o-object-fit: cover;
        object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
+    -o-object-position: top;
+       object-position: top;
     height: auto; } }
