@@ -618,6 +618,12 @@ a.text-success:focus {
 	background: #f5f5f5 /*{USPS | background-color}*/;
 }
 
+/* Description BG */
+.wrapper-description.description-bg,
+#description-title h1 {
+	background: #f8f3f0 /*{Description | background-color}*/;
+}
+
 /* Banners Stacked */
 /* Dark */
 .banners-stacked .carousel-caption.dark h1,

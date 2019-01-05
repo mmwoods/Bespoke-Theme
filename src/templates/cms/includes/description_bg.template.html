@@ -1,0 +1,31 @@
+[%if [@page_content@] ne ''%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            // Replace title margins with padding
+            var descriptionTitle = $('#description-title').find('.section-title');
+            if (descriptionTitle) {
+                $(descriptionTitle).removeClass('my-4 my-sm-5');
+                $(descriptionTitle).addClass('mt-4 mt-sm-5 mb-0 pt-5');
+                $('.wrapper-description').removeClass('my-3');
+                $('.wrapper-description').addClass('mb-3');
+            }
+        </script>
+    [%END SITE_VALUE%]
+
+    </div><!-- .container -->
+    </div><!-- .row -->
+    </div><!-- .col -->
+    <span id="description-title">[@^section-title@]</span>
+    <div class="wrapper-description description-bg py-7 mb-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <section id="homepage-content" class="n-responsive-content h-100 px-4 py-7" aria-label="Main description">[@page_content@]</section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-content-second" class="container" role="main">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+[%/if%]
