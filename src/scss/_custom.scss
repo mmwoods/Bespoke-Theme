@@ -352,6 +352,18 @@ span.loading_span {
     &.reveal {
         transform: translateX(0%);
     }
+
+    // Mobile Sidebar Links
+    .menu-level-wrapper {
+        button.mob-drop {
+            height: 40px;
+            line-height: 40px;
+        }
+        span.float-right {
+            margin-top: 9px;
+        }
+    }
+
 }
 
 .overlay {

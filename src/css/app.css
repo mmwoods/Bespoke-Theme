@@ -9697,6 +9697,11 @@ span.loading_span {
   .navbar-side.reveal {
     -webkit-transform: translateX(0%);
             transform: translateX(0%); }
+  .navbar-side .menu-level-wrapper button.mob-drop {
+    height: 40px;
+    line-height: 40px; }
+  .navbar-side .menu-level-wrapper span.float-right {
+    margin-top: 9px; }
 
 .overlay {
   position: fixed;

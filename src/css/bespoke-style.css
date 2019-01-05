@@ -674,7 +674,7 @@ a.text-success:focus {
 	color: #fff /*{Banners Stacked: Light | text-colour}*/ !important ;
 }
 .banners-stacked .carousel-caption.light .btn-success {
-	color: #26262d /*{Banners Stacked: Light | btn-text-colour}*/;
-    background-color: #fff /*{Banners Stacked: Light | btn-bg-colour}*/;
+	color: #fff /*{Banners Stacked: Light | btn-text-colour}*/;
+    background-color: transparent /*{Banners Stacked: Light | btn-bg-colour}*/;
     border-color: #fff /*{Banners Stacked: Light | btn-border-colour}*/;
 }
