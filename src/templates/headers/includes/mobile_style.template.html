@@ -1,0 +1,14 @@
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript">
+        $('#mobile-menu, #mobile-sticky-spacer, #mobile-header').removeClass('d-lg-none');
+    </script>
+[%END SITE_VALUE%]
+
+[%if [@config:current_page_type@] eq 'home'%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            $('#mobile-sticky-spacer').toggleClass('d-block d-none');
+            $('#mobile-header .wrapper-mobile-contents').removeClass('wrapper-mobile-contents');
+        </script>
+    [%END SITE_VALUE%]
+[%/if%]
