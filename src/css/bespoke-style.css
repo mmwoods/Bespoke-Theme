@@ -635,12 +635,12 @@ a.text-success:focus {
 
 /* USPS BG */
 .wrapper-usps .border {
-	border-color: #f5f5f5 /*{USPS | border-color}*/ !important;
+	border-color: #f8f3f0 /*{USPS | border-color}*/ !important;
 }
 
 .wrapper-usps.usps-bg,
 #usps-title h1 {
-	background: #f5f5f5 /*{USPS | background-color}*/;
+	background: #f8f3f0 /*{USPS | background-color}*/;
 }
 
 /* Description BG */

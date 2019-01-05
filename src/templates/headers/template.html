@@ -122,7 +122,7 @@
 												[%if [@url@] ne ''%]
 													<li class="lvl-2 list-group-item border-0">
 														<div class="menu-level-wrapper">
-															<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
+															<a href="[@url@]" class="h3 text-success d-block mb-0">> All [@name@]</a>
 														</div>
 													</li>
 												[%/if%]
@@ -130,7 +130,7 @@
 											</ul>
 									[%else%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="h3 text-success">[@name@]</a>
+												<a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
 											</div>
 									[%/if%]
 								</li>
@@ -146,27 +146,27 @@
 											<ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu">
 												[%if [@url@] ne ''%]
 													<li class="lvl-3 list-group-item border-0">
-														<a href="[@url@]" class="h3 text-success">> All [@name@]</a>
+														<a href="[@url@]" class="h3 text-success d-block mb-0">> All [@name@]</a>
 													</li>
 												[%/if%]
 												[@next_level@]
 											</ul>
 									[%else%]
 											<div class="menu-level-wrapper">
-												<a href="[@url@]" class="h3 text-success">[@name@]</a>
+												<a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
 											</div>
 									[%/if%]
 								</li>
 							[%/param%]
 							[%param *level_3%]
 												<li class="lvl-3 list-group-item border-0">
-													<a href="[@url@]" class="h3 text-success">[@name@]</a>
+													<a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
 												</li>
 							[%/param%]
 						[%/menu%]
 					[%/ cache%]
 					<div class="account-btn border-top mt-3 pt-3 pb-5">
-						<a href="[%url page:'account'/%]" class="h3" aria-label="Account">
+						<a href="[%url page:'account'/%]" class="h3 d-block mb-0" aria-label="Account">
 							[%if [@user:username@] ne 'noreg'%]My Account[%else%]Login / Register[%/if%]
 						</a>
 					</div>
