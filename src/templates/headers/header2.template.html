@@ -13,24 +13,11 @@
 
 	<!-- Desktop Header -->
 	<header class="container-fluid wrapper-header px-3 d-none d-lg-block" aria-label="Header Container">
-		[%set [@no-header-menu@] %]true[%/set%]
 		[%set [@no-announcement@] %]true[%/set%]
-		[%menu id:'header-layout'%]
-			[%param *header%]
-				<!-- Use Menu Layout System -->
-				[%set [@^no-header-menu@] %]false[%/set%]
-			[%/param%]
-			[%param *level_1%]
-				<!-- Content: [@css_class@] -->
-				[%load_template file:'headers/includes/[@css_class@].template.html'/%]
-			[%/param%]
-		[%/menu%]
-		[%if [@no-header-menu@] eq 'true'%]
-			<!-- Use Default Layout -->
-			[%load_template file:'headers/includes/menu.template.html'/%]
-			[%load_template file:'headers/includes/search.template.html'/%]
-			[%load_template file:'headers/includes/logo.template.html'/%]
-		[%/if%]
+        <!-- Layout 2 -->
+        [%load_template file:'headers/includes/announcement.template.html'/%]
+        [%load_template file:'headers/includes/menu_with_logo.template.html'/%]
+        [%load_template file:'headers/includes/search.template.html'/%]
 	</header>
 
 	<!-- Mobile -->
