@@ -397,11 +397,18 @@ span.loading_span {
     text-shadow: none;
 }
 
+// Default Height Carousel/Banner
 .carousel .carousel-item img,
 .banner .bannerInner img {
     max-height: 700px;
     object-fit: cover;
     height: auto;
+}
+
+// Full-Height Carousel/Banner
+.full-height-img img {
+    object-fit: cover;
+    height: 100vh;
 }
 
 // Extra

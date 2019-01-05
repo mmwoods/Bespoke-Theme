@@ -9734,6 +9734,11 @@ span.loading_span {
      object-fit: cover;
   height: auto; }
 
+.full-height-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh; }
+
 .breadcrumb,
 .pagination {
   -webkit-box-pack: center !important;

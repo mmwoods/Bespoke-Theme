@@ -80,6 +80,31 @@ h5,
 	border-color: #343a40 /*{Carousel: Button | carousel-btn-default-border-colour-hover}*/;
 }
 
+/* Full-Height Carousel */
+#homepageCarouselFullHeight .carousel-caption h1,
+#homepageCarouselFullHeight .carousel-caption .h1,
+#homepageCarouselFullHeight .carousel-caption h2,
+#homepageCarouselFullHeight .carousel-caption .h2,
+#homepageCarouselFullHeight .carousel-caption h3,
+#homepageCarouselFullHeight .carousel-caption .h3 {
+	color: #fff /*{Carousel (Full-Height) | carousel-text-colour}*/ !important ;
+}
+
+#homepageCarouselFullHeight .carousel-caption .btn-outline-dark {
+	color: #343a40 /*{Carousel (Full-Height): Button | carousel-btn-default-text-colour}*/;
+	background-color: transparent /*{Carousel (Full-Height): Button | carousel-btn-default-bg-colour}*/;
+	border-color: #343a40 /*{Carousel (Full-Height): Button | carousel-btn-default-border-colour}*/;
+}
+#homepageCarouselFullHeight .carousel-caption .btn-outline-dark:hover,
+#homepageCarouselFullHeight .carousel-caption .btn-outline-dark:focus,
+#homepageCarouselFullHeight .carousel-caption .btn-outline-dark:active,
+#homepageCarouselFullHeight .carousel-caption .btn-outline-dark.active,
+#homepageCarouselFullHeight .carousel-caption .open .dropdown-toggle.btn-outline-dark {
+	color: #fff /*{Carousel (Full-Height): Button | carousel-btn-default-text-colour-hover}*/;
+	background-color: #343a40 /*{Carousel (Full-Height): Button | carousel-btn-default-bg-colour-hover}*/;
+	border-color: #343a40 /*{Carousel (Full-Height): Button | carousel-btn-default-border-colour-hover}*/;
+}
+
 /* Button: Default */
 .btn-outline-secondary, .btn-default {
 	color: #333 /*{Button: Default | btn-default-text-colour}*/;
