@@ -24,7 +24,7 @@
 			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 			[%param *header%]
 				<div class="col-12 mb-5">
-					[@^section-title@]
+					<span class="pb-2">[@^section-title@]</span>
 					[%if [@config:show_filters@]%]
 						<btn id="sidebarToggle" class="btn btn-outline-dark px-5">Show Sort</btn>
 					[%/if%]
