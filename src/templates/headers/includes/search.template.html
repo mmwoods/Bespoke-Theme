@@ -1,0 +1,31 @@
+[%site_value id:'footer_javascript'%]
+    <script>
+        $(".wrapper-search-icon").click(function(){
+            var searchIcon = $('.wrapper-search-icon span i');
+
+            if(searchIcon.hasClass('fa-search')) {
+                searchIcon.toggleClass('fa-search').toggleClass('fa-times');
+            } else {
+                searchIcon.toggleClass('fa-times').toggleClass('fa-search');
+            }
+        });
+    </script>
+[%/site_value%]
+
+<div class="row wrapper-search-bar">
+    <div class="col-6 m-auto collapse" id="collapseExample">
+        <div class="card card-body p-0 border-0">
+            <div class="header-search pt-2 pt-md-0">
+                <form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+                    <input type="hidden" name="rf" value="kw"/>
+                    <div class="input-group">
+                        <input class="form-control ajax_search border-0 py-2" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search_desktop" autocomplete="off" name="kw" type="search" placeholder="Search" aria-label="Input search"/>
+                        <div class="input-group-append">
+                            <button type="submit" value="Search" class="btn" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

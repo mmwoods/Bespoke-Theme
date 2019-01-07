@@ -4,8 +4,10 @@
 			<script>
 				$("#sidebarToggle").click(function(){
 					if($(this).html() == "Show Sort") {
+						$('#filters').addClass('show');
 						$(this).html("Hide Sort");
 					} else {
+						$('#filters').removeClass('show');
 						$(this).html("Show Sort");
 					}
 
@@ -24,7 +26,7 @@
 				<div class="col-12 mb-5">
 					[@^section-title@]
 					[%if [@config:show_filters@]%]
-						<h2 id="sidebarToggle" class="text-center text-uppercase text-success mb-0">Show Sort</h2>
+						<btn id="sidebarToggle" class="btn btn-outline-dark px-5 mt-2">Show Sort</btn>
 					[%/if%]
 				</div>
 

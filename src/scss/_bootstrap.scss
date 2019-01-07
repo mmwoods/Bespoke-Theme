@@ -114,6 +114,19 @@ $spacers: map-merge((
   7: ($spacer * 4)
 ), $spacers);
 
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  // sm: 540px,
+  // md: 720px,
+  // lg: 960px,
+  xl: 1280px
+) !default;
+
+// @include _assert-ascending($container-max-widths, "$container-max-widths");
+
 // Import Bootstrap
 //
 @import "node_modules/bootstrap/scss/functions";

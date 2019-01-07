@@ -1,0 +1,23 @@
+<div class="bannerInner col-12 p-0">
+    <a href="[@url@]">
+        <img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" class="d-block w-100" alt="[@headline@]"/>
+        [%if [@headline@] OR [@description@] OR [@linktext@]%]
+            <div class="carousel-caption hover-overlay text-center p-3 d-none d-sm-flex [%if [@count@] eq 0 OR [@count@] eq 2%]left [%else%]right [%/if%][%if [@count@] eq 2 OR [@count@] eq 3%]light [%else%]dark [%/if%]">
+                <div class="wrapper-hover-content px-4">
+                    [%if [@headline@]%]<h2 class="display-1 mb-1">[@headline@]</h2>[%/if%]
+                    [%if [@description@]%]<h3 class="h2">[@description@]</h3>[%/if%]
+                    [%if [@linktext@]%]<button class="btn btn-success my-3">[@linktext@]</button>[%/if%]
+                </div>
+            </div>
+        [%/if%]
+    </a>
+</div>
+[%if [@headline@] OR [@description@] OR [@linktext@]%]
+    <div class="col-12 py-2 text-center d-sm-none">
+        <a href="[@url@]" class="wrapper-banner-mobile">
+            [%if [@headline@]%]<h2 class="display-1 my-2">[@headline@]</h2>[%/if%]
+            [%if [@description@]%]<h3 class="h2 mb-2">[@description@]</h3>[%/if%]
+            [%if [@linktext@]%]<button class="btn btn-success my-2">[@linktext@]</button>[%/if%]
+        </a>
+    </div>
+[%/if%]

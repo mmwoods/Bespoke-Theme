@@ -1,0 +1,144 @@
+<!-- Mobile Header -->
+<div id="mobile-header" class="container-fluid wrapper-mob-header d-block d-lg-none fixed-top">
+    [%if [@no-announcement@] eq 'false'%]
+        [%load_template file:'headers/includes/announcement.template.html'/%]
+    [%/if%]
+    <div class="wrapper-mobile-contents row align-items-center py-3">
+        <button class="navbar-slide-toggler navbar-toggler h-35 col-3 text-center" type="button">
+            <span class="h2"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="col-6 mob-logo text-center">
+            <a href="[@config:homeurl@]" title="[@config:company_name@]">
+                <img class="logo" src="[@config:imageurl@]/website_logo.png" alt="[@config:company_name@]"/>
+            </a>
+        </div>
+        <div class="col-3 mob-cart text-center">
+            <a href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping Cart">
+                <span class="text-uppercase text-success h2 font-weight-bold pr-1" rel="a2c_item_count">[@total_cart_items_mobile@] </span>
+                <span class="h2"><i class="fas fa-shopping-bag" aria-hidden="true"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Menu Script -->
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript">
+        $('.navbar-slide-toggler').on('click', function() {
+            $('#mobile-menu').toggleClass('reveal');
+            $('.overlay').toggle();
+        });
+
+        function hideMenu(){
+            $('#mobile-menu').removeClass('reveal');
+            $('.overlay').hide();
+        }
+
+        $('.overlay').on('click', function(){
+            hideMenu();
+        });
+
+        $(document).ready(function(){
+            hideMenu();
+
+            var mobileHeaderHeight = $('.wrapper-mob-header').height();
+            $('#mobile-sticky-spacer').css('height', mobileHeaderHeight);
+        });
+    </script>
+[%END SITE_VALUE%]
+
+<!-- Mobile Menu -->
+<div class="overlay"></div>
+
+<div id="mobile-menu" class="fixed-top navbar-side left d-block d-lg-none">
+    <div class="container-fluid border-bottom">
+        <div class="row align-items-center py-3">
+            <button class="navbar-slide-toggler navbar-toggler h-35 col-2 text-center" type="button">
+                <span class="h2"><i class="fas fa-arrow-left"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Mobile Search -->
+        <form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+            <input type="hidden" name="rf" value="kw"/>
+            <div class="input-group pt-1 border-bottom h-60">
+                <input class="form-control ajax_search border-0" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+                <div class="input-group-append border-0 px-4">
+                    <button type="submit" value="Search" class="btn border-0 bg-white px-0" aria-label="Search site">
+                        <span class="h3"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav" id="mob-menu">
+                [%cache type:'menu' id:'mobile_static_menu'%]
+                    [%menu id:'web_header'%]
+                        [%param *level_1%]
+                            <li class="lvl-1 pt-4">
+                                [%if [@next_level@]%]
+                                        <div class="menu-level-wrapper">
+                                            <button data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop h3 text-primary text-left border-0 mb-0 p-0 pr-4 w-100 bg-white">
+                                                [@name@]<span class="h3 pl-4 float-right"><i class="fas fa-angle-down"></i></span>
+                                            </button>
+                                        </div>
+                                        <ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu w-100">
+                                            [%if [@url@] ne ''%]
+                                                <li class="lvl-2 list-group-item border-0">
+                                                    <div class="menu-level-wrapper">
+                                                        <a href="[@url@]" class="h3 text-success d-block mb-0">> All [@name@]</a>
+                                                    </div>
+                                                </li>
+                                            [%/if%]
+                                            [@next_level@]
+                                        </ul>
+                                [%else%]
+                                        <div class="menu-level-wrapper">
+                                            <a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
+                                        </div>
+                                [%/if%]
+                            </li>
+                        [%/param%]
+                        [%param *level_2%]
+                            <li class="lvl-2 list-group-item border-0">
+                                [%if [@next_level@]%]
+                                        <div class="menu-level-wrapper">
+                                            <button data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@hierarchy@]" class="collapsed mob-drop h3 text-primary text-left border-0 mb-0 p-0 w-100 bg-white">
+                                                [@name@]<span class="h3 pl-4 float-right"><i class="fas fa-angle-down"></i></span>
+                                            </button>
+                                        </div>
+                                        <ul id="mob-menu-[@hierarchy@]" class="list-group panel-collapse collapse collapse-menu">
+                                            [%if [@url@] ne ''%]
+                                                <li class="lvl-3 list-group-item border-0">
+                                                    <a href="[@url@]" class="h3 text-success d-block mb-0">> All [@name@]</a>
+                                                </li>
+                                            [%/if%]
+                                            [@next_level@]
+                                        </ul>
+                                [%else%]
+                                        <div class="menu-level-wrapper">
+                                            <a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
+                                        </div>
+                                [%/if%]
+                            </li>
+                        [%/param%]
+                        [%param *level_3%]
+                                            <li class="lvl-3 list-group-item border-0">
+                                                <a href="[@url@]" class="h3 text-success d-block mb-0">[@name@]</a>
+                                            </li>
+                        [%/param%]
+                    [%/menu%]
+                [%/ cache%]
+                <div class="account-btn border-top mt-3 pt-3 pb-5">
+                    <a href="[%url page:'account'/%]" class="h3 d-block mb-0" aria-label="Account">
+                        [%if [@user:username@] ne 'noreg'%]My Account[%else%]Login / Register[%/if%]
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile: Sticky Header Spacer -->
+<div id="mobile-sticky-spacer" class="d-block d-lg-none" aria-hidden="true"></div>

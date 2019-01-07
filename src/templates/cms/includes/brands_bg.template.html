@@ -1,0 +1,40 @@
+[%if [@count@] eq 0%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            // Remove top margin
+            $('#main-content').addClass('d-none');
+        </script>
+    [%END SITE_VALUE%]
+[%/if%]
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript">
+        // Replace title margins with padding
+        var brandsTitle = $('#brands-title').find('.section-title');
+        if (brandsTitle) {
+            $(brandsTitle).removeClass('my-4 my-sm-5');
+            $(brandsTitle).addClass('mt-4 mt-sm-5 mb-0 pt-5');
+            $('.wrapper-brands').removeClass('my-3');
+            $('.wrapper-brands').addClass('mb-3');
+        }
+    </script>
+[%END SITE_VALUE%]
+
+[%thumb_list type:'content' content_type:'brand' template:'brands_small' limit:'6' sortby:'sortorder-desc'%]
+    [%param *header%]
+        </div><!-- .container -->
+        </div><!-- .row -->
+        </div><!-- .col -->
+        <span id="brands-title">[@^section-title@]</span>
+        <div class="wrapper-brands brands-bg py-3 my-3">
+            <div class="container">
+                <div class="row justify-content-center">
+    [%/param%]
+    [%param *footer%]
+                </div>
+            </div>
+        </div>
+        <div id="main-content-second" class="container" role="main">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+    [%/param%]
+[%/thumb_list%]

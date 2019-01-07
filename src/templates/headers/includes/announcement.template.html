@@ -1,0 +1,25 @@
+[%advert type:'text' template:'' limit:'1' ad_group:'announcement' category:'0' allow_duplicate:'1'%]
+    [%param *header%]
+        [%set [@^^^no-announcement@] %]false[%/set%]
+        <section class="wrapper-announcement row text-center">
+    [%/param%]
+    [%param *body%]
+            <div class="col-12 py-2 text-center">
+                [%if [@url@] ne ''%]
+                    <a href="[@url@]">
+                [%/if%]
+                    [%if [@description@] ne '' AND [@headline@] ne ''%]
+                        <span class="d-lg-none">[%if [@linktext@] ne ''%]<i class="[@linktext@]"></i> [%/if%][@headline@]</span>
+                        <span class="d-none d-lg-block">[%if [@linktext@] ne ''%]<i class="[@linktext@]"></i> [%/if%][@description@]</span>
+                    [%else%]
+                        <span>[%if [@linktext@] ne ''%]<i class="[@linktext@]"></i> [%/if%][@headline@]</span>
+                    [%/if%]
+                [%if [@url@] ne ''%]
+                    </a>
+                [%/if%]
+            </div>
+    [%/param%]
+    [%param *footer%]
+        </section>
+    [%/param%]
+[%/advert%]
