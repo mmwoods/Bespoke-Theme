@@ -4,7 +4,7 @@
     </script>
 [%END SITE_VALUE%]
 
-[%if [@config:current_page_type@] eq 'home'%]
+[%if [@config:current_page_type@] eq 'home' OR [@content_type_id@] eq 13%]
     [%SITE_VALUE id:'footer_javascript'%]
         <script type="text/javascript">
             $('#mobile-sticky-spacer').toggleClass('d-block d-none');

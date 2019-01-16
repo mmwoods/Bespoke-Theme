@@ -5,7 +5,7 @@
 	<link rel="preload" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" as="style">
 	<link rel="preload" href="[%ntheme_asset%]css/style.css[%/ntheme_asset%]" as="style">
 	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" media="all"/>
-	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/style.css[%/ntheme_asset%]" media="all"/>
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/bespoke-style.css[%/ntheme_asset%]" media="all"/>
 </head>
 
 <body id="n_[@config:current_page_type@]" class="n_[@CONFIG:TEMPLATELANG@]">
@@ -24,5 +24,5 @@
 	<!-- Mobile -->
 	[%load_template file:'headers/includes/mobile_inner.template.html'/%]
 
-	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product' OR [@content_type_id@] eq 13%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
 		<div class="row justify-content-center">
