@@ -25,7 +25,7 @@
                     get: 'user',
                     userId: '[@CONFIG:instagram_userID@]',
                     accessToken: '[@CONFIG:instagram_accesstoken@]',
-                    template: '<div class="col-4 col-sm-3 col-lg-2"><div class="card thumbnail n-responsive-content border-0"><a href="{{link}}"><img class="img-responsive block-center" src="{{image}}" alt="Instagram Feed"/></a><a href="{{link}}"><div class="hover-overlay black-bg text-center p-3 d-none d-sm-flex"><div class="wrapper-hover-content px-2"><h2 class="h1 text-light mb-2"><i class="fab fa-instagram" aria-hidden="true"></i></h2></div></div></a></div></div>',
+                    template: '<a href="{{link}}" target="_blank" class="col-4 col-sm-3 col-lg-2 thumbnail"><div class="insta-img" style="background-image: url({{image}})"><div class="hover-overlay black-bg text-center p-3 d-none d-sm-flex"><div class="wrapper-hover-content px-2"><h2 class="h1 text-light mb-0"><i class="fab fa-instagram" aria-hidden="true"></i></h2></div></div></div></a>',
                     resolution: 'standard_resolution',
                     limit: '12',
                     sortBy: 'most-recent'

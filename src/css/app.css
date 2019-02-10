@@ -9824,3 +9824,11 @@ span.loading_span {
     -o-object-position: top;
        object-position: top;
     height: auto; } }
+
+.insta-img {
+  background-size: cover;
+  background-position: center; }
+  .insta-img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }

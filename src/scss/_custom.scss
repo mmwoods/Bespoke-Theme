@@ -513,3 +513,15 @@ span.loading_span {
         height: auto;
     }
 }
+
+// Instagram
+.insta-img {
+    background-size: cover;
+    background-position: center;
+
+    &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+}
