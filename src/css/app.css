@@ -9670,9 +9670,8 @@ span.loading_span {
 .sidebaritem {
   list-style: none; }
 
-@media (max-width: 991.98px) {
-  .mob-logo img.logo {
-    max-height: 35px; } }
+.mob-logo img.logo {
+  max-height: 35px; }
 
 .wrapper-mob-header .wrapper-mobile-contents {
   -webkit-transition: 0.7s all;

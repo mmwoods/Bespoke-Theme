@@ -321,10 +321,8 @@ span.loading_span {
 }
 
 // Mobile Header
-@media (max-width: 991.98px) {
-    .mob-logo img.logo {
-        max-height: 35px;
-    }
+.mob-logo img.logo {
+    max-height: 35px;
 }
 
 .wrapper-mob-header .wrapper-mobile-contents {
