@@ -9674,6 +9674,10 @@ span.loading_span {
   .mob-logo img.logo {
     max-height: 35px; } }
 
+.wrapper-mob-header .wrapper-mobile-contents {
+  -webkit-transition: 0.7s all;
+  transition: 0.7s all; }
+
 .navbar-side {
   height: 100%;
   width: 80%;

@@ -8,8 +8,22 @@
     [%SITE_VALUE id:'footer_javascript'%]
         <script type="text/javascript">
             $('#mobile-sticky-spacer').toggleClass('d-block d-none');
-            $('#mobile-header .wrapper-mobile-contents').removeClass('wrapper-mobile-contents');
-            $('#mobile-header').addClass('pt-3');
+
+            $(function() {
+                //caches a jQuery object containing the header element
+                var header = $("#mobile-header .wrapper-mobile-contents");
+                header.addClass('no-scroll');
+
+                $(window).scroll(function() {
+                    var scroll = $(window).scrollTop();
+
+                    if (scroll >= 50) {
+                        header.removeClass('no-scroll');
+                    } else {
+                        header.addClass('no-scroll');
+                    }
+                });
+            });
         </script>
     [%END SITE_VALUE%]
 [%/if%]
