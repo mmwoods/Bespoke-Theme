@@ -688,8 +688,7 @@ a.text-success:focus {
 	background-color: #fff /*{Banners Stacked Background: Row 1 | bg-colour}*/;
 }
 #wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner h2,
-#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner .h2,
-#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner p,
 #wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner .display-3 {
 	color: #333 /*{Banners Stacked Background: Row 1 | text-colour}*/ !important ;
 }
@@ -703,8 +702,7 @@ a.text-success:focus {
 	background-color: #fff /*{Banners Stacked Background: Row 2 | bg-colour}*/;
 }
 #wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner h2,
-#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner .h2,
-#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner p,
 #wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner .display-3 {
 	color: #333 /*{Banners Stacked Background: Row 2 | text-colour}*/ !important ;
 }
@@ -718,8 +716,7 @@ a.text-success:focus {
 	background-color: #fff /*{Banners Stacked Background: Row 3 | bg-colour}*/;
 }
 #wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner h2,
-#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner .h2,
-#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner p,
 #wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner .display-3 {
 	color: #333 /*{Banners Stacked Background: Row 3 | text-colour}*/ !important ;
 }

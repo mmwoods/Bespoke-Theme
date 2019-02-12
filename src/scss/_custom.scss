@@ -62,17 +62,6 @@ p {
     }
 }
 
-@media (max-width: 1199px) {
-    #wrapperBannerStackedBackground .display-3 {
-        font-size: 28px;
-        font-weight: 400;
-    }
-    #wrapperBannerStackedBackground h2,
-    #wrapperBannerStackedBackground .h2 {
-        font-size: 20px;
-    }
-}
-
 // Borders
 .br-0 {
     border-right: 0 !important;
@@ -535,5 +524,13 @@ span.loading_span {
         content: "";
         display: block;
         padding-bottom: 100%;
+    }
+}
+
+// Banner Stacked
+@media (max-width: 1199px) {
+    #wrapperBannerStackedBackground .display-3 {
+        font-size: 28px;
+        font-weight: 400;
     }
 }
