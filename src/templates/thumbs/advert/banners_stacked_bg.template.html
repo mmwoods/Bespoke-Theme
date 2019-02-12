@@ -1,0 +1,14 @@
+<div class="row row[@count@]">
+    <div class="bannerInner col-12 col-lg-6 p-0 [%if [@count@] eq 0 OR [@count@] eq 2%]order-1 [%else%]order-lg-2 [%/if%]">
+        <a href="[@url@]">
+            <img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" class="d-block w-100" alt="[@headline@]"/>
+        </a>
+    </div>
+    [%if [@headline@] OR [@description@] OR [@linktext@]%]
+        <div class="wrapper-stacked-bg-inner col-12 col-lg-6 py-3 text-center align-self-center [%if [@count@] eq 0 OR [@count@] eq 2%]order-2 [%else%]order-lg-1 [%/if%]">
+            [%if [@headline@]%]<h2 class="display-3 my-2">[@headline@]</h2>[%/if%]
+            [%if [@description@]%]<h3 class="h2 mb-2">[@description@]</h3>[%/if%]
+            [%if [@linktext@]%]<a href="[@url@]"><button class="btn btn-success my-2">[@linktext@]</button></a>[%/if%]
+        </div>
+    [%/if%]
+</div>

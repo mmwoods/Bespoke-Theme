@@ -681,3 +681,50 @@ a.text-success:focus {
     background-color: transparent /*{Banners Stacked: Light | btn-bg-colour}*/;
     border-color: #fff /*{Banners Stacked: Light | btn-border-colour}*/;
 }
+
+/* Banners Stacked BG */
+/* Row 1 */
+#wrapperBannerStackedBackground .row.row0 {
+	background-color: #fff /*{Banners Stacked Background: Row 1 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner .h2,
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 1 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row0 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 1 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 1 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 1 | btn-border-colour}*/;
+}
+/* Row 2 */
+#wrapperBannerStackedBackground .row.row1 {
+	background-color: #fff /*{Banners Stacked Background: Row 2 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner .h2,
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 2 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row1 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 2 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 2 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 2 | btn-border-colour}*/;
+}
+/* Row 3 */
+#wrapperBannerStackedBackground .row.row2 {
+	background-color: #fff /*{Banners Stacked Background: Row 3 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner .h2,
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner h3,
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 3 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row2 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 3 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 3 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 3 | btn-border-colour}*/;
+}

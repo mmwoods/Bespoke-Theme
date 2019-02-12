@@ -56,10 +56,20 @@ p {
         font-size: 30px;
         font-weight: 400;
     }
-
     h1.section-title {
         font-size: 24px;
         font-weight: 400;
+    }
+}
+
+@media (max-width: 1199px) {
+    #wrapperBannerStackedBackground .display-3 {
+        font-size: 28px;
+        font-weight: 400;
+    }
+    #wrapperBannerStackedBackground h2,
+    #wrapperBannerStackedBackground .h2 {
+        font-size: 20px;
     }
 }
 
