@@ -9840,3 +9840,8 @@ span.loading_span {
   #wrapperBannerStackedBackground .display-3 {
     font-size: 28px;
     font-weight: 400; } }
+
+.thumb_cart .left img {
+  width: auto;
+  height: 50px;
+  max-width: 50px; }
