@@ -9690,16 +9690,14 @@ span.loading_span {
   -webkit-transition: 600ms ease;
   transition: 600ms ease; }
   .navbar-side.left {
-    left: 0;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%); }
+    left: -80%; }
   .navbar-side.right {
-    right: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%); }
-  .navbar-side.reveal {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%); }
+    right: -80%;
+    left: unset; }
+  .navbar-side.reveal.left {
+    left: 0; }
+  .navbar-side.reveal.right {
+    right: 0; }
   .navbar-side .menu-level-wrapper button.mob-drop {
     height: 40px;
     line-height: 40px;

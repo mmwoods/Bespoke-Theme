@@ -342,16 +342,18 @@ span.loading_span {
     transition: 600ms ease;
 
     &.left {
-        left: 0;
-        transform: translateX(-100%);
+        left: -80%;
     }
     &.right {
-        right: 0;
-        transform: translateX(100%);
+        right: -80%;
+        left: unset;
     }
 
-    &.reveal {
-        transform: translateX(0%);
+    &.reveal.left  {
+        left: 0;
+    }
+    &.reveal.right  {
+        right: 0;
     }
 
     // Mobile Sidebar Links
