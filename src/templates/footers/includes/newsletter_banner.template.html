@@ -1,0 +1,42 @@
+[%advert type:'text' template:'' limit:'1' ad_group:'newsletter-banner' category:'0'%]
+    [%param *header%]
+        <div class="row justify-content-center hover-overlay-parent overlay-show newsletter-banner">
+    [%/param%]
+    [%param *body%]
+            <div class="bannerInner col-12 p-0">
+                <img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" class="d-block w-100" alt="[@headline@]"/>
+                [%if [@headline@] OR [@description@] OR [@linktext@]%]
+                    <div class="carousel-caption hover-overlay text-center p-3">
+                        <div class="wrapper-hover-content px-3">
+                            [%if [@headline@]%]<h2 class="text-uppercase mb-1">[@headline@]</h2>[%/if%]
+                            [%if [@description@]%]<p class="text-success">[@description@]</p>[%/if%]
+
+                            <form class="justify-content-center" method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
+                                <input type="hidden" name="list_id" value="1">
+                                <input type="hidden" name="opt_in" value="y">
+                                <input type="hidden" name="inp-submit" value="y" />
+                                <input type="hidden" name="inp-opt_in" value="y" />
+                                <div class="row input-group justify-content-center mb-2 mt-3 mt-sm-0">
+                                    <input name="inp-email" class="col-12 col-sm-6 form-control mx-3 mx-sm-0 text-center text-sm-left" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
+                                    <div class="col-12 col-sm-6 input-group-append pt-2 pt-sm-0">
+                                        <input class="btn btn-success btn-block text-uppercase py-2" type="submit" value="[%if [@linktext@]%][@linktext@][%else%]Subscribe[%/if%]" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/>
+                                    </div>
+                                </div>
+                                <div class="checkbox col-12 text-center">
+                                    <label class="mb-0">
+                                        <input type="checkbox" value="y" class="terms_box" required/>
+                                        I have read and agree to
+                                        <a href="#" data-toggle="modal" data-target="#termsModal">Terms &amp; Conditions</a> and
+                                        <a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                [%/if%]
+            </div>
+    [%/param%]
+    [%param *footer%]
+        </div>
+    [%/param%]
+[%/advert%]

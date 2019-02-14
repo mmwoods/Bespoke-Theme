@@ -1,0 +1,39 @@
+    </div>
+</div>
+
+<footer class="wrapper-footer [%if [@config:current_page_type@] eq 'home' OR [@templatebody@] eq 'demo' OR [@content_type_id@] eq 13%]mt-0 [%else%]mt-7 [%/if%]">
+	<div class="container-fluid">
+        <!-- Layout 2 -->
+        [%load_template file:'footers/includes/menu_2_column.template.html'/%]
+        [%load_template file:'footers/includes/copyright.template.html'/%]
+	</div>
+</footer>
+
+<div class="modal fade" id="termsModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Terms &amp; Conditions</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">[%content_zone id:'terms'/%]</div>
+			<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="privacyModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Privacy Policy</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">[%show_content id:'2'%][%param *body%][@content_description1@][%/param%][%/show_content%]</div>
+			<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+		</div>
+	</div>
+</div>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+[%load_template file:'footers/includes/scripts.template.html'/%]
+</body>
+</html>
