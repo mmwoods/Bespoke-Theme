@@ -1,10 +1,10 @@
 <div class="row py-4">
-    <div class="col-3 text-center">
+    <div class="d-none d-md-block col-3 text-center">
         <a href="[@config:homeurl@]" title="[@config:company_name@]">
             <img class="logo py-5 px-2" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/>
         </a>
     </div>
-    <nav class="col-4 offset-1 text-center py-2" aria-label="Footer menu">
+    <nav class="col-12 col-sm-6 col-md-4 offset-md-1 text-center py-2" aria-label="Footer menu">
         [%menu id:'web_footer'%]
             [%param *header%]
                 <div class="row">
@@ -27,13 +27,13 @@
             [%/param%]
         [%/menu%]
     </nav>
-    <div class="footer-contact-details col-3 py-2 pl-5 text-left">
+    <div class="footer-contact-details col-12 col-sm-6 col-md-3 py-2 pl-md-5 text-left">
         [%if [@CONFIG:COMPANY_NAME@]%]<h4 class="mb-3">[@CONFIG:COMPANY_NAME@]</h4>[%/if%]
         [%if [@CONFIG:COMPANY_ADDR@]%]<p class="m-0">[@CONFIG:COMPANY_ADDR@]</p>[%/if%]
         [%if [@CONFIG:COMPANY_PHONE@]%]<p class="m-0"><strong>t</strong> [@CONFIG:COMPANY_PHONE@]</p>[%/if%]
         [%if [@CONFIG:COMPANY_EMAIL@]%]<p class="m-0">[@CONFIG:COMPANY_EMAIL@]</p>[%/if%]
 
-        <ul class="nav list-social justify-content-center justify-content-md-start mt-3" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
+        <ul class="nav list-social justify-content-start mt-3" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
             <meta itemprop="url" content="[@config:home_url@]"/>
             <meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
             <meta itemprop="name" content="[@config:company_name@]"/>
