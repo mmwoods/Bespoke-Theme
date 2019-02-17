@@ -9748,6 +9748,12 @@ span.loading_span {
      object-fit: cover;
   height: 100vh; }
 
+.newsletter-banner img {
+  max-height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto; }
+
 .breadcrumb,
 .pagination {
   -webkit-box-pack: center !important;
@@ -9843,3 +9849,11 @@ span.loading_span {
   width: auto;
   height: 50px;
   max-width: 50px; }
+
+.slick-center .slick-slide {
+  opacity: 0.6;
+  -webkit-transition: 0.7s all;
+  transition: 0.7s all; }
+
+.slick-center .slick-slide.slick-current {
+  opacity: 1; }

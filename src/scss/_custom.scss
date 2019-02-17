@@ -429,6 +429,13 @@ span.loading_span {
     height: 100vh;
 }
 
+// Newsletter Banner
+.newsletter-banner img {
+    max-height: 250px;
+    object-fit: cover;
+    height: auto;
+}
+
 // Extra
 .breadcrumb,
 .pagination {
@@ -542,4 +549,13 @@ span.loading_span {
     width: auto;
     height: 50px;
     max-width: 50px;
+}
+
+// Product Page: Slick Carousel
+.slick-center .slick-slide {
+    opacity: 0.6;
+    transition: 0.7s all;
+}
+.slick-center .slick-slide.slick-current {
+    opacity: 1;
 }

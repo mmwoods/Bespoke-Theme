@@ -317,6 +317,7 @@ fieldset[disabled] .btn-success:active,
 fieldset[disabled] .btn-success.active {
 	background-color: #26262d /*{Button: Success | btn-success-disabled-bg-colour}*/;
 	border-color: #26262d /*{Button: Success | btn-success-disabled-border-colour}*/;
+	color: #fff /*{Button: Success | btn-success-disabled-font-colour}*/ !important;
 }
 
 /* Button: Info */
@@ -519,11 +520,15 @@ fieldset[disabled] .btn-info.active {
 
 /* Footer */
 .wrapper-footer nav {
-	background-color: #f8f3f0 /*{Footer | footer-default-bg-colour}*/ !important;
+	background-color: #fff /*{Footer | footer-default-bg-colour}*/ !important;
 }
 
-.wrapper-footer nav li a {
-	color: #5a3b21 /*{Footer | footer-default-text-colour}*/;
+.wrapper-footer nav li a,
+.wrapper-footer nav h4,
+.footer-contact-details h4,
+.footer-contact-details p,
+.footer-contact-details a  {
+	color: #6c757d /*{Footer | footer-default-text-colour}*/;
 }
 
 /* Product Page */
@@ -724,4 +729,28 @@ a.text-success:focus {
 	color: #fff /*{Banners Stacked Background: Row 3 | btn-text-colour}*/;
     background-color: #26262d /*{Banners Stacked Background: Row 3 | btn-bg-colour}*/;
     border-color: #26262d /*{Banners Stacked Background: Row 3 | btn-border-colour}*/;
+}
+
+/* Newsletter Banner */
+.newsletter-banner h2,
+.newsletter-banner p,
+.newsletter-banner label,
+.newsletter-banner a
+ {
+	color: #fff /*{Newsletter Banner | text-colour}*/ !important;
+}
+
+.newsletter-banner .btn {
+	color: #fff /*{Newsletter Banner | btn-text-colour}*/;
+	background-color: #26262d /*{Newsletter Banner | btn-bg-colour}*/;
+	border-color: #26262d /*{Newsletter Banner | btn-border-colour}*/;
+}
+
+.newsletter-banner .btn:hover,
+.newsletter-banner .btn:focus,
+.newsletter-banner .btn:active,
+.newsletter-banner .btn.active {
+    color: #fff /*{Newsletter Banner | btn-text-colour-hover}*/;
+    background-color: #26262d /*{Newsletter Banner | btn-bg-colour-hover}*/;
+	border-color: #26262d /*{Newsletter Banner | btn-border-colour-hover}*/;
 }

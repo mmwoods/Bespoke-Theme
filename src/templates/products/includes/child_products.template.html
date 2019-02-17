@@ -1,9 +1,6 @@
 <form autocomplete="off" class="variation-wrapper">
     [%list_item_variations id:'[@current_sku@]'%]
         [%param header%]
-            [%if [@subtitle@]%]
-                <h3 class="text-left text-uppercase mb-4" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
-            [%/if%]
             [%IF [@short_description@]%]
                 <p class="text-left mb-4" itemprop="description" aria-label="Product Short Description">
                     [@short_description@]
