@@ -1,0 +1,35 @@
+[%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
+    [%param *header%]
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+        [%SITE_VALUE id:'footer_javascript'%]
+            <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script>
+                $('.slick-center').slick({
+                    centerMode: true,
+                    centerPadding: '50px',
+                    slidesToShow: 3,
+                    arrows: false
+                });
+            </script>
+        [%END SITE_VALUE%]
+
+        [@^section-title@]
+
+        <div class="row justify-content-center slick-center" role="contentinfo" aria-label="Product images">
+            <img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
+    [%/ param%]
+    [%param *body%]
+            <img src="[@thumb_image@]" class="product-image img-fluid" title="ALT Images">
+    [%/ param%]
+    [%param *footer%]
+        </div>
+    [%/ param%]
+    [%param *ifempty%]
+        <div class="row justify-content-center">
+            <section class="col-10 col-sm-6 col-md-5 col-lg-4 mt-0 mt-lg-4" role="contentinfo" aria-label="Product images">
+                [%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            </section>
+        </div>
+    [%/param%]
+[%/ THUMBNAILS%]
