@@ -1,8 +1,21 @@
 <div class="row">
 	<meta itemprop="brand" content="[@brand@]"/>
 	<div class="wrapper-product-title col-12">
-		<h1 class="text-center text-uppercase mb-1" itemprop="name" aria-label="Product Name">[@name@]</h1>
+		[%if [@parent_sku@] ne ''%]
+			[%product sku:'[@parent_sku@]'%]
+				[%param *body%]
+					[%if [@has_variation@]%]
+						<h1 class="text-center text-uppercase mb-1" itemprop="name" aria-label="Product Name">[@name@]</h1>
+					[%/if%]
+				[%/param%]
+			[%/product%]
+		[%else%]
+			<h1 class="text-center text-uppercase mb-1" itemprop="name" aria-label="Product Name">[@name@]</h1>
+		[%/if%]
 
+		[%if [@subtitle@]%]
+			<h3 class="text-center text-uppercase mb-1" role="heading" aria-label="Product Subtitle">[@subtitle@]</h3>
+		[%/if%]
 		<div class="my-2">
 			[%set [@review_sku@]%][%if [@parent_sku@]%][@parent_sku@][%else%][@sku@][%/if%][%/set%]
 			[%load_ajax_template id:'_reviews' type:'item' template:'reviews' preload:'1' tmpl_sku:'[@review_sku@]' /%]
