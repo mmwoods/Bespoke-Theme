@@ -1,7 +1,7 @@
     </div>
 </div>
 
-<footer class="wrapper-footer [%if [@config:current_page_type@] eq 'home' OR [@templatebody@] eq 'demo' OR [@content_type_id@] eq 13%]mt-0 [%else%]mt-7 [%/if%]">
+<footer class="wrapper-footer [%if [@config:current_page_type@] eq 'home' OR [@templatebody@] eq 'demo' OR [@content_type_name@] eq 'Demo'%]mt-0 [%else%]mt-7 [%/if%]">
 	<div class="container-fluid">
         <!-- Layout 3 -->
         [%load_template file:'footers/includes/newsletter.template.html'/%]
