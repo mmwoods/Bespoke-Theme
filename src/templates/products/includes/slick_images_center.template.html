@@ -1,22 +1,25 @@
 [%THUMBNAILS id:'[@SKU@]' check_parent:'y'%]
     [%param *header%]
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         [%SITE_VALUE id:'footer_javascript'%]
             <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script>
-                $('.slick-center').slick({
+                $('.slick-images-center').slick({
+                    slidesToShow: 3,
                     centerMode: true,
                     centerPadding: '50px',
-                    slidesToShow: 3,
-                    arrows: false
+                    arrows: false,
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 6000
                 });
             </script>
         [%END SITE_VALUE%]
 
         [@^section-title@]
 
-        <div class="row justify-content-center slick-center" role="contentinfo" aria-label="Product images">
+        <div class="row justify-content-center slick-images-center pb-3" role="contentinfo" aria-label="Product images">
             <img src="[%asset_url type:'product' id:'[@SKU@]' thumb:'thumbL' check_parent:'y'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%/param%][%END asset_url%]" rel="itmimg[@SKU@]" alt="[@name@]" border="0" id="main-image" itemprop="image">
     [%/ param%]
     [%param *body%]
