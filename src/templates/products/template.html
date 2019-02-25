@@ -6,9 +6,6 @@
 [%elseif [@CONFIG:product_page_layout@] eq 2%]
 	<!-- Layout 2 -->
 	[%load_template file:'products/product2.template.html'/%]
-[%elseif [@CONFIG:product_page_layout@] eq 3%]
-	<!-- Layout 3 -->
-	[%load_template file:'products/product3.template.html'/%]
 [%else%]
     <!-- Menu System -->
 	<div class="col-12 text-center">
@@ -30,13 +27,15 @@
 		[%/menu%]
 		[%if [@no-menu@] eq 'true'%]
 			<!-- Use Default Layout -->
-			[%load_template file:'products/includes/components/introduction.template.html'/%]
+			[%load_template file:'products/includes/components/introduction1.template.html'/%]
+			[%load_template file:"cms/includes/spacer_64.template.html"/%]
 			[%load_template file:"products/includes/components/product_information.template.html"/%]
-			[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">More Images</h1>[%/set%]
-			[%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-			[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Related Products</h1>[%/set%]
+			[%load_template file:"cms/includes/spacer_64.template.html"/%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Related Products</h1>[%/set%]
 			[%load_template file:"products/includes/components/related.template.html"/%]
-			[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Product History</h1>[%/set%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">You May Also Like</h1>[%/set%]
+			[%load_template file:"products/includes/components/upsell.template.html"/%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Product History</h1>[%/set%]
 			[%load_template file:"products/includes/components/history.template.html"/%]
 		[%/if%]
 	</div>
