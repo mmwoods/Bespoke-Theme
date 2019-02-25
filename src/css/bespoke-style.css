@@ -544,6 +544,17 @@ fieldset[disabled] .btn-info.active {
     background-color: #26262d /*{Product Page | product-page-accordion-active-bg}*/ !important;
 }
 
+.wrapper-product-title h1 {
+	font-size: 26px /*{Product Page | header-font-size}*/;
+    font-weight: 600 /*{Product Page | header-font-weight}*/;
+}
+
+.wrapper-product-title h3 {
+	font-size: 12px /*{Product Page | subtitle-font-size}*/;
+	font-weight: 400 /*{Product Page | subtitle-font-weight}*/;
+	color: #999 /*{Product Page | subtitle-font-color}*/;
+}
+
 /* Sidebar */
 .navbar-side {
     background-color: #fff /*{Header Mobile: Sidebar | mobile-sidebar-bg}*/;
