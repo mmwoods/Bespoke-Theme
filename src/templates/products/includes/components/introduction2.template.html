@@ -1,3 +1,10 @@
+[%SITE_VALUE id:'footer_javascript'%]
+    <script type="text/javascript" src="//cdn.rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js"></script>
+    <script>
+        $("#sticky-sidebar").stick_in_parent({offset_top: 69});
+    </script>
+[%END SITE_VALUE%]
+
 [@^section-title@]
 
 [%breadcrumb%]
@@ -27,18 +34,20 @@
         [%load_ajax_template id:'_alt_images_grid' type:'item' template:'alt_images_grid' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
     </section>
     <section class="col-12 col-lg-4 mt-4" role="contentinfo" aria-label="Products information">
-        <!-- Content: header -->
-        [%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-        [%load_template file:"cms/includes/spacer_16.template.html"/%]
-        <!-- Content: child products -->
-        [%load_template file:"products/includes/child_products.template.html"/%]
-        [%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
-            <!-- Content: buying_options -->
-            [%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-        [%/if%]
-        [%if [@has_components@]%]
-            <!-- Content: components -->
-            [%load_template file:"products/includes/components.template.html"/%]
-        [%/if%]
+        <div id="sticky-sidebar">
+            <!-- Content: header -->
+            [%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%load_template file:"cms/includes/spacer_16.template.html"/%]
+            <!-- Content: child products -->
+            [%load_template file:"products/includes/child_products.template.html"/%]
+            [%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
+                <!-- Content: buying_options -->
+                [%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%/if%]
+            [%if [@has_components@]%]
+                <!-- Content: components -->
+                [%load_template file:"products/includes/components.template.html"/%]
+            [%/if%]
+        </div>
     </section>
 </div>
