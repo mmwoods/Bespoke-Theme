@@ -1,43 +1,43 @@
-<div class="row py-3">
-    <div class="col-12 mt-4">
+<div class="row justify-content-center">
+    <div class="col-11 col-sm-9 col-md-9 col-lg-7">
         <div class="tabbable">
-            <ul class="nav nav-tabs text-light" role="tablist">
-                <li class="nav-item" id="tabDescription" role="tab" aria-controls="description" aria-selected="true">
-                    <a class="nav-link text-light text-uppercase bg-white bg-md-black active" href="#description" data-toggle="tab">Description</a>
+            <ul class="nav nav-tabs text-light d-flex justify-content-center" role="tablist">
+                <li class="nav-item mb-0" id="tabDescription" role="tab" aria-controls="description" aria-selected="true">
+                    <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#description" data-toggle="tab">Description</a>
                 </li>
                 [%if [@warranty@]%]
-                    <li class="nav-item" id="tabWarranty" role="tab" aria-controls="warranty" aria-selected="false">
-                        <a class="nav-link text-light text-uppercase bg-white bg-md-black" href="#warranty" data-toggle="tab">Warranty</a>
+                    <li class="nav-item mb-0" id="tabWarranty" role="tab" aria-controls="warranty" aria-selected="false">
+                        <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#warranty" data-toggle="tab">Warranty</a>
                     </li>
                 [%/if%]
                 [%if [@features@]%]
-                    <li class="nav-item" id="tabFeatures" role="tab" aria-controls="features" aria-selected="false">
-                        <a class="nav-link text-light text-uppercase bg-white bg-md-black" href="#features" data-toggle="tab">Features</a>
+                    <li class="nav-item mb-0" id="tabFeatures" role="tab" aria-controls="features" aria-selected="false">
+                        <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#features" data-toggle="tab">Features</a>
                     </li>
                 [%/if%]
-                <li class="nav-item" id="tabSpecifications" role="tab" aria-controls="specifications" aria-selected="false">
-                    <a class="nav-link text-light text-uppercase bg-white bg-md-black" href="#specifications" data-toggle="tab">Specifications</a>
+                <li class="nav-item mb-0" id="tabSpecifications" role="tab" aria-controls="specifications" aria-selected="false">
+                    <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#specifications" data-toggle="tab">Specifications</a>
                 </li>
                 [%if [@tnc@]%]
-                    <li class="nav-item" id="tabTermsConditions" role="tab" aria-controls="termsConditions" aria-selected="false">
-                        <a class="nav-link text-light text-uppercase bg-white bg-md-black" href="#termsConditions" data-toggle="tab">Terms and Conditions</a>
+                    <li class="nav-item mb-0" id="tabTermsConditions" role="tab" aria-controls="termsConditions" aria-selected="false">
+                        <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#termsConditions" data-toggle="tab">Terms and Conditions</a>
                     </li>
                 [%/if%]
                 [%if [@config:show_shipping_calc@] and [@service_only@] eq 'n'%]
-                    <li class="nav-item" id="tabShipping" role="tab" aria-controls="shipping" aria-selected="false">
-                        <a class="nav-link text-light text-uppercase bg-white bg-md-black" href="#shipping" data-toggle="tab">Shipping</a>
+                    <li class="nav-item mb-0" id="tabShipping" role="tab" aria-controls="shipping" aria-selected="false">
+                        <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black" href="#shipping" data-toggle="tab">Shipping</a>
                     </li>
                 [%/if%]
                 [%if [@config:show_product_reviews@]%]
-                    <li class="nav-item" id="tabReviews" role="tab" aria-controls="reviews" aria-selected="false">
-                        <a class="nav-link text-light text-uppercase bg-white bg-md-black reviews" href="#reviews" data-toggle="tab">
+                    <li class="nav-item mb-0" id="tabReviews" role="tab" aria-controls="reviews" aria-selected="false">
+                        <a class="nav-link mb-0 text-light text-uppercase bg-white bg-md-black reviews" href="#reviews" data-toggle="tab">
                             Reviews
                         </a>
                     </li>
                 [%/if%]
             </ul>
-            <div class="tab-content p-md-4 border border-top-0 border-secondary">
-                <div class="tab-pane active" id="description" role="tabpanel" aria-labelledby="tabDescription">
+            <div class="tab-content p-md-4">
+                <div class="tab-pane fade show" id="description" role="tabpanel" aria-labelledby="tabDescription">
                     <div class="card">
                         <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingDescription">
                             <h5 class="mb-0">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 [%if [@warranty@]%]
-                    <div class="tab-pane" id="warranty" role="tabpanel" aria-labelledby="tabWarranty">
+                    <div class="tab-pane fade" id="warranty" role="tabpanel" aria-labelledby="tabWarranty">
                         <div class="card">
                             <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingWarranty">
                                 <h5 class="mb-0">
@@ -76,7 +76,7 @@
                     </div>
                 [%/if%]
                 [%if [@features@]%]
-                    <div class="tab-pane" id="features" role="tabpanel" aria-labelledby="tabFeatures">
+                    <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="tabFeatures">
                         <div class="card">
                             <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingFeatures">
                                 <h5 class="mb-0">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 [%/if%]
-                <div class="tab-pane" id="specifications" role="tabpanel" aria-labelledby="tabSpecifications">
+                <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="tabSpecifications">
                     <div class="card">
                         <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingSpecificatoin">
                             <h5 class="mb-0">
@@ -214,7 +214,7 @@
                     </div>
                 </div>
                 [%if [@tnc@]%]
-                    <div class="tab-pane" id="termsConditions" role="tabpanel" aria-labelledby="tabTermsConditions">
+                    <div class="tab-pane fade" id="termsConditions" role="tabpanel" aria-labelledby="tabTermsConditions">
                         <div class="card">
                             <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingTnc">
                                 <h5 class="mb-0">
@@ -234,7 +234,7 @@
                     </div>
                 [%/if%]
                 [%if [@config:show_shipping_calc@] and [@service_only@] eq 'n'%]
-                    <div class="tab-pane" id="shipping" role="tabpanel" aria-labelledby="tabShipping">
+                    <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="tabShipping">
                         <div class="card">
                             <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingShipping">
                                 <h5 class="mb-0">
@@ -261,7 +261,7 @@
                     </div>
                 [%/if%]
                 [%if [@config:show_product_reviews@]%]
-                    <div class="tab-pane" id="reviews" role="tabpanel" aria-labelledby="tabReviews">
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="tabReviews">
                         <div class="card">
                             <div class="card-header py-1 px-2 bg-white bg-md-black" id="headingReviews">
                                 <h5 class="mb-0">
