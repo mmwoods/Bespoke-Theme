@@ -552,10 +552,24 @@ span.loading_span {
 }
 
 // Product Page: Slick Carousel
-.slick-center .slick-slide {
+.slick-images-center {
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+.slick-images-center.slick-initialized {
+    opacity: 1;
+    visibility: visible;
+}
+.slick-images-center .slick-slide {
     opacity: 0.6;
     transition: 0.7s all;
 }
-.slick-center .slick-slide.slick-current {
+.slick-images-center .slick-slide.slick-current {
     opacity: 1;
+}
+
+// Google Chrome: Border Fix
+.card {
+    border: 1.4px solid;
 }

@@ -436,7 +436,8 @@ fieldset[disabled] .btn-info.active {
 
 .wrapper-header .navbar {
 	background-color: #fff /*{Header Desktop | navbar-default-bg-colour}*/ !important;
-	border-color: #fff /*{Header Desktop | navbar-default-border-colour}*/;
+	border-top-color: #fff /*{Header Desktop | navbar-top-border-colour}*/;
+	border-bottom-color: #dfdfdf /*{Header Desktop | navbar-bottom-border-colour}*/;
 }
 
 .wrapper-header .wrapper-announcement,
