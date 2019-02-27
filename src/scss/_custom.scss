@@ -575,13 +575,27 @@ span.loading_span {
     }
 }
 
-// Product Page: Description
+// Product Page: Information Tabs
 .wrapper-product-information .tab-pane > .card {
     border: 0;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1.4px solid #dfdfdf;
 
     @media (min-width: 768px) {
         border: 0;
+    }
+
+    button {
+        &:after {
+            font-family: "Font Awesome 5 Free";
+            content: "\f068";
+            font-weight: 600;
+            font-size: 12px;
+            float: right;
+        }
+
+        &.collapsed:after {
+            content: "\f067";
+        }
     }
 }
 
