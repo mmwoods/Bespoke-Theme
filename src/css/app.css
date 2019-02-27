@@ -9867,5 +9867,12 @@ span.loading_span {
 .slick-images-center .slick-slide.slick-current {
   opacity: 1; }
 
+.wrapper-product-information .tab-pane > .card {
+  border: 0;
+  border-top: 1px solid #dfdfdf; }
+  @media (min-width: 768px) {
+    .wrapper-product-information .tab-pane > .card {
+      border: 0; } }
+
 .card {
   border: 1.4px solid; }

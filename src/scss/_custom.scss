@@ -569,6 +569,17 @@ span.loading_span {
     opacity: 1;
 }
 
+// Product Page: Description
+.wrapper-product-information .tab-pane > .card {
+    border: 0;
+    border-top: 1px solid #dfdfdf;
+
+    @media (min-width: 768px) {
+        border: 0;
+    }
+}
+
+
 // Google Chrome: Border Fix
 .card {
     border: 1.4px solid;
