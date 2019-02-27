@@ -145,7 +145,7 @@
 				<label class="sr-only" for="qty[@rndm@][@SKU@]">[@model@] quantity field</label>
 				<input type="number" min="[@min_qty@]" class="form-control qty form-control-lg" id="qty[@rndm@][@SKU@]" name="qty" aria-label="[@model@] quantity field" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
 			</div>
-			<div class="col-6 col-lg-5">
+			<div class="col-6">
 				[%if [@has_variation@] AND [@CONFIG:PRESELECT_VARIATION@] eq 0 %]
 					<a class="btn btn-success disabled btn-block btn-lg btn-ajax-loads text-uppercase" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"><span class="d-sm-none">Options</span><span class="d-none d-sm-block">Select Options</span></a>
 				[%else%]
