@@ -9866,13 +9866,13 @@ span.loading_span {
   @media (min-width: 768px) {
     .wrapper-product-information .tab-pane > .card {
       border: 0; } }
-  .wrapper-product-information .tab-pane > .card button:after {
+  .wrapper-product-information .tab-pane > .card button.accordion-icon:after {
     font-family: "Font Awesome 5 Free";
     content: "\f068";
     font-weight: 600;
     font-size: 12px;
     float: right; }
-  .wrapper-product-information .tab-pane > .card button.collapsed:after {
+  .wrapper-product-information .tab-pane > .card button.accordion-icon.collapsed:after {
     content: "\f067"; }
 
 .card {
