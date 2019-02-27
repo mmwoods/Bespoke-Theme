@@ -12,7 +12,15 @@
                     arrows: false,
                     dots: true,
                     autoplay: true,
-                    autoplaySpeed: 6000
+                    autoplaySpeed: 6000,
+                    responsive: [
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        }
+                    ]
                 });
             </script>
         [%END SITE_VALUE%]
