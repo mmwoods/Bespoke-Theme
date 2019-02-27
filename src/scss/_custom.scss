@@ -599,8 +599,17 @@ span.loading_span {
     }
 }
 
-
 // Google Chrome: Border Fix
 .card {
     border: 1.4px solid;
+}
+
+// Footer Logo
+.wrapper-footer .logo {
+    &.small-logo {
+        max-height: 55px;
+    }
+    &.large-logo {
+        max-height: 190px;
+    }
 }
