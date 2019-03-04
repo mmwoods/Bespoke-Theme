@@ -3,7 +3,8 @@
 
 <footer class="wrapper-footer [%if [@config:current_page_type@] eq 'home' OR [@templatebody@] eq 'demo' OR [@content_type_name@] eq 'Demo'%]mt-0 [%else%]mt-7 [%/if%]">
 	<div class="container-fluid">
-        <!-- Layout 1 -->
+        <!-- Layout 2 -->
+        [%load_template file:'footers/includes/newsletter_banner.template.html'/%]
         [%load_template file:'footers/includes/menu_2_column.template.html'/%]
         [%load_template file:'footers/includes/copyright.template.html'/%]
 	</div>

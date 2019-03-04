@@ -1,32 +1,42 @@
 [%load_template file:"products/includes/product_scripts.template.html"/%]
-[%SET [@page_type@]='product'/%]
 
-<div class="col-12 text-center">
-	[%set [@no-menu@] %]true[%/set%]
-	[%menu id:'product-layout'%]
-		[%param *header%]
-			<!-- Use Menu Layout System -->
-			[%set [@^no-menu@] %]false[%/set%]
-		[%/param%]
-		[%param *level_1%]
-			[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center my-4 my-sm-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
-			<!-- Content: [@css_class@] -->
-			[%if [@css_class@] eq 'alt_images'%]
-                [%load_ajax_template id:'_[@css_class@]' type:'item' template:'[@css_class@]' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-            [%else%]
-                [%load_template file:'products/includes/[@css_class@].template.html'/%]
-            [%/if%]
-		[%/param%]
-	[%/menu%]
-	[%if [@no-menu@] eq 'true'%]
-		<!-- Use Default Layout -->
-        [%load_template file:'products/includes/introduction.template.html'/%]
-		[%load_template file:"products/includes/product_information.template.html"/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">More Images</h1>[%/set%]
-        [%load_ajax_template id:'_alt_images' type:'item' template:'alt_images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Related Products</h1>[%/set%]
-		[%load_template file:"products/includes/related.template.html"/%]
-		[%set [@section-title@] %]<h1 class="section-title text-center my-4 my-sm-5">Product History</h1>[%/set%]
-		[%load_template file:"products/includes/history.template.html"/%]
-	[%/if%]
-</div>
+[%if [@CONFIG:product_page_layout@] eq 1%]
+	<!-- Layout 1 -->
+	[%load_template file:'products/product1.template.html'/%]
+[%elseif [@CONFIG:product_page_layout@] eq 2%]
+	<!-- Layout 2 -->
+	[%load_template file:'products/product2.template.html'/%]
+[%else%]
+    <!-- Menu System -->
+	<div class="col-12 text-center">
+		[%set [@no-menu@] %]true[%/set%]
+		[%menu id:'product-layout'%]
+			[%param *header%]
+				<!-- Use Menu Layout System -->
+				[%set [@^no-menu@] %]false[%/set%]
+			[%/param%]
+			[%param *level_1%]
+				[%set [@section-title@] %][%if [@name@]%]<h1 class="section-title text-center my-4 my-sm-5">[@name@]</h1>[%else%]<div class="spacer"></div>[%/if%][%/set%]
+				<!-- Content: [@css_class@] -->
+				[%if [@css_class@] eq 'alt_images'%]
+					[%load_ajax_template id:'_[@css_class@]' type:'item' template:'[@css_class@]' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+				[%else%]
+					[%load_template file:'products/includes/components/[@css_class@].template.html'/%]
+				[%/if%]
+			[%/param%]
+		[%/menu%]
+		[%if [@no-menu@] eq 'true'%]
+			<!-- Use Default Layout -->
+			[%load_template file:'products/includes/components/introduction1.template.html'/%]
+			[%load_template file:"cms/includes/spacer_64.template.html"/%]
+			[%load_template file:"products/includes/components/product_information.template.html"/%]
+			[%load_template file:"cms/includes/spacer_64.template.html"/%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Related Products</h1>[%/set%]
+			[%load_template file:"products/includes/components/related.template.html"/%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">You May Also Like</h1>[%/set%]
+			[%load_template file:"products/includes/components/upsell.template.html"/%]
+			[%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Product History</h1>[%/set%]
+			[%load_template file:"products/includes/components/history.template.html"/%]
+		[%/if%]
+	</div>
+[%/if%]

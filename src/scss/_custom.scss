@@ -56,7 +56,6 @@ p {
         font-size: 30px;
         font-weight: 400;
     }
-
     h1.section-title {
         font-size: 24px;
         font-weight: 400;
@@ -244,9 +243,10 @@ span.loading_span {
 // Product Page
 .description-compress p {
     display: none;
-}
-.description-compress p:first-of-type {
-    display: unset;
+
+    &:first-of-type {
+        display: unset;
+    }
 }
 
 .nav-tabs .nav-link {
@@ -321,10 +321,12 @@ span.loading_span {
 }
 
 // Mobile Header
-@media (max-width: 991.98px) {
-    .mob-logo img.logo {
-        max-height: 35px;
-    }
+.mob-logo img.logo {
+    max-height: 35px;
+}
+
+.wrapper-mob-header .wrapper-mobile-contents {
+	transition: 0.7s all;
 }
 
 // Mobile Navbar Side
@@ -341,16 +343,18 @@ span.loading_span {
     transition: 600ms ease;
 
     &.left {
-        left: 0;
-        transform: translateX(-100%);
+        left: -80%;
     }
     &.right {
-        right: 0;
-        transform: translateX(100%);
+        right: -80%;
+        left: unset;
     }
 
-    &.reveal {
-        transform: translateX(0%);
+    &.reveal.left  {
+        left: 0;
+    }
+    &.reveal.right  {
+        right: 0;
     }
 
     // Mobile Sidebar Links
@@ -426,6 +430,13 @@ span.loading_span {
     height: 100vh;
 }
 
+// Newsletter Banner
+.newsletter-banner img {
+    max-height: 250px;
+    object-fit: cover;
+    height: auto;
+}
+
 // Extra
 .breadcrumb,
 .pagination {
@@ -473,14 +484,18 @@ span.loading_span {
 }
 
 // Brands Component
-.wrapper-brands .border {
-	border: 2px solid #dee2e6 !important;
-}
-.wrapper-brands .thumbnail {
-    transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
-.wrapper-brands .thumbnail:hover {
-    box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.3);
+.wrapper-brands {
+    .border {
+        border: 2px solid #dee2e6 !important;
+    }
+
+    .thumbnail {
+        transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+        &:hover {
+            box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.3);
+        }
+    }
 }
 
 // Parallax Component
@@ -490,19 +505,17 @@ span.loading_span {
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
-}
 
-@media (min-width: 576px) {
-    .parallax-effect {
+    @media (min-width: 576px) {
         height: 400px;
     }
-}
 
-@media (min-width: 768px) {
-    .parallax-effect {
+    @media (min-width: 768px) {
         height: 600px;
     }
 }
+
+
 
 // Adverts
 @media (max-width: 767px) {
@@ -511,5 +524,92 @@ span.loading_span {
         object-fit: cover;
         object-position: top;
         height: auto;
+    }
+}
+
+// Instagram
+.insta-img {
+    background-size: cover;
+    background-position: center;
+
+    &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+}
+
+// Banner Stacked
+@media (max-width: 1199px) {
+    #wrapperBannerStackedBackground .display-3 {
+        font-size: 28px;
+        font-weight: 400;
+    }
+}
+
+// Cart Dropdown
+.thumb_cart .left img {
+    width: auto;
+    height: 50px;
+    max-width: 50px;
+}
+
+// Product Page: Slick Carousel
+.slick-images-center {
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+
+    &.slick-initialized {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .slick-slide {
+        opacity: 0.6;
+        transition: 0.7s all;
+
+        &.slick-current {
+            opacity: 1;
+        }
+    }
+}
+
+// Product Page: Information Tabs
+.wrapper-product-information .tab-pane > .card {
+    border: 0;
+    border-top: 1.4px solid #dfdfdf;
+
+    @media (min-width: 768px) {
+        border: 0;
+    }
+
+    button.accordion-icon {
+        &:after {
+            font-family: "Font Awesome 5 Free";
+            content: "\f068";
+            font-weight: 600;
+            font-size: 12px;
+            float: right;
+        }
+
+        &.collapsed:after {
+            content: "\f067";
+        }
+    }
+}
+
+// Google Chrome: Border Fix
+.card {
+    border: 1.4px solid;
+}
+
+// Footer Logo
+.wrapper-footer .logo {
+    &.small-logo {
+        max-height: 55px;
+    }
+    &.large-logo {
+        max-height: 190px;
     }
 }

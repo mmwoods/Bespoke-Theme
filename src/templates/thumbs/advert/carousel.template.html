@@ -1,5 +1,5 @@
-<div id="carousel-slide[@count@]" class="my-3 carousel-item [%if [@count@] eq '0'%]active[%/if%]">
-	<a href="[@url@]">
+<div id="carousel-slide[@count@]" class="carousel-item [%if [@count@] eq '0'%]active[%/if%]">
+	[%if [@url@] ne ''%]<a href="[@url@]">[%/if%]
 		<img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" class="d-block w-100" alt="[@headline@]"/>
 		[%if [@headline@] ne '' OR [@description@] ne '' OR [@linktext@] ne ''%]
 			<div class="carousel-caption hover-overlay show p-3">
@@ -10,5 +10,5 @@
 				</div>
 			</div>
 		[%/if%]
-	</a>
+	[%if [@url@] ne ''%]</a>[%/if%]
 </div>

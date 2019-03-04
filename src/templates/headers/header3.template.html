@@ -11,15 +11,14 @@
 <body id="n_[@config:current_page_type@]" class="n_[@CONFIG:TEMPLATELANG@]">
 	<a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-	<!-- Desktop Header -->
-	<header class="container-fluid wrapper-header px-3 d-none d-lg-block" aria-label="Header Container">
+	<!-- Desktop/Mobile Header -->
+	<header class="wrapper-mobile-style">
 		[%set [@no-announcement@] %]true[%/set%]
-        <!-- Layout 1 -->
-        [%load_template file:'headers/includes/menu_mobile_style.template.html'/%]
+		<!-- Required JS -->
+		[%load_template file:'headers/includes/menu_mobile_style.template.html'/%]
+		<!-- Header Content (from Mobile) -->
+		[%load_template file:'headers/includes/mobile_inner.template.html'/%]
 	</header>
 
-	<!-- Mobile -->
-	[%load_template file:'headers/includes/mobile_inner.template.html'/%]
-
-	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product' OR [@content_type_name@] eq 'Demo'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
 		<div class="row justify-content-center">

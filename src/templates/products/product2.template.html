@@ -1,0 +1,15 @@
+[%load_template file:"products/includes/product_scripts.template.html"/%]
+
+<div class="col-12 text-center">
+    <!-- Layout 2 -->
+    [%load_template file:'products/includes/components/introduction2.template.html'/%]
+    [%load_template file:"cms/includes/spacer_64.template.html"/%]
+    [%load_template file:"products/includes/components/product_information.template.html"/%]
+    [%load_template file:"cms/includes/spacer_64.template.html"/%]
+    [%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Related Products</h1>[%/set%]
+    [%load_template file:"products/includes/components/related.template.html"/%]
+    [%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">You May Also Like</h1>[%/set%]
+    [%load_template file:"products/includes/components/upsell.template.html"/%]
+    [%set [@section-title@] %]<h1 class="h2 section-title text-center mt-4 mt-sm-5">Product History</h1>[%/set%]
+    [%load_template file:"products/includes/components/history.template.html"/%]
+</div>

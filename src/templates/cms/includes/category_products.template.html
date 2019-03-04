@@ -13,14 +13,14 @@
 
 					$("#left-sidebar").toggleClass("sidebar-collapsed");
 					$("#category-content").toggleClass("col-md-6 col-lg-8");
-					$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-12 col-lg-4 col-lg-6");
+					$("#category-content .wrapper-thumbnail-toggle").toggleClass("col-md-6 col-lg-3 col-lg-4");
 				});
 			</script>
 		[%/site_value%]
 	[%/if%]
 
 	<div class="wrapper-category-products row">
-		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]'%]
+		[%thumb_list type:'products' limit:'[@config:THUMB_LIMIT@]' template:'products_grid'%]
 			[%param template%][%VIEWBY type:'products' default:'[@templatethumb@]'%][%/VIEWBY%][%/param%]
 			[%param *header%]
 				<div class="col-12 mb-5">
@@ -37,7 +37,7 @@
 				[%/if%]
 					<!-- From Sidebar: #category-content -->
 						<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
-							<section class="row" aria-label="Products in category">
+							<section class="row justify-content-center" aria-label="Products in category">
 			[%/param%]
 			[%param *footer%]
 							</section>

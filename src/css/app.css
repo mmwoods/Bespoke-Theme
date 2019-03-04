@@ -9609,9 +9609,8 @@ span.loading_span {
 
 .description-compress p {
   display: none; }
-
-.description-compress p:first-of-type {
-  display: unset; }
+  .description-compress p:first-of-type {
+    display: unset; }
 
 .nav-tabs .nav-link {
   border: 0;
@@ -9670,9 +9669,12 @@ span.loading_span {
 .sidebaritem {
   list-style: none; }
 
-@media (max-width: 991.98px) {
-  .mob-logo img.logo {
-    max-height: 35px; } }
+.mob-logo img.logo {
+  max-height: 35px; }
+
+.wrapper-mob-header .wrapper-mobile-contents {
+  -webkit-transition: 0.7s all;
+  transition: 0.7s all; }
 
 .navbar-side {
   height: 100%;
@@ -9687,16 +9689,14 @@ span.loading_span {
   -webkit-transition: 600ms ease;
   transition: 600ms ease; }
   .navbar-side.left {
-    left: 0;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%); }
+    left: -80%; }
   .navbar-side.right {
-    right: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%); }
-  .navbar-side.reveal {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%); }
+    right: -80%;
+    left: unset; }
+  .navbar-side.reveal.left {
+    left: 0; }
+  .navbar-side.reveal.right {
+    right: 0; }
   .navbar-side .menu-level-wrapper button.mob-drop {
     height: 40px;
     line-height: 40px;
@@ -9747,6 +9747,12 @@ span.loading_span {
      object-fit: cover;
   height: 100vh; }
 
+.newsletter-banner img {
+  max-height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto; }
+
 .breadcrumb,
 .pagination {
   -webkit-box-pack: center !important;
@@ -9796,10 +9802,9 @@ span.loading_span {
 .wrapper-brands .thumbnail {
   -webkit-transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-
-.wrapper-brands .thumbnail:hover {
-  -webkit-box-shadow: 0px 2px 5px rgba(51, 51, 51, .3);
-          box-shadow: 0px 2px 5px rgba(51, 51, 51, .3); }
+  .wrapper-brands .thumbnail:hover {
+    -webkit-box-shadow: 0px 2px 5px rgba(51, 51, 51, .3);
+            box-shadow: 0px 2px 5px rgba(51, 51, 51, .3); }
 
 .parallax-effect {
   display: table;
@@ -9807,14 +9812,12 @@ span.loading_span {
   background-size: cover;
   background-attachment: fixed;
   width: 100%; }
-
-@media (min-width: 576px) {
-  .parallax-effect {
-    height: 400px; } }
-
-@media (min-width: 768px) {
-  .parallax-effect {
-    height: 600px; } }
+  @media (min-width: 576px) {
+    .parallax-effect {
+      height: 400px; } }
+  @media (min-width: 768px) {
+    .parallax-effect {
+      height: 600px; } }
 
 @media (max-width: 767px) {
   .wrapper-grid .thumbnail img {
@@ -9824,3 +9827,59 @@ span.loading_span {
     -o-object-position: top;
        object-position: top;
     height: auto; } }
+
+.insta-img {
+  background-size: cover;
+  background-position: center; }
+  .insta-img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+
+@media (max-width: 1199px) {
+  #wrapperBannerStackedBackground .display-3 {
+    font-size: 28px;
+    font-weight: 400; } }
+
+.thumb_cart .left img {
+  width: auto;
+  height: 50px;
+  max-width: 50px; }
+
+.slick-images-center {
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer; }
+  .slick-images-center.slick-initialized {
+    opacity: 1;
+    visibility: visible; }
+  .slick-images-center .slick-slide {
+    opacity: 0.6;
+    -webkit-transition: 0.7s all;
+    transition: 0.7s all; }
+    .slick-images-center .slick-slide.slick-current {
+      opacity: 1; }
+
+.wrapper-product-information .tab-pane > .card {
+  border: 0;
+  border-top: 1.4px solid #dfdfdf; }
+  @media (min-width: 768px) {
+    .wrapper-product-information .tab-pane > .card {
+      border: 0; } }
+  .wrapper-product-information .tab-pane > .card button.accordion-icon:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f068";
+    font-weight: 600;
+    font-size: 12px;
+    float: right; }
+  .wrapper-product-information .tab-pane > .card button.accordion-icon.collapsed:after {
+    content: "\f067"; }
+
+.card {
+  border: 1.4px solid; }
+
+.wrapper-footer .logo.small-logo {
+  max-height: 55px; }
+
+.wrapper-footer .logo.large-logo {
+  max-height: 190px; }

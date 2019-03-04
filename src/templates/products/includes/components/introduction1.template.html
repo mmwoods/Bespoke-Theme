@@ -1,0 +1,48 @@
+[@^section-title@]
+
+[%breadcrumb%]
+    [%param *header%]
+        <nav aria-label="breadcrumb" class="w-100 mb-0">
+            <ol class="breadcrumb justify-content-center bg-white mb-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="0" />
+                </li>
+    [%/param%]
+    [%param *body%]
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+                    <meta itemprop="position" content="[%calc [@count@] + 1 /%]" />
+                </li>
+    [%/param%]
+    [%param *footer%]
+            </ol>
+        </nav>
+    [%/param%]
+[%/breadcrumb%]
+
+<div itemscope itemtype="http://schema.org/Product">
+    <div class="row justify-content-center">
+        <!-- Content: images -->
+        <section class="col-12 mt-0 mt-lg-4" role="contentinfo" aria-label="Product images">
+            [%load_ajax_template id:'_slick_images_center' type:'item' template:'slick_images_center' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+        </section>
+    </div>
+    <div class="row justify-content-center">
+        <section class="col-11 col-sm-7 col-md-6 col-lg-5 mt-4" role="contentinfo" aria-label="Products information">
+            <!-- Content: header -->
+            [%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%load_template file:"cms/includes/spacer_16.template.html"/%]
+            <!-- Content: child products -->
+            [%load_template file:"products/includes/child_products.template.html"/%]
+            [%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
+                <!-- Content: buying_options -->
+                [%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+            [%/if%]
+            [%if [@has_components@]%]
+                <!-- Content: components -->
+                [%load_template file:"products/includes/components.template.html"/%]
+            [%/if%]
+        </section>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="row justify-content-center py-2 border-top border-secondary">
+    <div class="col-12 text-center">
+        <p class="small mb-0">
+            <span>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@].</span>
+            [%if [@config:show_platform_branding@]%]<a href="https://www.netohq.com" title="Neto E-commerce Retail Management Platform" target="_blank" rel="noopener">E-commerce software by Neto</a>[%/if%]<br/>
+            [%if [@config:company_abn@]%]<strong>[%if [@config:PRIMARY_ABN_LABEL@]%][@config:PRIMARY_ABN_LABEL@][%else%]ABN[%/if%]:</strong> [@config:company_abn@]<br>[%/ if%]
+            [%if [@config:company_poaddr@]%]<strong>Address:</strong> [@config:company_poaddr@][%/ if%]
+        </p>
+    </div>
+</div>

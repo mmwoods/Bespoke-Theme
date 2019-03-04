@@ -1,0 +1,27 @@
+[%if [@count@] eq 0%]
+    [%SITE_VALUE id:'footer_javascript'%]
+        <script type="text/javascript">
+            // Remove top margin
+            $('#main-content').addClass('d-none');
+            $('#wrapperBannerStackedBackground').toggleClass('my-3 mb-3');
+        </script>
+    [%END SITE_VALUE%]
+[%/if%]
+
+[%advert type:'text' template:'banners_stacked_bg' limit:'3' ad_group:'banners-stacked'%]
+    [%param *header%]
+        </div><!-- .container -->
+        </div><!-- .row -->
+        </div><!-- .col -->
+        [@^section-title@]
+        <section id="wrapperBannerStackedBackground" class="container-fluid banner banners-stacked hover-overlay-parent overlay-show">
+            <div class="justify-content-center">
+    [%/param%]
+    [%param *footer%]
+            </div>
+        </section>
+        <div id="main-content-second" class="container" role="main">
+		    <div class="row justify-content-center">
+                <div class="col-12 text-center">
+    [%/param%]
+[%/advert%]

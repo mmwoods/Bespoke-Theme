@@ -13,7 +13,7 @@
 
 	<!-- Desktop Header -->
 	<header class="container-fluid wrapper-header px-3 d-none d-lg-block" aria-label="Header Container">
-		[%set [@no-announcement@] %]true[%/set%]
+		[%set [@no-announcement@] %]false[%/set%]
         <!-- Layout 1 -->
         [%load_template file:'headers/includes/announcement.template.html'/%]
         [%load_template file:'headers/includes/logo.template.html'/%]
@@ -24,5 +24,5 @@
 	<!-- Mobile -->
 	[%load_template file:'headers/includes/mobile_inner.template.html'/%]
 
-	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
+	<div id="main-content" class="container mb-5 mb-sm-0 [%if [@config:current_page_type@] eq 'home' OR [@config:current_page_type@] eq 'category' OR [@config:current_page_type@] eq 'product' OR [@content_type_name@] eq 'Demo'%]mt-0 [%else%]mt-3 mt-sm-6 mt-md-0 [%/if%]" role="main">
 		<div class="row justify-content-center">

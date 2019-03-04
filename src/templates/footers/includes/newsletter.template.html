@@ -1,0 +1,22 @@
+[%if [@config:show_newsletter_subscribe@]%]
+    <form class="row justify-content-center pt-4 pb-2 pb-md-2" method="post" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]" aria-label="Newsletter subscribe form">
+        <input type="hidden" name="list_id" value="1">
+        <input type="hidden" name="opt_in" value="y">
+        <input type="hidden" name="inp-submit" value="y" />
+        <input type="hidden" name="inp-opt_in" value="y" />
+        <div class="input-group justify-content-center mb-2 px-2 px-sm-0">
+            <input name="inp-email" class="form-control col-6 col-sm-3 col-md-2" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required aria-label="Email Address"/>
+            <div class="input-group-append col-6 col-sm-3 col-md-2 px-0">
+                <input class="btn btn-success btn-block text-uppercase py-2" type="submit" value="Subscribe" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/>
+            </div>
+        </div>
+        <div class="checkbox col-12 col-sm-6 text-center">
+            <label class="mb-0">
+                <input type="checkbox" value="y" class="terms_box" required/>
+                I have read and agree to
+                <a href="#" data-toggle="modal" data-target="#termsModal">Terms &amp; Conditions</a> and
+                <a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>.
+            </label>
+        </div>
+    </form>
+[%/if%]

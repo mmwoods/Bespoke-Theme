@@ -14,20 +14,20 @@
 
     [@^section-title@]
 
-    <section class="wrapper-instagram" data-path="cms/includes/instagram_wide">
-        <div id="instafeedwide" class="row no-gutters justify-content-center"></div>
+    <section class="wrapper-instagram" data-path="cms/includes/instagram_wide_row">
+        <div id="instafeedwiderow" class="row no-gutters justify-content-center"></div>
         [%site_value id:'footer_javascript'%]
             <script type="text/javascript" src="[%ntheme_asset%]js/instafeed.min.js[%/ntheme_asset%]"></script>
             <script type="text/javascript">
             $(document).ready(function(){
                 var feedWide = new Instafeed({
-                    target: 'instafeedwide',
+                    target: 'instafeedwiderow',
                     get: 'user',
                     userId: '[@CONFIG:instagram_userID@]',
                     accessToken: '[@CONFIG:instagram_accesstoken@]',
-                    template: '<a href="{{link}}" target="_blank" class="col-4 col-sm-3 col-lg-2 thumbnail"><div class="insta-img" style="background-image: url({{image}})"><div class="hover-overlay black-bg text-center p-3 d-none d-sm-flex"><div class="wrapper-hover-content px-2"><h2 class="h1 text-light mb-0"><i class="fab fa-instagram" aria-hidden="true"></i></h2></div></div></div></a>',
+                    template: '<a href="{{link}}" target="_blank" class="col-4 col-sm-2 col-lg-2 thumbnail"><div class="insta-img" style="background-image: url({{image}})"><div class="hover-overlay black-bg text-center p-3 d-none d-sm-flex"><div class="wrapper-hover-content px-2"><h2 class="h1 text-light mb-0"><i class="fab fa-instagram" aria-hidden="true"></i></h2></div></div></div></a>',
                     resolution: 'standard_resolution',
-                    limit: '12',
+                    limit: '6',
                     sortBy: 'most-recent'
                 });
                 feedWide.run();
