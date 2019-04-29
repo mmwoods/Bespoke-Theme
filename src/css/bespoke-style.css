@@ -700,7 +700,7 @@ a.text-success:focus {
 }
 
 /* Banners Stacked BG */
-/* Row 1 */
+/* Row 1 (.row0) */
 #wrapperBannerStackedBackground .row.row0 {
 	background-color: #fff /*{Banners Stacked Background: Row 1 | bg-colour}*/;
 }
@@ -714,7 +714,7 @@ a.text-success:focus {
     background-color: #26262d /*{Banners Stacked Background: Row 1 | btn-bg-colour}*/;
     border-color: #26262d /*{Banners Stacked Background: Row 1 | btn-border-colour}*/;
 }
-/* Row 2 */
+/* Row 2 (.row1) */
 #wrapperBannerStackedBackground .row.row1 {
 	background-color: #fff /*{Banners Stacked Background: Row 2 | bg-colour}*/;
 }
@@ -728,7 +728,7 @@ a.text-success:focus {
     background-color: #26262d /*{Banners Stacked Background: Row 2 | btn-bg-colour}*/;
     border-color: #26262d /*{Banners Stacked Background: Row 2 | btn-border-colour}*/;
 }
-/* Row 3 */
+/* Row 3 (.row2) */
 #wrapperBannerStackedBackground .row.row2 {
 	background-color: #fff /*{Banners Stacked Background: Row 3 | bg-colour}*/;
 }
@@ -741,6 +741,48 @@ a.text-success:focus {
 	color: #fff /*{Banners Stacked Background: Row 3 | btn-text-colour}*/;
     background-color: #26262d /*{Banners Stacked Background: Row 3 | btn-bg-colour}*/;
     border-color: #26262d /*{Banners Stacked Background: Row 3 | btn-border-colour}*/;
+}
+/* Row 4 (.row3) */
+#wrapperBannerStackedBackground .row.row3 {
+	background-color: #fff /*{Banners Stacked Background: Row 4 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row3 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row3 .wrapper-stacked-bg-inner p,
+#wrapperBannerStackedBackground .row.row3 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 4 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row3 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 4 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 4 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 4 | btn-border-colour}*/;
+}
+/* Row 5 (.row4) */
+#wrapperBannerStackedBackground .row.row4 {
+	background-color: #fff /*{Banners Stacked Background: Row 5 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row4 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row4 .wrapper-stacked-bg-inner p,
+#wrapperBannerStackedBackground .row.row4 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 5 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row4 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 5 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 5 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 5 | btn-border-colour}*/;
+}
+/* Row 6 (.row5) */
+#wrapperBannerStackedBackground .row.row5 {
+	background-color: #fff /*{Banners Stacked Background: Row 6 | bg-colour}*/;
+}
+#wrapperBannerStackedBackground .row.row5 .wrapper-stacked-bg-inner h2,
+#wrapperBannerStackedBackground .row.row5 .wrapper-stacked-bg-inner p,
+#wrapperBannerStackedBackground .row.row5 .wrapper-stacked-bg-inner .display-3 {
+	color: #333 /*{Banners Stacked Background: Row 6 | text-colour}*/ !important ;
+}
+#wrapperBannerStackedBackground .row.row5 .wrapper-stacked-bg-inner .btn-success {
+	color: #fff /*{Banners Stacked Background: Row 6 | btn-text-colour}*/;
+    background-color: #26262d /*{Banners Stacked Background: Row 6 | btn-bg-colour}*/;
+    border-color: #26262d /*{Banners Stacked Background: Row 6 | btn-border-colour}*/;
 }
 
 /* Newsletter Banner */
